@@ -1,22 +1,12 @@
 # PAC-6070
 
-## Linux-ready Cortex-A7 Highly Integrated Industrial IoT Gateway
-- NXP i.MX6ULL Cortex-A7 CPU, Up to 800MHz
-- Support Ubuntu 22.04
-- Toolchain: gcc 9.3.0 + glibc 2.31
-- 512MB LvDDR3 SDRAM, 16GB eMMC
-- 2 x 10/100Mbps Ethernet interface
-- 1 x USB OTG port
-- 1 x RS-485
-- 1 x CAN port, 2 x Digital Input, 2 x Relay out
-- 1 x full size miniPCIe socket inside,1 x Micro-SIM slot reserved, Two Antenna holes reserved
-- 1 x Micro-SD slot reserved
-
 ## Access the USB Serial Console
-### USB Serial Console Log-in
+### Serial Console Log-in
 User name: root  
 Password: root  
-Port: /dev/ttymxc0  
+|PAC-6070 comes with a<br>4 pin wafer box female|Wafer box to DB9 Female Console Cable|Desktop/Notebook PC with a <br>USB to DB9 RS232 Converter Cable|
+|:--:|:--:|:--:|
+|![PAC 6070](img/pac6070.png)|![Console Cable](img/console_cable.png)|<img src="./img/notebook.png" width=300>|
 
 Following example by PAC-6070
 ```
@@ -40,14 +30,15 @@ root@pac6070:~#
 
 ## Network Settings
 ### Config the Network Interface
-The Cortex-A7 Series based Matrix IoT gateways come two Ethernet ports, the 
-default network settings are shown below:  
+PAC-6070 come two Ethernet ports, the default network settings are shown below:  
 |Ethernet Type|Port Label|Device mapping|IP mode|IP address|
 |---|---|---|---|---|
 |10/100Mbit|LAN|eth0|DHCP|auto|
 |10/100Mbit|LAN|eth1|static|192.168.2.127|  
 
 Users may need to modify the network settings to meet their LAN environment. The network interface configuration file path is /etc/network/interfaces. Edit and save the configuration file, then use `systemctl restart NetworkManager` command to restart the network interface to activate the network settings.  
+
+Default network settings are shown below:
 ```
 root@pac6070:~# cat /etc/network/interfaces
 # /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
@@ -70,6 +61,29 @@ auto eth1
         
 ... ...
 ```  
+Set the IP address of eth0 to static IP address.  
+```
+root@pac6070:~# cat /etc/network/interfaces
+# /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
+
+... ...
+
+auto eth0
+    iface eth0 inet static
+    address 192.168.1.100
+    netmask 255.255.255.0
+    network 192.168.1.0
+    gateway 192.168.1.1
+
+auto eth1
+    iface eth1 inet static
+        address 192.168.2.127
+        netmask 255.255.255.0
+        network 192.168.2.0
+        gateway 192.168.2.1
+
+... ...
+```
 Restart the network interface to activate the network settings.  
 ```
 root@pac6070:~# systemctl restart NetworkManager
@@ -115,8 +129,30 @@ st to: 8.8.8.8
 Notice: journal has been rotated since unit was started, output may be incomplet
 e.
 ```
-## Access the SSH Console  
-Most Linux/OSX computers come with built-in SSH client utility.   For Windows users, it is highly recommended to use **putty** as an SSH client.  
+## Access the SSH Console   
+### guest account
+Default is allowed to login as guest account via SSH in Ubuntu 22.04.  
+```
+User name: guest  
+Password: guest  
+```
+Login with guest account via SSH.  
+```
+[root@Matrix_034060 ~]#ssh guest@192.168.1.100
+guest@192.168.1.100's password:
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.32 armv7l)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Mon Jul 15 17:26:48 2024 from 192.168.1.74
+guest@pac6070:~$
+```
 ### root account
 Default is not allowed to login as root account via SSH in Ubuntu 22.04. To enable the root account login via SSH, modify the **sshd_config** file.  
  - `vi /etc/ssh/sshd_config`, find the line `PermitRootLogin prohibit-password` and change it to `PermitRootLogin yes`.  
@@ -156,9 +192,7 @@ Codename:       jammy
 ```  
 
 ## File System Information 
-The Cortex-A7 Series based Matrix IoT gateways come with 16GB on-board eMMC 
-Flash memory, which contains boot loader, Linux kernel, root file system and user 
-disk (/home).  
+PAC-6070 come with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 ```
 root@pac6070:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
@@ -182,8 +216,17 @@ dev/   home/  media/       proc/  sbin@  sys/      var/
 
 ## Serial Port Settings
 ### Port Mapping 
-Port 1 -> /dev/ttymxc1  
+|Port Number|Device Mapping|
+|---|---|
+|1|/dev/ttymxc1|
 ### Configure the Serial Port
+PAC-6070 only come with 1 RS-485 port. The default serial port settings are shown below:  
+```
+root@pac6070:~# setuart -p1
+Port 1 ==> type: RS485
+baud: 115200
+```
+If you need to modify the serial port settings, use the `setuart` command.
 ```
 root@pac6070:~# setuart -h
 Artila utility: setuart
@@ -261,21 +304,16 @@ Tue Jul  9 10:20:56 CST 2024
 2024-07-09 10:20:57.493683+08:00
 ```
 
-## Insert Kernel Modules
-Users can use command `lsmod` to list all installed kernel modules.  
-To load additional kernel modules during the system boot-up, you can modify the file: */etc/modules*.  
-```
-root@pac6070:~# cat /etc/modules
-# /etc/modules: kernel modules to load at boot time.
-#
-# This file contains the names of kernel modules that should be loaded
-# at boot time, one per line. Lines beginning with "#" are ignored.
-```
-
-## Insert Software Package
+## Software Package Management
+Using apt commands are listed below:
+- `apt install <package>` to install package
+- `apt remove <package>` to remove package
+- `apt search <package>` to search package
+- `apt update` to update the package list
+- `apt upgrade` to upgrade installed packages
 
 ## Mount/Unmount an SD Card
-The Cortex-A7 Series based Matrix IoT gateways support SD card access. If an SD card is inserted, you can use lsblk command to find the device identifier name. And then use mount command to mount the SD card to a folder.  
+The Cortex-A7 Series based Matrix IoT gateways support SD card access. If an SD card is inserted, you can use `lsblk` command to find the device identifier name. And then use `mount` command to mount the SD card to a folder.  
 
 Before SD Insertion
 ```
@@ -317,16 +355,23 @@ Unmount /media.
 root@pac6070:~# umount /media/
 ```  
 
-## Web Server Settings
-
-## PHP Support
-
 ## Reboot the System
 To re-boot the system, use the `reboot` command.  
 
-## DIO
-- Digital Output x 8
-- Digital Input x 8
+## DIO  
+### DIO Mapping  
+|DI Number|Device Mapping|DO Number|Device Mapping|
+|---|---|--|---|
+|DI1|/gpio/DI1|DO1|/gpio/DO1|
+|DI2|/gpio/DI2|DO2|/gpio/DO2|
+|DI3|/gpio/DI3|DO3|/gpio/DO3|
+|DI4|/gpio/DI4|DO4|/gpio/DO4|
+|DI5|/gpio/DI5|DO5|/gpio/DO5|
+|DI6|/gpio/DI6|DO6|/gpio/DO6|
+|DI7|/gpio/DI7|DO7|/gpio/DO7|
+|DI8|/gpio/DI8|DO8|/gpio/DO8|
+
+### Read/Write DIO
 ```
 root@pac6070:~# ls /gpio/
 DI1  DI3  DI5  DI7  DO1  DO3  DO5  DO7  pciepower
@@ -337,18 +382,6 @@ Example 1, Read value of DI1
 
 Example 2, Set High of DO1  
 `echo 0 > /gpio/DO1/value`  
-### Website  
-Visit the website hosted on the PAC-6070 using a web browser.  
-
-Login  
-- account: admin
-- password: admin  
-
-<img src="img/login.png" width=800>  
-
-### Dashboard
-<img src="img/dio_web.png" width=800>  
-
 
 ## Setup SIM card
 ### PCIE Power
@@ -535,40 +568,74 @@ Thanks for using picocom
 
 
 ## Setup analog input
-### iio Path  
-/sys/bus/iio/devices/iio:device0/  
-![iio_path](img/iio_path.png)  
+### Overview
+Voltage
+- Mode: Differential (Default)
+	- Channel 0: Voltage0-Voltage1
+	- Channel 1: Voltage2-Voltage3
+	- Channel 2: Voltage4-Voltage5
+- Mode: Single-end
+	- Channel 0: Voltage0
+	- Channel 1: Voltage1
+	- Channel 2: Voltage2
+	- Channel 3: Voltage3
+	- Channel 4: Voltage4
+	- Channel 5: Voltage5
 
-### Formula  
-raw * scale + offset
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_raw
-8387948
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_offset
--24038
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage-voltage_scale
-0.002865602
-```
-### Mode  
+Current
+- Channel 0: Current0
+- Channel 1: Current1  
+  
+Path
+- /sys/bus/iio/devices/iio:device0/  
+
+Formula
+- raw * scale + offset
+
+### Voltage  
+#### How To Change Mode  
+- Differential=1 (Default)
 - Single-end=0
-- Differential=1
 ```
 root@pac6070:~# cat /etc/modprobe.d/ad4111.conf
 options ad4111 differential=1
 ```
-reboot after modify the config file    
+reboot after modify the config file.
 
-### Overview  
-`iio_info`
+#### Differential Mode
+***Example - Apply a 5V voltage to the V1+ and V1- terminals of the analog input:***  
 ```
-root@pac6070:~# iio_info
+root@pac6070:/sys/bus/iio/devices/iio:device0# ls
+buffer              in_current1_raw                     in_voltage0-voltage1_raw     of_node                       trigger
+buffer0             in_current_scale                    in_voltage2-voltage3_offset  power                         uevent
+dev                 in_current_scale_available          in_voltage2-voltage3_raw     sampling_frequency            waiting_for_supplier
+in_current0_offset  in_voltage-voltage_scale            in_voltage4-voltage5_offset  sampling_frequency_available
+in_current0_raw     in_voltage-voltage_scale_available  in_voltage4-voltage5_raw     scan_elements
+in_current1_offset  in_voltage0-voltage1_offset         name                         subsystem
+```  
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_raw
+10132696
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_offset
+-24038
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage-voltage_scale
+0.002865602
+```  
+$10132696 \times 0.002865602 - 24038 = 4998.27392299mV ≈ 5V$
+
+Display - CLI `lsadc`  
+<img src="img/cli_diff.png" width=800>
+
+Dump the IIO attributes `iio_info`
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
 Library version: 0.23 (git tag: v0.23)
 Compiled with backends: local xml ip usb
 IIO context created with local backend.
 Backend version: 0.23 (git tag: v0.23)
-Backend description string: Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l
+Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
 IIO context has 2 attributes:
-        local,kernel: 6.6.22
+        local,kernel: 6.6.32
         uri: local:
 IIO context has 2 devices:
         iio:device0: ad4111 (buffer capable)
@@ -576,19 +643,19 @@ IIO context has 2 devices:
                         voltage0-voltage1:  (input, index: 0, format: be:u24/32>>0)
                         4 channel-specific attributes found:
                                 attr  0: offset value: -24038
-                                attr  1: raw value: 8387952
+                                attr  1: raw value: 10132703
                                 attr  2: scale value: 0.002865602
                                 attr  3: scale_available value: 0.000000000
                         voltage2-voltage3:  (input, index: 1, format: be:u24/32>>0)
                         4 channel-specific attributes found:
                                 attr  0: offset value: -24038
-                                attr  1: raw value: 8387864
+                                attr  1: raw value: 8443036
                                 attr  2: scale value: 0.002865602
                                 attr  3: scale_available value: 0.000000000
                         voltage4-voltage5:  (input, index: 2, format: be:u24/32>>0)
                         4 channel-specific attributes found:
                                 attr  0: offset value: -24038
-                                attr  1: raw value: 8387186
+                                attr  1: raw value: 8442532
                                 attr  2: scale value: 0.002865602
                                 attr  3: scale_available value: 0.000000000
                         current0:  (input, index: 3, format: be:u24/32>>0)
@@ -617,11 +684,190 @@ IIO context has 2 devices:
                 No trigger on this device
 ``` 
 
-### Display - CLI  
-`lsadc`  
-<img src="img/cli.png" width=800>
+#### Single End Mode
+***Example - Apply a 5V voltage to the V1+ and V1- terminals of the analog input:***  
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# ls
+buffer              in_current1_raw             in_voltage1_raw     in_voltage4_raw             of_node                       trigger
+buffer0             in_current_scale            in_voltage2_offset  in_voltage5_offset          power                         uevent
+dev                 in_current_scale_available  in_voltage2_raw     in_voltage5_raw             sampling_frequency            waiting_for_supplier
+in_current0_offset  in_voltage0_offset          in_voltage3_offset  in_voltage_scale            sampling_frequency_available
+in_current0_raw     in_voltage0_raw             in_voltage3_raw     in_voltage_scale_available  scan_elements
+in_current1_offset  in_voltage1_offset          in_voltage4_offset  name                        subsystem
+```  
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_raw
+10132960
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_offset
+-24038
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage_scale
+0.002865602
+```  
+$10132960 \times 0.002865602 - 24038 = 4999.03044192mV ≈ 5V$
 
-### Website  
+Display - CLI `lsadc`  
+<img src="img/cli_single.png" width=800>
+
+Dump the IIO attributes `iio_info`
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
+Library version: 0.23 (git tag: v0.23)
+Compiled with backends: local xml ip usb
+IIO context created with local backend.
+Backend version: 0.23 (git tag: v0.23)
+Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
+IIO context has 2 attributes:
+        local,kernel: 6.6.32
+        uri: local:
+IIO context has 2 devices:
+        iio:device0: ad4111 (buffer capable)
+                8 channels found:
+                        voltage0:  (input, index: 0, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 10132784
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage1:  (input, index: 1, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8964399
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage2:  (input, index: 2, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 9002486
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage3:  (input, index: 3, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8964318
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage4:  (input, index: 4, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 9000112
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage5:  (input, index: 5, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8965044
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        current0:  (input, index: 6, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: 0
+                                attr  1: raw value: 0
+                                attr  2: scale value: 0.000002980
+                                attr  3: scale_available value: 0.000000000
+                        current1:  (input, index: 7, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: 0
+                                attr  1: raw value: 0
+                                attr  2: scale value: 0.000002980
+                                attr  3: scale_available value: 0.000000000
+                3 device-specific attributes found:
+                                attr  0: sampling_frequency value: 31250
+                                attr  1: sampling_frequency_available value: 31250 31250 31250 31250 31250 31250 15625 10417 5208
+                                attr  2: waiting_for_supplier value: 0
+                3 buffer-specific attributes found:
+                                attr  0: data_available value: 0
+                                attr  1: direction value: in
+                                attr  2: watermark value: 1
+                Current trigger: trigger0(ad4111-dev0)
+        trigger0: ad4111-dev0
+                0 channels found:
+                No trigger on this device
+``` 
+
+### Current
+***Example - Apply a 2mA current to the AI1 terminals of the analog input:***  
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# ls
+buffer              in_current1_raw                     in_voltage0-voltage1_raw     of_node                       trigger
+buffer0             in_current_scale                    in_voltage2-voltage3_offset  power                         uevent
+dev                 in_current_scale_available          in_voltage2-voltage3_raw     sampling_frequency            waiting_for_supplier
+in_current0_offset  in_voltage-voltage_scale            in_voltage4-voltage5_offset  sampling_frequency_available
+in_current0_raw     in_voltage-voltage_scale_available  in_voltage4-voltage5_raw     scan_elements
+in_current1_offset  in_voltage0-voltage1_offset         name                         subsystem
+```  
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current0_raw
+662390
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current0_offset
+0
+root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current_scale
+0.000002980
+```  
+$662390 \times 0.000002980 - 0 = 1.9739222mA ≈ 0.002A$
+
+Display - CLI `lsadc`  
+<img src="img/cli_current.png" width=800>
+
+Dump the IIO attributes `iio_info`
+```
+root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
+Library version: 0.23 (git tag: v0.23)
+Compiled with backends: local xml ip usb
+IIO context created with local backend.
+Backend version: 0.23 (git tag: v0.23)
+Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
+IIO context has 2 attributes:
+        local,kernel: 6.6.32
+        uri: local:
+IIO context has 2 devices:
+        iio:device0: ad4111 (buffer capable)
+                5 channels found:
+                        voltage0-voltage1:  (input, index: 0, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8387104
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage2-voltage3:  (input, index: 1, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8388374
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        voltage4-voltage5:  (input, index: 2, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: -24038
+                                attr  1: raw value: 8387009
+                                attr  2: scale value: 0.002865602
+                                attr  3: scale_available value: 0.000000000
+                        current0:  (input, index: 3, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: 0
+                                attr  1: raw value: 661880
+                                attr  2: scale value: 0.000002980
+                                attr  3: scale_available value: 0.000000000
+                        current1:  (input, index: 4, format: be:u24/32>>0)
+                        4 channel-specific attributes found:
+                                attr  0: offset value: 0
+                                attr  1: raw value: 0
+                                attr  2: scale value: 0.000002980
+                                attr  3: scale_available value: 0.000000000
+                3 device-specific attributes found:
+                                attr  0: sampling_frequency value: 31250
+                                attr  1: sampling_frequency_available value: 31250 31250 31250 31250 31250 31250 15625 10417 5208
+                                attr  2: waiting_for_supplier value: 0
+                3 buffer-specific attributes found:
+                                attr  0: data_available value: 0
+                                attr  1: direction value: in
+                                attr  2: watermark value: 1
+                Current trigger: trigger0(ad4111-dev0)
+        trigger0: ad4111-dev0
+                0 channels found:
+                No trigger on this device
+``` 
+
+
+## Website  
 Visit the website hosted on the PAC-6070 using a web browser.  
 
 Login  
@@ -631,4 +877,10 @@ Login
 <img src="img/login.png" width=800>  
 
 ### Dashboard
-<img src="img/ai_web.png" width=800>  
+<img src="img/dashboard.png" width=800>  
+
+### IO Status
+<img src="img/io_status.png" width=800>  
+
+### Manage Ethernet and Uart
+<img src="img/management.png" width=800>
