@@ -74,6 +74,7 @@ auto eth0
     netmask 255.255.255.0
     network 192.168.1.0
     gateway 192.168.1.1
+    dns-nameservers 192.168.1.1
 
 auto eth1
     iface eth1 inet static
@@ -247,61 +248,31 @@ Examples:
 The serial port’s mode and associated communication parameters will go back to factory default after system reboot.  
 
 ## System Time and Real-Time Clock(RTC)
-### Adjust System Time by data Command
-The Cortex-A7 Series based Matrix IoT gateways support standard date command to adjust the Linux system time manually. A typical usage is: date MMDDhhmmYYYY.
+### Adjust System Time
+PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized by NTP server.  
+
 ```
-root@pac6070:~# date 070909532024
-Tue Jul  9 09:53:00 CST 2024
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-07-18 13:47:56 CST
+           Universal time: Thu 2024-07-18 05:47:56 UTC
+                 RTC time: Thu 2024-07-18 05:47:56
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
 ```  
-### Adjust RTC by hwclock Command
-To adjust the on-board Real-time clock (RTC), please follow the steps shown below: First, to adjust the system time by using the `date` command. Then use the `hwclock` command to synchronize the system time to the RTC.  
-A typical usage is: `hwclock -w`.
+If you need to modify the system time manually, please follow the steps shown below: 
 ```
-root@pac6070:~# hwclock
-2024-07-09 09:57:56.496270+08:00
-root@pac6070:~# date
-Tue Jul  9 09:57:59 CST 2024
-root@pac6070:~# hwclock -w
-```  
-### Synchronize System Time by NTP Server
-#### Install the ntpdate utility
-The Cortex-A7 Series based Matrix IoT gateways support the ***ntpdate*** NTP client utility to synchronize the system date with specified NTP server. Users need to install
-the ***ntpdate*** utility first by executing the `apt install ntpdate` command.
-```
-root@pac6070:~# apt install ntpdate -y
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following NEW packages will be installed:
-  ntpdate
-0 upgraded, 1 newly installed, 0 to remove and 104 not upgraded.
-Need to get 47.6 kB of archives.
-After this operation, 147 kB of additional disk space will be used.
-Get:1 http://ports.ubuntu.com/ubuntu-ports jammy/universe armhf ntpdate armhf 1:4.2.8p15+dfsg-1ubuntu2 [47.6 kB]
-Fetched 47.6 kB in 2s (29.2 kB/s)
-Selecting previously unselected package ntpdate.
-(Reading database ... 25390 files and directories currently installed.)
-Preparing to unpack .../ntpdate_1%3a4.2.8p15+dfsg-1ubuntu2_armhf.deb ...
-Unpacking ntpdate (1:4.2.8p15+dfsg-1ubuntu2) ...
-Setting up ntpdate (1:4.2.8p15+dfsg-1ubuntu2) ...
-```
-### Using the ntpdate utility
-```
-root@pac6070:~# date
-Tue Jul  9 10:19:32 CST 2024
-root@pac6070:~# date 070910202024
-Tue Jul  9 10:20:00 CST 2024
-root@pac6070:~# ntpdate 0.pool.ntp.org
- 9 Jul 10:20:30 ntpdate[27565]: adjust time server 118.163.81.63 offset +0.006714 sec
-root@pac6070:~# date
-Tue Jul  9 10:20:37 CST 2024
-root@pac6070:~# date;hwclock
-Tue Jul  9 10:20:44 CST 2024
-2024-07-09 10:20:44.221395+08:00
-root@pac6070:~# hwclock -w
-root@pac6070:~# date;hwclock
-Tue Jul  9 10:20:56 CST 2024
-2024-07-09 10:20:57.493683+08:00
+root@pac6070:~# timedatectl set-ntp no
+root@pac6070:~# timedatectl set-time "2024-07-18 14:00:00"
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-07-18 14:00:13 CST
+           Universal time: Thu 2024-07-18 06:00:13 UTC
+                 RTC time: Thu 2024-07-18 06:00:13
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
 ```
 
 ## Software Package Management
@@ -685,7 +656,7 @@ IIO context has 2 devices:
 ``` 
 
 #### Single End Mode
-***Example - Apply a 5V voltage to the V1+ and V1- terminals of the analog input:***  
+***Example - Apply a 5V voltage to the V1+ and AGND terminals of the analog input:***  
 ```
 root@pac6070:/sys/bus/iio/devices/iio:device0# ls
 buffer              in_current1_raw             in_voltage1_raw     in_voltage4_raw             of_node                       trigger
@@ -708,84 +679,8 @@ $10132960 \times 0.002865602 - 24038 = 4999.03044192mV ≈ 5V$
 Display - CLI `lsadc`  
 <img src="img/cli_single.png" width=800>
 
-Dump the IIO attributes `iio_info`
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
-Library version: 0.23 (git tag: v0.23)
-Compiled with backends: local xml ip usb
-IIO context created with local backend.
-Backend version: 0.23 (git tag: v0.23)
-Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
-IIO context has 2 attributes:
-        local,kernel: 6.6.32
-        uri: local:
-IIO context has 2 devices:
-        iio:device0: ad4111 (buffer capable)
-                8 channels found:
-                        voltage0:  (input, index: 0, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 10132784
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage1:  (input, index: 1, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8964399
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage2:  (input, index: 2, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 9002486
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage3:  (input, index: 3, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8964318
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage4:  (input, index: 4, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 9000112
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage5:  (input, index: 5, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8965044
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        current0:  (input, index: 6, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 0
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                        current1:  (input, index: 7, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 0
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                3 device-specific attributes found:
-                                attr  0: sampling_frequency value: 31250
-                                attr  1: sampling_frequency_available value: 31250 31250 31250 31250 31250 31250 15625 10417 5208
-                                attr  2: waiting_for_supplier value: 0
-                3 buffer-specific attributes found:
-                                attr  0: data_available value: 0
-                                attr  1: direction value: in
-                                attr  2: watermark value: 1
-                Current trigger: trigger0(ad4111-dev0)
-        trigger0: ad4111-dev0
-                0 channels found:
-                No trigger on this device
-``` 
-
 ### Current
-***Example - Apply a 2mA current to the AI1 terminals of the analog input:***  
+***Example - Configure the circuit to allow a 2mA current to flow between the AI1 and AGND terminals of the analog input:***  
 ```
 root@pac6070:/sys/bus/iio/devices/iio:device0# ls
 buffer              in_current1_raw                     in_voltage0-voltage1_raw     of_node                       trigger
@@ -807,65 +702,6 @@ $662390 \times 0.000002980 - 0 = 1.9739222mA ≈ 0.002A$
 
 Display - CLI `lsadc`  
 <img src="img/cli_current.png" width=800>
-
-Dump the IIO attributes `iio_info`
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
-Library version: 0.23 (git tag: v0.23)
-Compiled with backends: local xml ip usb
-IIO context created with local backend.
-Backend version: 0.23 (git tag: v0.23)
-Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
-IIO context has 2 attributes:
-        local,kernel: 6.6.32
-        uri: local:
-IIO context has 2 devices:
-        iio:device0: ad4111 (buffer capable)
-                5 channels found:
-                        voltage0-voltage1:  (input, index: 0, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8387104
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage2-voltage3:  (input, index: 1, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8388374
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage4-voltage5:  (input, index: 2, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8387009
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        current0:  (input, index: 3, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 661880
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                        current1:  (input, index: 4, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 0
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                3 device-specific attributes found:
-                                attr  0: sampling_frequency value: 31250
-                                attr  1: sampling_frequency_available value: 31250 31250 31250 31250 31250 31250 15625 10417 5208
-                                attr  2: waiting_for_supplier value: 0
-                3 buffer-specific attributes found:
-                                attr  0: data_available value: 0
-                                attr  1: direction value: in
-                                attr  2: watermark value: 1
-                Current trigger: trigger0(ad4111-dev0)
-        trigger0: ad4111-dev0
-                0 channels found:
-                No trigger on this device
-``` 
-
 
 ## Website  
 Visit the website hosted on the PAC-6070 using a web browser.  
