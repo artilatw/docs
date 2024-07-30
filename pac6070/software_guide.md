@@ -129,7 +129,9 @@ Jul 08 16:10:53 pac6070 systemd-resolved[92]: eth0: Bus client set DNS server li
 st to: 8.8.8.8
 Notice: journal has been rotated since unit was started, output may be incomplet
 e.
-```
+```  
+***Notice***  
+Using resolvectl to set the DNS will be ineffective after system reboot.  
 ## Access the SSH Console   
 ### guest account
 Default is allowed to login as guest account via SSH in Ubuntu 22.04.  
@@ -542,26 +544,29 @@ Thanks for using picocom
 ### Overview
 Voltage
 - Mode: Differential (Default)
-	- Channel 0: Voltage0-Voltage1
-	- Channel 1: Voltage2-Voltage3
-	- Channel 2: Voltage4-Voltage5
+	- Channel 1: Voltage0-Voltage1
+	- Channel 2: Voltage2-Voltage3
+	- Channel 3: Voltage4-Voltage5
 - Mode: Single-end
-	- Channel 0: Voltage0
-	- Channel 1: Voltage1
-	- Channel 2: Voltage2
-	- Channel 3: Voltage3
-	- Channel 4: Voltage4
-	- Channel 5: Voltage5
+	- Channel 1: Voltage0
+	- Channel 2: Voltage1
+	- Channel 3: Voltage2
+	- Channel 4: Voltage3
+	- Channel 5: Voltage4
+	- Channel 6: Voltage5
 
 Current
-- Channel 0: Current0
-- Channel 1: Current1  
+- Channel 1: Current0
+- Channel 2: Current1  
   
 Path
 - /sys/bus/iio/devices/iio:device0/  
 
 Formula
-- raw * scale + offset
+- raw * scale + offset  
+
+***Caution***  
+Always ensure that test objects are properly connected to the analog input channels to avoid unstable and floating readings.
 
 ### Voltage  
 #### How To Change Mode  
