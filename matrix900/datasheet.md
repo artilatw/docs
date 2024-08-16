@@ -1,21 +1,3 @@
-Table of content
-- [Matrix-900 Data Sheet](#matrix-900-data-sheet)
-  - [Introduction](#introduction)
-  - [H/W Specifications](#hw-specifications)
-    - [SoM (Raspberry Pi Compute Module 4)](#som-raspberry-pi-compute-module-4)
-    - [Dual Ethernet Interface](#dual-ethernet-interface)
-    - [Dual USB Host Interface](#dual-usb-host-interface)
-    - [HDMI Display Port](#hdmi-display-port)
-    - [Stereo Audio Output](#stereo-audio-output)
-    - [Four RS-485 Serial Ports](#four-rs-485-serial-ports)
-    - [M.2 Expansion Socket](#m2-expansion-socket)
-    - [miniPCIe Expansion Socket](#minipcie-expansion-socket)
-    - [SD Card Socket](#sd-card-socket)
-    - [Real Time Clock](#real-time-clock)
-    - [Console/Debug Port](#consoledebug-port)
-    - [General](#general)
-  - [Order Information](#order-information)
-
 # Matrix-900 Data Sheet
 ## Introduction
 Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference accelerator (via M.2 slot)
