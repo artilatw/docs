@@ -48,7 +48,7 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 - Interface: PCIe (1-lane, Gen2)
 - Key type: B Key
 - Use case 1: AI inference accelerator
-- Use case 2: 5G communication module
+- Use case 2: 5G/GPS communication module
 - Use case 3: SSD module
 - Nano-SIM socket: yes, on-board (SIM-M)
 - Module dimension: supports upto 30x52mm
