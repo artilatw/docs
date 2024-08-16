@@ -60,6 +60,7 @@ Linux-ready Cortex-A72(ARM v8)
 
 ### miniPCIe Expansion slot
 - Interface: USB 2.0
+- Supports 480Mbps high speed mode
 - Use case:
   - LTE/4G communication module
   - WiFi module
