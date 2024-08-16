@@ -1,6 +1,8 @@
-# Matrix-900 Data Sheet
+# Matrix-900
+Quad-core Cortex-A72 powered IIoT Gateway supports M.2 AI inference accelerator
+
 ## Introduction
-Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference accelerator (via M.2 slot)
+the Matrix-900, a cutting-edge embedded computing platform designed for advanced Industrial Internet of Things (IIoT) applications. Leveraging the powerful **Raspberry Pi Compute Module 4**, the Matrix-900 is engineered to meet the demands of modern industrial environments with superior performance, flexibility, and reliability.
 
 ## H/W Specifications
 
@@ -89,9 +91,9 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - Regulations: CE Class A and FCC Class A
 
 ## Order Information
-- **Matrix-900 :** Standard integrated package, a CM4 (4G/16G, no-WiFi) with thermal pad is mounted on the IO board and the whole assembly is packaged into a sheet metal box.Mounting accessories included, and Raspberry Pi OS with desktop pre-installed in factory.
-- **Matrix-900-IO-Board :** IO Board only,  necessary teminal blocks included. Users need to prepare and install prefered CM4 and OS by themselves.
-- **Matrix-900-Box :** The standard sheet metal box used for Matirx-900. Mounting accessories included.
+- **Matrix-900 :** Standard integrated package, a CM4 (4G/16G, no-WiFi) with thermal pad is mounted on the IO board and the whole assembly is packaged into a sheet metal box. Mounting accessories are included, and the Raspberry Pi OS with desktop is also pre-installed in factory.
+- **Matrix-900-IO-Board :** IO Board only,  necessary teminal blocks are included. Users need to prepare and install prefered CM4 and OS by themselves.
+- **Matrix-900-Box :** The standard sheet metal box used for Matirx-900. Mounting accessories are included.
 
 **Note :**  CM4 is the abbreviation of Raspberry Pi Comput Module 4
  
