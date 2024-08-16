@@ -20,7 +20,7 @@ With one HDMI port, two USB host ports, and an audio out port, the Matrix-900 ca
 Measuring just 45x166x120mm, the Matrix-900’s compact size supports both DIN rail and wall-mount installation. Its upright design not only saves space but also simplifies cable management and antenna adjustments, making it an ideal fit for various industrial environments.
 
 ### More Infomation
-The Matrix-900 is set to officially launch in Q4. For detailed specifications and more information, please refer to the links provided. [Datasheet](datasheet.md)
+The Matrix-900 is set to officially launch in Q4. For detailed specifications and more information, please refer to the [Datasheet (draft)](datasheet.md).
 
 With the Matrix-900, Artila Electronics continues to push the boundaries of IIoT innovation, offering a versatile and high-performance solution tailored for the AI-driven industrial landscape.
 
