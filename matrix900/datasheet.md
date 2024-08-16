@@ -9,7 +9,7 @@ Linux-ready Cortex-A72(ARM v8)
 - 1 x full size HDMI 2.0
 - 1 x Gigabit and 1 x 10/100Mbps Ethernet
 - 2 x USB 2.0 host ports
-- [4 x RS-485 serial port](#serial-ports)
+- [4 x RS-485 serial port](#serial_ports)
 - 1 x Audio Line out/in
 - 1 x MIPI CSI camera interface
 - 1 x MIPI DSI display interface
