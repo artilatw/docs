@@ -47,10 +47,9 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 ### M.2 Expansion Socket
 - Interface: PCIe (1-lane, Gen2)
 - Key type: B Key
-- Use case:
-  - AI inference accelerator
-  - 5G communication module
-  - SSD module
+- Use case 1: AI inference accelerator
+- Use case 2: 5G communication module
+- Use case 3: SSD module
 - Nano-SIM socket: yes, on-board (SIM-M)
 - Module dimension: supports upto 30x52mm
 - Fixing screws: at 42mm and 52mm position
@@ -58,9 +57,8 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 ### miniPCIe Expansion Socket
 - Interface: USB 2.0
 - Supports 480Mbps high speed mode
-- Use case:
-  - LTE/4G communication module
-  - WiFi module
+- Use case 1: 4G/GPS communication module
+- Use case 2: WiFi/BLE module
 - Nano-SIM socket: yes, on-board (SIM-E)
 - Module dimension: supports full-size module
 - Fixing screws: for full-size modules
