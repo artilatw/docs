@@ -1,6 +1,8 @@
 # Matrix-900
 Quad-core Cortex-A72 powered IIoT Gateway supports M.2 AI inference accelerator
 
+![Matrix-900](./images/Matrix-900_02.jpg)
+
 ## Introduction
 the Matrix-900, a cutting-edge embedded computing platform designed for advanced Industrial Internet of Things (IIoT) applications. Leveraging the powerful **Raspberry Pi Compute Module 4**, the Matrix-900 is engineered to meet the demands of modern industrial environments with superior performance, flexibility, and reliability.
 
