@@ -40,6 +40,7 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 - Connector: Terminal block
 - Signal: Data+, Data-
 - Auto direction control: yes
+- Terminal resistor: 120&Omega;, enable/diable by jumper
 - Baudrate: upto 12Mbps
 - Data bits: 7, 8
 - Stop bits: 1, 2
@@ -95,4 +96,5 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 - **Matrix-900-Box :** The standard sheet metal box used for Matirx-900. Mounting accessories are included.
 
 **Note :**  CM4 is the abbreviation of Raspberry Pi Comput Module 4
- 
+
+![Matrix-900-IO-Board](./images/Matrix-900-IO-Board.jpg) **Fig. above: Matrix-900-IO-Board** Top side & Bottom side 
