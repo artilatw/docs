@@ -9,7 +9,6 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 ## H/W Specifications
 
 ### SoM (Raspberry Pi Compute Module 4)
-- Raspberry Pi Compute Module 4
 - Processor: BCM2711, quad core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz
 - DDR: 1/2/4/8GB
 - eMMC: 8/16/32GB
