@@ -1,22 +1,23 @@
+Table of content
 - [Matrix-900 Data Sheet](#matrix-900-data-sheet)
-  - [Model Description](#model-description)
+  - [Introduction](#introduction)
   - [H/W Specifications](#hw-specifications)
     - [SoM (Raspberry Pi Compute Module 4)](#som-raspberry-pi-compute-module-4)
     - [Dual Ethernet Interface](#dual-ethernet-interface)
-    - [Dual USB 2.0 Interface](#dual-usb-20-interface)
+    - [Dual USB Host Interface](#dual-usb-host-interface)
     - [HDMI Display Port](#hdmi-display-port)
     - [Stereo Audio Output](#stereo-audio-output)
     - [Four RS-485 Serial Ports](#four-rs-485-serial-ports)
-    - [M.2 Expansion slot](#m2-expansion-slot)
-    - [miniPCIe Expansion slot](#minipcie-expansion-slot)
-    - [SD Card slot](#sd-card-slot)
+    - [M.2 Expansion Socket](#m2-expansion-socket)
+    - [miniPCIe Expansion Socket](#minipcie-expansion-socket)
+    - [SD Card Socket](#sd-card-socket)
     - [Real Time Clock](#real-time-clock)
     - [Console/Debug Port](#consoledebug-port)
     - [General](#general)
   - [Order Information](#order-information)
 
 # Matrix-900 Data Sheet
-## Model Description
+## Introduction
 Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference accelerator (via M.2 slot)
 
 ## H/W Specifications
@@ -33,11 +34,11 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - 1 x 10/100Mbps Ethernet
 - Connector: RJ45 (with LED indicator)
 
-### Dual USB 2.0 Interface
-- 2 x USB 2.0 compliant host ports
+### Dual USB Host Interface
+- 2 x USB 2.0 compliant hosts
 - Supports 480Mbps high speed mode 
 - Connector: Type A
-- 
+
 ### HDMI Display Port
 - 1 x HDMI port
 - HDMI 2.0 compliant, upto 4K@60fps
@@ -59,7 +60,7 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - Stop bits: 1, 2
 - Parity: Odd/Even/Mark/Space/None
 
-### M.2 Expansion slot
+### M.2 Expansion Socket
 - Interface: PCIe (1-lane, Gen2)
 - Key type: B Key
 - Use case:
@@ -70,7 +71,7 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - Module dimension: supports upto 30x52mm
 - Fixing screws: at 42mm and 52mm position
 
-### miniPCIe Expansion slot
+### miniPCIe Expansion Socket
 - Interface: USB 2.0
 - Supports 480Mbps high speed mode
 - Use case:
@@ -80,10 +81,11 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - Module dimension: supports full-size module
 - Fixing screws: for full-size modules
 
-### SD Card slot
+### SD Card Socket
 - 1 x microSD socket
 - SD 3.0 compliant
 - Storage capacity: SDXC
+- By design, the Matrix-900 does not support booting from an SD card
 
 ### Real Time Clock
 - Yes, on-board
@@ -97,6 +99,17 @@ Raspberry Pi Compute Module 4 powered IIoT Gateway <br>Supporting AI inference a
 - Communication parameters: 115,200bps, N81
 
 ### General
-- Operation temperature: -20~70&deg;C 
+- Dimensions (W x H x D): 45 x 166 x 120mm
+- Net weight: ??? g (lb)
+- Typical power Consumption: 1A@12VDC
+- Operation temperature: 0~70&deg;C (32-158&deg;F) 
+- Installation: supports DIN-Rail mount and wall mount.
+- Regulations: CE Class A and FCC Class A
 
 ## Order Information
+- **Matrix-900 :** Standard integrated package, a CM4 (4G/16G, no-WiFi) with thermal pad is mounted on the IO board and the whole assembly is packaged into a sheet metal box.Mounting accessories included, and Raspberry Pi OS with desktop pre-installed in factory.
+- **Matrix-900-IO-Board :** IO Board only,  necessary teminal blocks included. Users need to prepare and install prefered CM4 and OS by themselves.
+- **Matrix-900-Box :** The standard sheet metal box used for Matirx-900. Mounting accessories included.
+
+**Note :**  CM4 is the abbreviation of Raspberry Pi Comput Module 4
+ 
