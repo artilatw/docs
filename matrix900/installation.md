@@ -50,7 +50,3 @@
   10. Set JP6 to 2-3 and restart Matrix-900  
   
   > :exclamation: Writing an image to the Matrix-900(16GB) eMMC Elapsed time: 19 minuts
-
-## References
-- [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/)
-- [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/)

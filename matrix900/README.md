@@ -7,3 +7,8 @@
   - [Installation Guide](installation.md)
   - [Configuration Guide](configuration.md)
   - Software Guide
+
+## References
+- [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/)
+- [Raspberry Pi OS](https://www.raspberrypi.com/software/operating-systems/)
+- [Raspberry Pi Forums](https://forums.raspberrypi.com)

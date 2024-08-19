@@ -1,7 +1,7 @@
 # Artila Matrix-900(CM4) Configuration Guide
 
 ## config.txt
-  - sudo vi /boot/firmware/config.txt
+  - PATH: /boot/firmware/config.txt
 
 ### Enable Debug Console
   ```
@@ -76,7 +76,6 @@
   [cm4]
   dtoverlay=disable-wifi
   ```
-
 ## References
 - [Raspberry Pi Documentation - Configuration](https://www.raspberrypi.com/documentation/computers/configuration.html)
 - Original boot files
