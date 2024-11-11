@@ -1,5 +1,5 @@
 # Matrix-770
-Ubuntu-core based Cortex-A9 IIoT Gateway
+### Ubuntu-core based Cortex-A9 IIoT Gateway
 
 ![Matrix-770](./images/Matrix-770_02.jpg)
 
