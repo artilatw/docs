@@ -10,83 +10,90 @@ Ubuntu-core based Cortex-A9 IIoT Gateway
 - Cores: single-core
 - Frequency：800MHz
 
-**DRAM**
+### DRAM
 - Spec.：DDR3-1600
 - Size：1GB (up to 2GB)
 
-**eMMC**
+### eMMC
 - Size: 16GB
 
-**Ethernet**
+### Ethernet
 - No. of ports: two, independent
 - Speed: Giga/100M/10M, auto
 
-**miniPCIe expansion slot**
+### miniPCIe expansion slot
 - Signals： supports USB
 - SIM socket：supports nano-SIM card
 - LED：x1, SMD type, yellow
 
-**micro-SD card slot**
+### micro-SD card slot
 - Spec.：supports SD 2.0
 - Capacity：64GB
 
-**Real-time Clock (RTC)**
+### Real-time Clock (RTC)
 - Yes
 - Backup 1: on-board supercapacitor
 - Backup 2: connector for external button cell battery
 
-**USB 2.0 Host**
+### USB 2.0 Host
 - No. of ports: two
 - Connector: Type A
 
-**Status LEDs**
+### Status LEDs
 - Power: green
 - System ready: green
 - User control: yellow, controlled by GPIO21
 
-**Native Debug console**
+### Native Debug console
 - Connector: 3-pin wafer header
 - Signals: RS-232 (Tx, Rx, GND)
 - Speed: 115,200 baud, 8N1
 
-**USB Serial Console**
+### USB Serial Console
 - Connector: Type C
 - Speed: 115,200 baud, 8N1
 
-**Serial Ports**
+### Serial Ports
 - RS-485 ports: four
 - RS-485 auto-direction control: Yes
 - RS-232 ports: one
 - RS-232 signals: Tx/Rx/RTS/CTS
 
-**Serial Port Parameters**
+### Serial Port Parameters
 - Baud rate: up to 921,600 bps
 - Data bits: 5, 6, 7, 8
 - Parity: None, Even, Odd, Mark, Space
 - Stop bits: 1, 1.5, 2
 - Flow control: RTS/CTS, XON/XOFF, None
 
-**Power Input**
+### Power Input
 - Input range: 9Vdc～40Vdc
 - Input polarity protection: Yes
 - Power consumption: 200mA@12Vdc typical
 - Connector: terminal block with fixing screws
 
-**Installation**
+### Installation
 - Dimensions (WxLxH): 125mm x 85mm x 20mm
 - Wall-mountable
 - Supports DIN rail mounti（optional）
 
-**General**
+### General
 - Buzzer: yes
 - Watchdog timer: yes (via RTC)
 - Operating temperature: 0℃～70℃
 - Humidity: 5%～95% (non-condensing)
 - Regulation: FCC / CE class A
 
-**Software Features**
+## Software Features
+
+### Operating System
 - Linux kernel: 6.6.x
 - Ubuntu core (22.04.1 LTS)
-- Pre-installed Node.js V22.10.0
-- Built-in backup/restore utilities
-- Toolchain: gcc 13.2.0
+- Supports uPnP protocol
+
+### Toolchain
+- GNU C/C++ native compiler, 13.2.0
+
+### Pre-installed packages
+- Node.js V22.10.0
+- Artila backup/restore utilities
