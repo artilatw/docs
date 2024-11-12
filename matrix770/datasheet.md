@@ -60,7 +60,7 @@
 - RS-232 signals: Tx/Rx/RTS/CTS
 
 ### Serial Port Parameters
-- Baud rate: up to 921,600 bps
+- Baud rate: up to 115,200 bps
 - Data bits: 5, 6, 7, 8
 - Parity: None, Even, Odd
 - Stop bits: 1, 1.5, 2
