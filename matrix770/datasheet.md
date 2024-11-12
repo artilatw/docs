@@ -62,7 +62,7 @@
 ### Serial Port Parameters
 - Baud rate: up to 921,600 bps
 - Data bits: 5, 6, 7, 8
-- Parity: None, Even, Odd, Mark, Space
+- Parity: None, Even, Odd
 - Stop bits: 1, 1.5, 2
 - Flow control: RTS/CTS, XON/XOFF, None
 
