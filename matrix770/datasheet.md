@@ -6,7 +6,7 @@
 ## H/W Specifications
 
 ### CPU
-- Unimap UN20A90 Cortex-A9
+- Artila UN20A910 Cortex-A9
 - Cores: single-core
 - Frequency：800MHz
 
@@ -28,7 +28,7 @@
 
 ### micro-SD card slot
 - Spec.：supports SD 2.0
-- Capacity：64GB
+- Capacity：128GB
 
 ### Real-time Clock (RTC)
 - Yes
@@ -67,7 +67,7 @@
 - Flow control: RTS/CTS, XON/XOFF, None
 
 ### Power Input
-- Input range: 9Vdc～40Vdc
+- Input range: 9Vdc～48Vdc
 - Input polarity protection: Yes
 - Power consumption: 200mA@12Vdc typical
 - Connector: terminal block with fixing screws
