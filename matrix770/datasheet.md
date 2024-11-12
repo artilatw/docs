@@ -24,11 +24,11 @@
 ### miniPCIe expansion slot
 - Signals： supports USB
 - SIM socket：supports nano-SIM card
-- LED：x1, SMD type, yellow
+- LED：x1, SMD type, green
 
 ### micro-SD card slot
 - Spec.：supports SD 2.0
-- Capacity：128GB
+- Capacity：up to 128GB
 
 ### Real-time Clock (RTC)
 - Yes
@@ -42,15 +42,15 @@
 ### Status LEDs
 - Power: green
 - System ready: green
-- User control: yellow, controlled by GPIO21
+
 
 ### Native Debug console
-- Connector: 3-pin wafer header
-- Signals: RS-232 (Tx, Rx, GND)
+- Signals: RS-232 (Tx, Rx)
+- Connector: 4-pin wafer header
 - Speed: 115,200 baud, 8N1
 
 ### USB Serial Console
-- Connector: Type C
+- Connector: Type C (**NO** PD support!)
 - Speed: 115,200 baud, 8N1
 
 ### Serial Ports
@@ -73,7 +73,7 @@
 - Connector: terminal block with fixing screws
 
 ### Installation
-- Dimensions (WxLxH): 125mm x 85mm x 20mm
+- Dimensions (WxLxH): 140mm x 145mm x 25mm
 - Wall-mountable
 - Supports DIN rail mounti（optional）
 

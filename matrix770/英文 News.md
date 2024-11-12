@@ -20,7 +20,7 @@ Key Features:
 - 4x RS-485 and 1x RS-232 serial ports
 - 1x miniPCIe expansion slot supporting WiFi/4G LTE modules
 - Wide power input range (9V-48V DC)
-- Compact form factor (125x85x20mm)
+- Compact form factor (140x145x25mm)
 - Wall-mount and DIN rail mounting options
 
 Scheduled for release in Q1 2025, Matrix-770 represents the perfect solution for businesses pursuing smart manufacturing and sustainability goals. With its robust connectivity options and reliable system architecture, it serves as an ideal gateway for modern industrial IoT applications. Evaluation units are now available for system integrators and solution developers.
