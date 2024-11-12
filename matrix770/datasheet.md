@@ -6,7 +6,7 @@
 ## H/W Specifications
 
 ### CPU
-- Artila UN20A910 Cortex-A9
+- Artila UM20A910 Cortex-A9
 - Cores: single-core
 - Frequency：800MHz
 

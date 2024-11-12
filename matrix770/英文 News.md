@@ -1,6 +1,6 @@
 # Artila Introduces Matrix-770: Next-Generation IIoT Gateway for Smart Manufacturing and Sustainability
 
-Artila Electronics announces the launch of Matrix-770, an advanced Industrial IoT gateway powered by Artila's proprietary UN20A910 Cortex-A9 processor. This in-house developed processor eliminates EOL concerns, ensuring long-term product availability for industrial applications.
+Artila Electronics announces the launch of Matrix-770, an advanced Industrial IoT gateway powered by Artila's proprietary UM20A910 Cortex-A9 processor. This in-house developed processor eliminates EOL concerns, ensuring long-term product availability for industrial applications.
 
 The Matrix-770 runs on Ubuntu Core 22.04.1 LTS with Linux kernel 6.6.x, providing a robust and reliable platform for industrial deployments. It comes pre-installed with Node.js v22.10.0, offering powerful support for IoT application development.
 
@@ -13,7 +13,7 @@ As global industries accelerate their transition towards net-zero goals, Matrix-
 - Industrial wastewater treatment monitoring
 
 Key Features:
-- Artila UN20A910 Cortex-A9 processor @ 800MHz
+- Artila UM20A910 Cortex-A9 processor @ 800MHz
 - 1GB DRAM and 16GB eMMC for efficient computing performance
 - Built-in micro-SD card slot supporting up to 128GB storage expansion for extensive data caching
 - Dual Gigabit Ethernet ports

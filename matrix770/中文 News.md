@@ -1,6 +1,6 @@
 # Artila 推出全新工業物聯網閘道器 Matrix-770：助力智慧製造與永續發展
 
-Artila Electronics 宣布推出新一代工業物聯網閘道器 Matrix-770。這款產品採用 Artila 自主研發的 UN20A910 Cortex-A9 處理器，不僅確保了產品的長期供應穩定性，更完全消除了元件停產(EOL)的後顧之憂。
+Artila Electronics 宣布推出新一代工業物聯網閘道器 Matrix-770。這款產品採用 Artila 自主研發的 UM20A910 Cortex-A9 處理器，不僅確保了產品的長期供應穩定性，更完全消除了元件停產(EOL)的後顧之憂。
 
 Matrix-770 搭載最新的 Ubuntu Core 22.04.1 LTS 作業系統，支援 Linux 6.6.x 核心，為工業用戶提供穩定可靠的系統環境。其預裝的 Node.js v22.10.0 更為物聯網應用開發提供了強大支援。
 
@@ -13,7 +13,7 @@ Matrix-770 搭載最新的 Ubuntu Core 22.04.1 LTS 作業系統，支援 Linux 6
 - 工業廢水處理監控
 
 產品特色：
-- Artila UN20A910 Cortex-A9 處理器，主頻 800MHz
+- Artila UM20A910 Cortex-A9 處理器，主頻 800MHz
 - 1GB DRAM 與 16GB eMMC，提供高效運算性能
 - 內建 micro-SD 卡插槽，支援最高 128GB 儲存擴充，適合大量數據本地緩存
 - 雙千兆乙太網路接口
