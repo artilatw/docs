@@ -1,7 +1,7 @@
 # Matrix-770
 ### Ubuntu-core based Cortex-A9 IIoT Gateway
 
-![Matrix-770](./images/Matrix-770_02.jpg)
+<img alt="Matrix-770" src="https://www.artila.com/images/news/Matrix-770.jpg" width=480>
 
 ## H/W Specifications
 
