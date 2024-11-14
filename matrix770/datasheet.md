@@ -88,12 +88,12 @@
 
 ### Operating System
 - Linux kernel: 6.6.x
-- Ubuntu core (22.04.1 LTS)
+- Ubuntu core (24.04.1 LTS)
 - Supports uPnP protocol
 
 ### Toolchain
 - GNU C/C++ native compiler, 13.2.0
 
 ### Pre-installed packages
-- Node.js V22.10.0
+- Node.js v22.11.0
 - Artila backup/restore utilities
