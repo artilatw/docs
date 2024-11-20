@@ -50,7 +50,7 @@ Description:    Ubuntu 22.04.4 LTS
 Release:        22.04
 Codename:       jammy
 ```  
-## File System Information 
+## CheckFile System Information 
 The PAC-6070 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 ```
 root@pac6070:~# lsblk
@@ -74,6 +74,38 @@ bin@   etc/   lib@         mnt/   root/  srv/      tmp/
 boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
 dev/   home/  media/       proc/  sbin@  sys/      var/
 ```
+## Configure Time and Date
+### System Time
+PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized by NTP server.  
+
+```
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-07-18 13:47:56 CST
+           Universal time: Thu 2024-07-18 05:47:56 UTC
+                 RTC time: Thu 2024-07-18 05:47:56
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+```  
+If you need to modify the system time manually, please follow the steps shown below: 
+```
+root@pac6070:~# timedatectl set-ntp no
+root@pac6070:~# timedatectl set-time "2024-07-18 14:00:00"
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-07-18 14:00:13 CST
+           Universal time: Thu 2024-07-18 06:00:13 UTC
+                 RTC time: Thu 2024-07-18 06:00:13
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
+```
+
+
+
+
+
 ## Access the USB Serial Console
 ### Serial Console Log-in
 User name: root  
@@ -234,52 +266,7 @@ guest@pac6070:~$
 Default is not allowed to login as root account via SSH in Ubuntu 22.04. To enable the root account login via SSH, modify the **sshd_config** file.  
  - `vi /etc/ssh/sshd_config`, find the line `PermitRootLogin prohibit-password` and change it to `PermitRootLogin yes`.  
  - `systemctl restart sshd` to restart the SSH service.
-```
-User name: root
-Password: root  
-```  
-Login with root account via SSH.
-```
-[root@Matrix_034060 ~]#ssh root@192.168.1.103
-root@192.168.1.103's password:
-Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.22 armv7l)
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
-
-This system has been minimized by removing packages and content that are
-not required on a system that users do not log into.
-
-To restore this content, you can run the 'unminimize' command.
-Last login: Thu Jul  4 11:34:20 2024
-root@pac6070:~#
-```
-
-
-
-## File System Information 
-PAC-6070 come with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
-```
-root@pac6070:~# lsblk
-NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-mmcblk1      179:0    0 14.6G  0 disk
-tqmmcblk1p1  179:1    0    2G  0 part
-mqmmcblk1p2  179:2    0 12.6G  0 part /
-mmcblk1boot0 179:8    0    4M  1 disk
-mmcblk1boot1 179:16   0    4M  1 disk
-root@pac6070:~# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root        13G  1.1G   11G   9% /
-tmpfs           502M     0  502M   0% /dev/shm
-tmpfs           201M   21M  180M  11% /run
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           101M     0  101M   0% /run/user/0
-root@pac6070:~# ls -F /
-bin@   etc/   lib@         mnt/   root/  srv/      tmp/
-boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
-dev/   home/  media/       proc/  sbin@  sys/      var/
-```
 
 ## Serial Port Settings
 ### Port Mapping 
@@ -313,33 +300,6 @@ Examples:
 ***Caution***  
 The serial port’s mode and associated communication parameters will go back to factory default after system reboot.  
 
-## System Time and Real-Time Clock(RTC)
-### Adjust System Time
-PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized by NTP server.  
-
-```
-root@pac6070:~# timedatectl
-               Local time: Thu 2024-07-18 13:47:56 CST
-           Universal time: Thu 2024-07-18 05:47:56 UTC
-                 RTC time: Thu 2024-07-18 05:47:56
-                Time zone: Asia/Taipei (CST, +0800)
-System clock synchronized: yes
-              NTP service: active
-          RTC in local TZ: no
-```  
-If you need to modify the system time manually, please follow the steps shown below: 
-```
-root@pac6070:~# timedatectl set-ntp no
-root@pac6070:~# timedatectl set-time "2024-07-18 14:00:00"
-root@pac6070:~# timedatectl
-               Local time: Thu 2024-07-18 14:00:13 CST
-           Universal time: Thu 2024-07-18 06:00:13 UTC
-                 RTC time: Thu 2024-07-18 06:00:13
-                Time zone: Asia/Taipei (CST, +0800)
-System clock synchronized: no
-              NTP service: inactive
-          RTC in local TZ: no
-```
 
 ## Software Package Management
 Using apt commands are listed below:
