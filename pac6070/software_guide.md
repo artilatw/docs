@@ -24,6 +24,7 @@ not required on a system that users do not log into.
 
 To restore this content, you can run the 'unminimize' command.
 Last login: Thu Jul 18 14:01:39 2024
+guest@pac6070:~$
 ```
 
 ### Switch to root account
