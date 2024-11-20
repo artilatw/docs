@@ -6,12 +6,10 @@ The PAC-6070 comes with two Ethernet ports, labeled as LAN1 and LAN2. By default
 LAN1 is mapped to eth0 and LAN2 is mapped to eth1.
 
 ## SSH Connection via LAN2
-Users need to configure their PC/Notebook's network settings properly to bulid an SSH connection via LAN2.
+Users need to configure their PC/Notebook's network settings properly to start an SSH connection via LAN2.
 
+### Login with guest account
 The default user name is guest and the password is guest.
-
-The root account user name is root and the passwword is root.
-
 ```
 $ ssh guest@192.168.2.127
 guest@192.168.2.127's password: 
@@ -26,8 +24,15 @@ not required on a system that users do not log into.
 
 To restore this content, you can run the 'unminimize' command.
 Last login: Thu Jul 18 14:01:39 2024
+```
 
+### Switch to root account
+The root account user name is root and the passwword is root.
 
+```
+guest@pac6070:~$ su -
+Password: 
+root@pac6070:~#
 ```
 
 
