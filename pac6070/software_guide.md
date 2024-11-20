@@ -35,7 +35,21 @@ guest@pac6070:~$ su -
 Password: 
 root@pac6070:~#
 ```
+## Check Linux Kernel Version
+```
+root@pac6070:~# uname -a
+Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
+```
 
+## Check Ubuntu Version
+```
+root@pac6070:~# **lsb_release -a**
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.4 LTS
+Release:        22.04
+Codename:       jammy
+```  
 
 ## Access the USB Serial Console
 ### Serial Console Log-in
@@ -219,17 +233,7 @@ Last login: Thu Jul  4 11:34:20 2024
 root@pac6070:~#
 ```
 
-## Check Linux Kernel Version
-```
-root@pac6070:~# uname -a
-Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
-root@pac6070:~# lsb_release -a
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 22.04.4 LTS
-Release:        22.04
-Codename:       jammy
-```  
+
 
 ## File System Information 
 PAC-6070 come with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
