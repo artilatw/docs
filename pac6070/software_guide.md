@@ -1,11 +1,16 @@
 # PAC-6070 Software Guide
 
-## SSH Connection
+## Access Ethernet Ports
 The PAC-6070 comes with two Ethernet ports, labeled as LAN1 and LAN2. By default, the IP address of LAN2 is 192.168.2.127 and the IP address of LAN1 is assigned by DHCP.
 
-Users need to configure their PC's network settings properly to connect to LAN2 via SSH.
+LAN1 is mapped to eth0 and LAN2 is mapped to eth1.
 
-The default user name and password are guest and guest.
+## SSH Connection via LAN2
+Users need to configure their PC/Notebook's network settings properly to bulid an SSH connection via LAN2.
+
+The default user name is guest and the password is guest.
+
+The root account user name is root and the passwword is root.
 
 ```
 $ ssh guest@192.168.2.127
