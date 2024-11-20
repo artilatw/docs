@@ -60,6 +60,7 @@ tqmmcblk1p1  179:1    0    2G  0 part
 mqmmcblk1p2  179:2    0 12.6G  0 part /
 mmcblk1boot0 179:8    0    4M  1 disk
 mmcblk1boot1 179:16   0    4M  1 disk
+
 root@pac6070:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        13G  1.1G   11G   9% /
@@ -67,6 +68,7 @@ tmpfs           502M     0  502M   0% /dev/shm
 tmpfs           201M   21M  180M  11% /run
 tmpfs           5.0M     0  5.0M   0% /run/lock
 tmpfs           101M     0  101M   0% /run/user/0
+
 root@pac6070:~# ls -F /
 bin@   etc/   lib@         mnt/   root/  srv/      tmp/
 boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
