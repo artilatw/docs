@@ -76,7 +76,7 @@ dev/   home/  media/       proc/  sbin@  sys/      var/
 ```
 ## Configure Time and Date
 ### System Time
-PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized by NTP server.  
+PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized with anNTP server.  
 
 ```
 root@pac6070:~# timedatectl
@@ -88,7 +88,7 @@ System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
 ```  
-If you need to modify the system time manually, please follow the steps shown below: 
+If you want to manually set the system time, please follow the steps shown below: 
 ```
 root@pac6070:~# timedatectl set-ntp no
 root@pac6070:~# timedatectl set-time "2024-07-18 14:00:00"
