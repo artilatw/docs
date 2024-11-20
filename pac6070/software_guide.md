@@ -1,4 +1,30 @@
-# PAC-6070
+# PAC-6070 Software Guide
+
+## SSH Connection
+The PAC-6070 comes with two Ethernet ports, labeled as LAN1 and LAN2. By default, the IP address of LAN2 is 192.168.2.127 and the IP address of LAN1 is assigned by DHCP.
+
+Users need to configure their PC's network settings properly to connect to LAN2 via SSH.
+
+The default user name and password are guest and guest.
+
+```
+$ ssh guest@192.168.2.127
+guest@192.168.2.127's password: 
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.6.32 armv7l)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Thu Jul 18 14:01:39 2024
+
+
+```
+
 
 ## Access the USB Serial Console
 ### Serial Console Log-in
