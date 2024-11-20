@@ -43,7 +43,7 @@ Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Li
 
 ## Check Ubuntu Version
 ```
-root@pac6070:~# ==lsb_release -a==
+root@pac6070:~# lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
 Description:    Ubuntu 22.04.4 LTS
