@@ -9,7 +9,7 @@ LAN1 is mapped to eth0 and LAN2 is mapped to eth1.
 Users need to configure their PC/Notebook's network settings properly to start an SSH connection via LAN2.
 
 ### Login with guest account
-The default user name is guest and the password is guest.
+The PAC-6070 is not allowed to login as root account via SSH. You can login with guest account. The default guest user name is guest and the password is guest.
 ```
 $ ssh guest@192.168.2.127
 guest@192.168.2.127's password: 
