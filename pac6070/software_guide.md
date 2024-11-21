@@ -138,7 +138,41 @@ Example: If DO1 relay is at NO (normally open) mode, the following command will 
 ```  
 root@pac6070:~# echo 0 > /gpio/DO1/value
 ```
+## Access Analog Input
+The PAC-6070 provides 3 channels of differential voltage inputs or 6 channels of single-end voltage(-10Vdc ~ +10Vdc) inputs and 2 channels of current(0mA ~ 20mA) inputs.
 
+### Voltage Input
+Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
+
+For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
+
+For single-end voltage input, the first channel is V1+, the second channel is V1-, the third channel is V2+, the fourth channel is V2-, the fifth channel is V3+, and the sixth channel is V3-.
+
+
+
+
+Voltage
+- Mode: Differential (Default)
+	- Channel 1: Voltage0-Voltage1
+	- Channel 2: Voltage2-Voltage3
+	- Channel 3: Voltage4-Voltage5
+- Mode: Single-end
+	- Channel 1: Voltage0
+	- Channel 2: Voltage1
+	- Channel 3: Voltage2
+	- Channel 4: Voltage3
+	- Channel 5: Voltage4
+	- Channel 6: Voltage5
+
+Current
+- Channel 1: Current0
+- Channel 2: Current1  
+  
+Path
+- /sys/bus/iio/devices/iio:device0/  
+
+Formula
+- raw * scale + offset  
 
 
 
