@@ -31,14 +31,9 @@ not required on a system that users do not log into.
 To restore this content, you can run the 'unminimize' command.
 Last login: Wed Nov 20 14:16:54 2024 from 192.168.1.55
 guest@pac6070:~$ 
+```  
+Using su - command to switch to root account.  
 ```
-Use the `su -` command with the `root` password to temporarily switch to the root account.  
-```
-guest@pac6070:~$ su -
-Password: 
-root@pac6070:~#
-```
-
 ### root account
 Default is not allowed to login as root account via SSH in Ubuntu 22.04. To enable the root account login via SSH, modify the **sshd_config** file.  
  - `vi /etc/ssh/sshd_config`, find the line `PermitRootLogin prohibit-password` and change it to `PermitRootLogin yes`.  
@@ -49,9 +44,9 @@ Password: root
 ```  
 Login with root account via SSH.
 ```
-[root@Matrix_034060 ~]#ssh root@192.168.2.127
-root@192.168.2.127's password: 
-Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.6.32 armv7l)
+[root@Matrix_034060 ~]#ssh root@192.168.1.103
+root@192.168.1.103's password:
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.22 armv7l)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -61,7 +56,34 @@ This system has been minimized by removing packages and content that are
 not required on a system that users do not log into.
 
 To restore this content, you can run the 'unminimize' command.
-Last login: Wed Nov 20 15:43:28 2024 from 192.168.1.24
+Last login: Thu Jul  4 11:34:20 2024
+root@pac6070:~#
+```
+## Access the USB Serial Console
+### Serial Console Log-in
+User name: root  
+Password: root  
+|PAC-6070 comes with a<br>4 pin wafer box female|Wafer box to DB9 Female Console Cable|Desktop/Notebook PC with a <br>USB to DB9 RS232 Converter Cable|
+|:--:|:--:|:--:|
+|![PAC 6070](img/pac6070.png)|![Console Cable](img/console_cable.png)|<img src="./img/notebook.png" width=300>|
+
+Following example by PAC-6070
+```
+Ubuntu 22.04.4 LTS pac6070 ttymxc0
+
+pac6070 login: root
+Password:
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.22 armv7l)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Wed Nov 22 04:57:55 CST 2023 on ttymxc0
 root@pac6070:~#
 ```
 
@@ -126,7 +148,7 @@ Restart the network interface to activate the network settings.
 ```
 root@pac6070:~# systemctl restart NetworkManager
 root@pac6070:~# ifconfig eth0 down && ifconfig eth0 up
-root@pac6070:~# ip address show eth0
+root@pac6070:~# ip a show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 00:13:48:00:00:00 brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.100/24 brd 192.168.1.255 scope global noprefixroute eth0
@@ -173,19 +195,17 @@ Using resolvectl to set the DNS will be ineffective after system reboot.
 ## Check Linux Kernel Version
 ```
 root@pac6070:~# uname -a
-Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l armv7l armv7l GNU/Linux
+Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
 root@pac6070:~# lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
-Description:    Ubuntu 22.04.5 LTS
+Description:    Ubuntu 22.04.4 LTS
 Release:        22.04
 Codename:       jammy
 ```  
 
 ## File System Information 
-PAC-6070 come with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).    
-
-Use `lsblk` command to list information about block devices.
+PAC-6070 come with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 ```
 root@pac6070:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
@@ -194,9 +214,6 @@ tqmmcblk1p1  179:1    0    2G  0 part
 mqmmcblk1p2  179:2    0 12.6G  0 part /
 mmcblk1boot0 179:8    0    4M  1 disk
 mmcblk1boot1 179:16   0    4M  1 disk
-```
-Use `df -h` command to report the disk space usage of file systems.
-```
 root@pac6070:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        13G  1.1G   11G   9% /
@@ -204,13 +221,10 @@ tmpfs           502M     0  502M   0% /dev/shm
 tmpfs           201M   21M  180M  11% /run
 tmpfs           5.0M     0  5.0M   0% /run/lock
 tmpfs           101M     0  101M   0% /run/user/0
-```
-Use `ls` command to list the contents of a directory.
-```
-root@pac6070:~# ls /
-bin  boot  dev  etc  gpio  home  lib  
-lost+found  media  mnt  opt  proc  root  run  
-sbin  srv  swapfile  sys  tmp  usr  var
+root@pac6070:~# ls -F /
+bin@   etc/   lib@         mnt/   root/  srv/      tmp/
+boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
+dev/   home/  media/       proc/  sbin@  sys/      var/
 ```
 
 ## Serial Port Settings
@@ -704,11 +718,6 @@ $662390 \times 0.000002980 - 0 = 1.9739222mA ≈ 0.002A$
 
 Display - CLI `lsadc`  
 <img src="img/cli_current.png" width=800>
-
-## UPnP Server
-The UPnP server enables seamless device discovery on the network. Using a Windows computer, you can find the device name under 'Network' in File Explorer. Right-clicking the device and selecting 'Properties' will display detailed device information. Additionally, double-clicking the device opens its web interface in your default browser for further configuration or access.  
-<img src="img/upnp.png" width="400" style="display: block; margin: auto;">
-
 
 ## Website  
 Visit the website hosted on the PAC-6070 using a web browser.  
