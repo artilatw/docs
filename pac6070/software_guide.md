@@ -154,7 +154,7 @@ For differential voltage input, the first channel is V1+ and V1-, the second cha
 
 The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
 
-|Channel|Raw Value Path|Offset Path|
+|Channel|Raw Value Path|Offset Value Path|
 |---|---|---|
 |CH1|in_voltage0_voltage1_raw|in_voltage0_voltage1_offset|
 |CH2|in_voltage2_voltage3_raw|in_voltage2_voltage3_offset|
