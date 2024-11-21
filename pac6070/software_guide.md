@@ -102,6 +102,45 @@ System clock synchronized: no
           RTC in local TZ: no
 ```
 
+## Access Digital I/O  
+### DIO Mapping
+The PAC-6070 comes with 8x opto-isolated digital inputs and 8x relay digital outputs. Below is the DIO mapping table:
+
+|DI Number|Device Mapping|DO Number|Device Mapping|
+|---|---|--|---|
+|DI1|/gpio/DI1|DO1|/gpio/DO1|
+|DI2|/gpio/DI2|DO2|/gpio/DO2|
+|DI3|/gpio/DI3|DO3|/gpio/DO3|
+|DI4|/gpio/DI4|DO4|/gpio/DO4|
+|DI5|/gpio/DI5|DO5|/gpio/DO5|
+|DI6|/gpio/DI6|DO6|/gpio/DO6|
+|DI7|/gpio/DI7|DO7|/gpio/DO7|
+|DI8|/gpio/DI8|DO8|/gpio/DO8|
+
+```
+root@pac6070:~# ls /gpio/
+DI1  DI3  DI5  DI7  DO1  DO3  DO5  DO7  pciepower
+DI2  DI4  DI6  DI8  DO2  DO4  DO6  DO8
+```
+
+### Read Digital Input
+Example: read value of DI1  
+```
+root@pac6070:~# cat /gpio/DI1/value  
+```
+### Write Digital Output
+Example: 
+If DO1 relay is at NO (normally open) mode, the following command will let the relay close.
+```  
+root@pac6070:~# echo 1 > /gpio/DO1/value
+```
+If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
+```  
+root@pac6070:~# echo 0 > /gpio/DO1/value
+```
+
+
+
 
 
 
