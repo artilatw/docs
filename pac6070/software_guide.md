@@ -141,19 +141,48 @@ root@pac6070:~# echo 0 > /gpio/DO1/value
 ## Access Analog Input
 The PAC-6070 provides 3 channels of differential voltage inputs or 6 channels of single-end voltage(-10Vdc ~ +10Vdc) inputs and 2 channels of current(0mA ~ 20mA) inputs.
 
-### Voltage Input
+### Voltage Input Wiring
 Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
 
+### Differential Input
 For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
-|Channel|Terminals|
+|Differential Channel|Terminals|
 |---|---|
 |CH1|V1+ and V1-|
 |CH2|V2+ and V2-| 
 |CH3|V3+ and V3-|
 
+The file path of the voltage input is /sys/bus/iio/devices/iio:device0/
+
+|Channel|Raw Value Path|Offset Path|
+|---|---|---|
+|CH1|in_voltage0_voltage1_raw|in_voltage0_voltage1_offset|
+|CH2|in_voltage2_voltage3_raw|in_voltage2_voltage3_offset|
+|CH3|in_voltage4_voltage5_raw|in_voltage4_voltage5_offset|
+
+There is also an **in_voltage_voltage_scale** file to get the scale value of the voltage input.
+
+The formula to calculate the voltage value is:
+```
+voltage = (raw * scale) + offset
+```
+
+Example: read the voltage value of CH1
+```
+root@pac6070:~# cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_raw
+1234
+root@pac6070:~# cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_scale
+0.00048828125
+root@pac6070:~# cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_offset
+-0.000244140625
+root@pac6070:~# echo $((`cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_raw` \* `cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_scale`)) + `cat /sys/bus/iio/devices/iio:device0/in_voltage0_voltage1_offset` | bc
+0.5999755859375
+```
+
+### Single-end Input
 For single-end voltage input, the first channel is V1+ and AGND, the second channel is V1- and AGND, and so on, please refer to the following table:
 
-|Channel|Terminals|
+|Single-end Channel|Terminals|
 |---|---|
 |CH1|V1+ and AGND|
 |CH2|V1- and AGND|
