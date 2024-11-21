@@ -145,9 +145,22 @@ The PAC-6070 provides 3 channels of differential voltage inputs or 6 channels of
 Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
 
 For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
+|Channel|Terminals|
+|---|---|
+|CH1|V1+ and V1-|
+|CH2|V2+ and V2-| 
+|CH3|V3+ and V3-|
 
 For single-end voltage input, the first channel is V1+, the second channel is V1-, the third channel is V2+, the fourth channel is V2-, the fifth channel is V3+, and the sixth channel is V3-.
 
+|Channel|Terminals|
+|---|---|
+|CH1|V1+|
+|CH2|V1-|
+|CH3|V2+|
+|CH4|V2-|
+|CH5|V3+|
+|CH6|V3-|
 
 
 
