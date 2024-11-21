@@ -162,7 +162,7 @@ The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:dev
 
 In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
 
-The formula to calculate the voltage value is:
+The common formula to calculate the voltage is:
 ```
 voltage = (raw * scale) + offset
 ```
