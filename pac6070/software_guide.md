@@ -152,7 +152,7 @@ For differential voltage input, the first channel is V1+ and V1-, the second cha
 |CH2|V2+ and V2-| 
 |CH3|V3+ and V3-|
 
-The file path of the voltage input is /sys/bus/iio/devices/iio:device0/
+The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
 
 |Channel|Raw Value Path|Offset Path|
 |---|---|---|
@@ -160,7 +160,7 @@ The file path of the voltage input is /sys/bus/iio/devices/iio:device0/
 |CH2|in_voltage2_voltage3_raw|in_voltage2_voltage3_offset|
 |CH3|in_voltage4_voltage5_raw|in_voltage4_voltage5_offset|
 
-There is also an **in_voltage_voltage_scale** file to get the scale value of the voltage input.
+In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
 
 The formula to calculate the voltage value is:
 ```
