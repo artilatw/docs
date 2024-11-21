@@ -167,7 +167,7 @@ The formula to calculate the voltage value is:
 voltage = (raw * scale) + offset
 ```
 
-Example: calculate the voltage value of CH1
+Below are the formulas to calculate the voltage value of each channel:
 ```
 CH1_voltage = (in_voltage0_voltage1_raw * in_voltage_voltage_scale) + in_voltage0_voltage1_offset
 
