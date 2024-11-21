@@ -35,13 +35,14 @@ guest@pac6070:~$ su -
 Password: 
 root@pac6070:~#
 ```
-## Check Linux Kernel Version
+## Basic System Information
+### Check Linux Kernel Version
 ```
 root@pac6070:~# uname -a
 Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
 ```
 
-## Check Ubuntu Version
+### Check Ubuntu Version
 ```
 root@pac6070:~# lsb_release -a
 No LSB modules are available.
@@ -50,7 +51,7 @@ Description:    Ubuntu 22.04.4 LTS
 Release:        22.04
 Codename:       jammy
 ```  
-## CheckFile System Information 
+### Check File System Information 
 The PAC-6070 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 ```
 root@pac6070:~# lsblk
@@ -74,9 +75,9 @@ bin@   etc/   lib@         mnt/   root/  srv/      tmp/
 boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
 dev/   home/  media/       proc/  sbin@  sys/      var/
 ```
-## Configure Time and Date
-### System Time
-PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized with anNTP server.  
+## Configure System Time
+### Auto Synchronize with NTP Server
+PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized with an NTP server.  
 
 ```
 root@pac6070:~# timedatectl
@@ -88,6 +89,7 @@ System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
 ```  
+### Manually Set the System Time
 If you want to manually set the system time, please follow the steps shown below: 
 ```
 root@pac6070:~# timedatectl set-ntp no
