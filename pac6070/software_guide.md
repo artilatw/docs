@@ -167,7 +167,7 @@ The formula to calculate the voltage value is:
 voltage = (raw * scale) + offset
 ```
 
-Example: read the voltage value of CH1
+Example: calculate the voltage value of CH1
 ```
 root@pac6070:~# cd /sys/bus/iio/devices/iio:device0/
 root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_voltage1_raw
@@ -176,7 +176,11 @@ root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage_voltage_scale
 0.00048828125
 root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_voltage1_offset
 -0.000244140625
-root@pac6070:/sys/bus/iio/devices/iio:device0# echo $((`cat in_voltage0_voltage1_raw` \* `cat in_voltage_voltage_scale`)) + `cat in_voltage0_voltage1_offset` | bc
+root@pac6070:/sys/bus/iio/devices/iio:device0# echo $((
+        `cat in_voltage0_voltage1_raw`
+        \* 
+        `cat in_voltage_voltage_scale`) + 
+        `cat in_voltage0_voltage1_offset`) | bc
 0.5999755859375
 ```
 
