@@ -134,7 +134,7 @@ If DO1 relay is at NO (normally open) mode, the following command will let the r
 ```  
 root@pac6070:~# echo 1 > /gpio/DO1/value
 ```
-If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
+Example: If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
 ```  
 root@pac6070:~# echo 0 > /gpio/DO1/value
 ```
