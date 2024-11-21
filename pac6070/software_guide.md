@@ -169,7 +169,11 @@ voltage = (raw * scale) + offset
 
 Example: calculate the voltage value of CH1
 ```
-voltage = (in_voltage0_voltage1_raw * in_voltage_voltage_scale) + in_voltage0_voltage1_offset
+CH1_voltage = (in_voltage0_voltage1_raw * in_voltage_voltage_scale) + in_voltage0_voltage1_offset
+
+CH2_voltage = (in_voltage2_voltage3_raw * in_voltage_voltage_scale) + in_voltage2_voltage3_offset
+
+CH3_voltage = (in_voltage4_voltage5_raw * in_voltage_voltage_scale) + in_voltage4_voltage5_offset
 ```
 
 ### Single-end Input
