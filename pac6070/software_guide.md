@@ -35,13 +35,14 @@ guest@pac6070:~$ su -
 Password: 
 root@pac6070:~#
 ```
-## Check Linux Kernel Version
+## Basic System Information
+### Check Linux Kernel Version
 ```
 root@pac6070:~# uname -a
 Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
 ```
 
-## Check Ubuntu Version
+### Check Ubuntu Version
 ```
 root@pac6070:~# lsb_release -a
 No LSB modules are available.
@@ -50,7 +51,7 @@ Description:    Ubuntu 22.04.4 LTS
 Release:        22.04
 Codename:       jammy
 ```  
-## CheckFile System Information 
+### Check File System Information 
 The PAC-6070 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 ```
 root@pac6070:~# lsblk
@@ -74,9 +75,9 @@ bin@   etc/   lib@         mnt/   root/  srv/      tmp/
 boot/  gpio/  lost+found/  opt/   run/   swapfile  usr/
 dev/   home/  media/       proc/  sbin@  sys/      var/
 ```
-## Configure Time and Date
-### System Time
-PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized with anNTP server.  
+## Configure System Time
+### Auto Synchronize with NTP Server
+PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized with an NTP server.  
 
 ```
 root@pac6070:~# timedatectl
@@ -88,6 +89,7 @@ System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
 ```  
+### Manually Set the System Time
 If you want to manually set the system time, please follow the steps shown below: 
 ```
 root@pac6070:~# timedatectl set-ntp no
@@ -101,6 +103,118 @@ System clock synchronized: no
               NTP service: inactive
           RTC in local TZ: no
 ```
+
+## Access Digital I/O  
+### DIO Mapping
+The PAC-6070 comes with 8x opto-isolated digital inputs and 8x relay digital outputs. Below is the DIO mapping table:
+
+|DI Number|Device Mapping|DO Number|Device Mapping|
+|---|---|--|---|
+|DI1|/gpio/DI1|DO1|/gpio/DO1|
+|DI2|/gpio/DI2|DO2|/gpio/DO2|
+|DI3|/gpio/DI3|DO3|/gpio/DO3|
+|DI4|/gpio/DI4|DO4|/gpio/DO4|
+|DI5|/gpio/DI5|DO5|/gpio/DO5|
+|DI6|/gpio/DI6|DO6|/gpio/DO6|
+|DI7|/gpio/DI7|DO7|/gpio/DO7|
+|DI8|/gpio/DI8|DO8|/gpio/DO8|
+
+```
+root@pac6070:~# ls /gpio/
+DI1  DI3  DI5  DI7  DO1  DO3  DO5  DO7  pciepower
+DI2  DI4  DI6  DI8  DO2  DO4  DO6  DO8
+```
+
+### Read Digital Input
+Example: read value of DI1  
+```
+root@pac6070:~# cat /gpio/DI1/value  
+```
+### Write Digital Output
+Example: 
+If DO1 relay is at NO (normally open) mode, the following command will let the relay close.
+```  
+root@pac6070:~# echo 1 > /gpio/DO1/value
+```
+Example: If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
+```  
+root@pac6070:~# echo 0 > /gpio/DO1/value
+```
+## Access Analog Input
+The PAC-6070 provides 3 channels of differential voltage inputs or 6 channels of single-end voltage(-10Vdc ~ +10Vdc) inputs and 2 channels of current(0mA ~ 20mA) inputs.
+
+### Voltage Input Wiring
+Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
+
+### Differential Input
+For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
+|Differential Channel|Terminals|
+|---|---|
+|CH1|V1+ and V1-|
+|CH2|V2+ and V2-| 
+|CH3|V3+ and V3-|
+
+The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
+
+|Channel|Raw Value Path|Offset Value Path|
+|---|---|---|
+|CH1|in_voltage0_voltage1_raw|in_voltage0_voltage1_offset|
+|CH2|in_voltage2_voltage3_raw|in_voltage2_voltage3_offset|
+|CH3|in_voltage4_voltage5_raw|in_voltage4_voltage5_offset|
+
+In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
+
+The common formula to calculate the voltage is:
+```
+voltage = (raw * scale) + offset
+```
+
+Below are the formulas to calculate the voltage value of each channel:
+```
+CH1_voltage = (in_voltage0_voltage1_raw * in_voltage_voltage_scale) + in_voltage0_voltage1_offset
+
+CH2_voltage = (in_voltage2_voltage3_raw * in_voltage_voltage_scale) + in_voltage2_voltage3_offset
+
+CH3_voltage = (in_voltage4_voltage5_raw * in_voltage_voltage_scale) + in_voltage4_voltage5_offset
+```
+
+### Single-end Input
+For single-end voltage input, the first channel is V1+ and AGND, the second channel is V1- and AGND, and so on, please refer to the following table:
+
+|Single-end Channel|Terminals|
+|---|---|
+|CH1|V1+ and AGND|
+|CH2|V1- and AGND|
+|CH3|V2+ and AGND|
+|CH4|V2- and AGND|
+|CH5|V3+ and AGND|
+|CH6|V3- and AGND|
+
+
+
+Voltage
+- Mode: Differential (Default)
+	- Channel 1: Voltage0-Voltage1
+	- Channel 2: Voltage2-Voltage3
+	- Channel 3: Voltage4-Voltage5
+- Mode: Single-end
+	- Channel 1: Voltage0
+	- Channel 2: Voltage1
+	- Channel 3: Voltage2
+	- Channel 4: Voltage3
+	- Channel 5: Voltage4
+	- Channel 6: Voltage5
+
+Current
+- Channel 1: Current0
+- Channel 2: Current1  
+  
+Path
+- /sys/bus/iio/devices/iio:device0/  
+
+Formula
+- raw * scale + offset  
+
 
 
 
