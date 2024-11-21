@@ -190,8 +190,8 @@ Use `lsblk` command to list information about block devices.
 root@pac6070:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1      179:0    0 14.6G  0 disk
-tqmmcblk1p1  179:1    0    2G  0 part
-mqmmcblk1p2  179:2    0 12.6G  0 part /
+`-mmcblk1p1  179:1    0    2G  0 part
+`-mmcblk1p2  179:2    0 12.6G  0 part /
 mmcblk1boot0 179:8    0    4M  1 disk
 mmcblk1boot1 179:16   0    4M  1 disk
 ```
@@ -247,19 +247,19 @@ The serial port’s mode and associated communication parameters will go back to
 
 ## System Time and Real-Time Clock(RTC)
 ### Adjust System Time
-PAC-6070 supports `timedatectl` command to manage the Linux system time. By Default, the system time is synchronized by NTP server.  
+The PAC-6070 supports the `timedatectl` command for managing the Linux system time. By default, the system time is synchronized with an NTP server when the network is connected.  
 
 ```
 root@pac6070:~# timedatectl
-               Local time: Thu 2024-07-18 13:47:56 CST
-           Universal time: Thu 2024-07-18 05:47:56 UTC
-                 RTC time: Thu 2024-07-18 05:47:56
+               Local time: Thu 2024-11-21 14:18:30 CST
+           Universal time: Thu 2024-11-21 06:18:30 UTC
+                 RTC time: Thu 2024-11-21 06:18:30
                 Time zone: Asia/Taipei (CST, +0800)
 System clock synchronized: yes
               NTP service: active
           RTC in local TZ: no
 ```  
-If you need to modify the system time manually, please follow the steps shown below: 
+If you need to modify the system time manually, please follow the steps shown below. Note that `timedatectl set-time` command will also update the hardware clock (RTC) to ensure synchronization.
 ```
 root@pac6070:~# timedatectl set-ntp no
 root@pac6070:~# timedatectl set-time "2024-07-18 14:00:00"
@@ -271,6 +271,21 @@ root@pac6070:~# timedatectl
 System clock synchronized: no
               NTP service: inactive
           RTC in local TZ: no
+```
+To re-enable NTP synchronization and update the RTC time, please follow the steps below:
+```
+root@pac6070:~# timedatectl set-ntp yes
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-11-21 14:37:54 CST
+           Universal time: Thu 2024-11-21 06:37:54 UTC
+                 RTC time: Wed 2024-11-20 18:01:38
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+root@pac6070:~# hwclock -w
+root@pac6070:~# hwclock -r
+2024-11-21 14:42:20.233690+08:00
 ```
 
 ## Software Package Management
@@ -353,8 +368,9 @@ Example 2, Set High of DO1
 `echo 0 > /gpio/DO1/value`  
 
 ## Setup SIM card
+Example: SIM7600E  
 ### PCIE Power
-PCIE power value is 1 means power on, 0 means power off.
+By default, the PCIE power value is set to 1. A value of 1 indicates that the power is on, while a value of 0 means the power is off.
 ```
 root@pac6070:~# cat /gpio/pciepower/value
 1
@@ -364,20 +380,25 @@ Power off the PCIE slot.
 echo 0 > /gpio/pciepower/value  
 ```
 
-PAC-6070 support the miniPCIe slot can be install LTE/4G module for communication.
-SIM Card setting is necessary before access by following:  
-==***NOTICE***==: Please unlock SIM PIN code first  
-Example: SIM7100E  
+PAC-6070 support the miniPCIe slot can be install LTE/4G module for communication.  
+
+
+### Package Installation  
+Please install the nessary package before setting.
 `apt install -y kernel-module-option kernel-module-qmi-wwan kernel-module-cdc-wdm kernel-module-usbnet libqmi-utils`  
-`apt install usbutils -y`  
-`apt install picocom -y`
+
+Install utilities for managing USB devices (usbutils) and serial communication (picocom)
+`apt install -y usbutils picocom`  
+
+### Check information of PCIE device
+The `usb-devices` command provides detailed information about USB devices connected to the system, focusing on how they are recognized and managed by the Linux kernel.
 ```
 root@pac6070:~# usb-devices
 
 T:  Bus=01 Lev=00 Prnt=00 Port=00 Cnt=00 Dev#=  1 Spd=480 MxCh= 1
 D:  Ver= 2.00 Cls=09(hub  ) Sub=00 Prot=01 MxPS=64 #Cfgs=  1
 P:  Vendor=1d6b ProdID=0002 Rev=06.06
-S:  Manufacturer=Linux 6.6.22 ehci_hcd
+S:  Manufacturer=Linux 6.6.32 ehci_hcd
 S:  Product=EHCI Host Controller
 S:  SerialNumber=ci_hdrc.0
 C:  #Ifs= 1 Cfg#= 1 Atr=e0 MxPwr=0mA
@@ -387,7 +408,7 @@ E:  Ad=81(I) Atr=03(Int.) MxPS=   4 Ivl=256ms
 T:  Bus=02 Lev=00 Prnt=00 Port=00 Cnt=00 Dev#=  1 Spd=480 MxCh= 1
 D:  Ver= 2.00 Cls=09(hub  ) Sub=00 Prot=01 MxPS=64 #Cfgs=  1
 P:  Vendor=1d6b ProdID=0002 Rev=06.06
-S:  Manufacturer=Linux 6.6.22 ehci_hcd
+S:  Manufacturer=Linux 6.6.32 ehci_hcd
 S:  Product=EHCI Host Controller
 S:  SerialNumber=ci_hdrc.1
 C:  #Ifs= 1 Cfg#= 1 Atr=e0 MxPwr=0mA
@@ -395,45 +416,44 @@ I:  If#= 0 Alt= 0 #EPs= 1 Cls=09(hub  ) Sub=00 Prot=00 Driver=hub
 E:  Ad=81(I) Atr=03(Int.) MxPS=   4 Ivl=256ms
 
 T:  Bus=02 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  2 Spd=480 MxCh= 0
-D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  2
-P:  Vendor=1e0e ProdID=9001 Rev=02.32
+D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=1e0e ProdID=9001 Rev=03.18
 S:  Manufacturer=SimTech, Incorporated
 S:  Product=SimTech, Incorporated
 S:  SerialNumber=0123456789ABCDEF
-C:  #Ifs= 7 Cfg#= 1 Atr=80 MxPwr=500mA
-I:  If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=ff Prot=ff Driver=(none)
+C:  #Ifs= 6 Cfg#= 1 Atr=a0 MxPwr=500mA
+I:  If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=ff Prot=ff Driver=option
 E:  Ad=01(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=81(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-I:  If#= 1 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=(none)
+I:  If#= 1 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
 E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=83(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
-I:  If#= 2 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=(none)
+I:  If#= 2 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
 E:  Ad=03(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=84(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=85(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
-I:  If#= 3 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=(none)
+I:  If#= 3 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
 E:  Ad=04(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=86(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=87(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
-I:  If#= 4 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=(none)
+I:  If#= 4 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=00 Prot=00 Driver=option
 E:  Ad=05(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=88(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=89(I) Atr=03(Int.) MxPS=  10 Ivl=32ms
-I:  If#= 5 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=(none)
+I:  If#= 5 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=qmi_wwan
 E:  Ad=06(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=8a(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=8b(I) Atr=03(Int.) MxPS=   8 Ivl=32ms
-I:  If#= 6 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=42 Prot=01 Driver=(none)
-E:  Ad=07(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=8c(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 ```  
+Use `lsusb` to list USB devices.
 ```
 root@pac6070:~# lsusb
 Bus 002 Device 002: ID 1e0e:9001 Qualcomm / Option SimTech, Incorporated
 Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```  
+The `mmcli` command is a tool used to interact with ModemManager, a service that manages mobile broadband (3G, 4G, LTE) devices in Linux systems.
 ```
 root@pac6070:~# mmcli -L
     /org/freedesktop/ModemManager1/Modem/0 [QUALCOMM INCORPORATED] 0
@@ -493,9 +513,11 @@ root@pac6070:~# mmcli -m 0
            | initial bearer ip type: ipv4v6
   ----------------------------------
   SIM      |       primary sim path: /org/freedesktop/ModemManager1/SIM/0
-  ```  
-  ```
-  root@pac6070:~# picocom /dev/ttyUSB2
+```  
+### To Verify PCIe Module Readiness with AT Commands
+Use the picocom command to access the serial interface of the PCIe module at /dev/ttyUSB2. Run the AT command `AT+CPIN?` to check if the module is ready. A response of +CPIN: READY indicates that the module is initialized and ready for operation.
+```
+root@pac6070:~# picocom /dev/ttyUSB2
 picocom v3.1
 
 port is        : /dev/ttyUSB2
@@ -704,6 +726,48 @@ $662390 \times 0.000002980 - 0 = 1.9739222mA ≈ 0.002A$
 
 Display - CLI `lsadc`  
 <img src="img/cli_current.png" width=800>
+
+## Restore to Factory Default
+Execute the command `restore factory` and `y`, this command will force PAC-6070 to boot again and start the restore process.
+```
+root@pac6070:~# restore factory
+Restore to factory, Sure ?(y/n)
+y
+...
+```
+During the restore process, the power LED remains solid green, while the ready LED flashes yellow. Once the process is complete, both LEDs will remain solid. This process may take 10~15 minutes.
+
+## Backup the File System
+After inserting a USB device into the PAC-6070, use the `lsblk` command to verify the path of the USB device.
+```
+root@pac6070:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda            8:0    1  7.4G  0 disk
+`-sda1         8:1    1  7.4G  0 part
+mmcblk1      179:0    0 14.6G  0 disk
+`-mmcblk1p1  179:1    0    2G  0 part
+mqmmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk
+mmcblk1boot1 179:16   0    4M  1 disk
+```
+Execute the command `backup /dev/sda1` and `y`, this command will force PAC-6070 to boot again to start the backup process.  
+```
+root@pac6070:~# backup /dev/sda1
+Backup to /dev/sda1, Sure ?(y/n)
+y
+...
+```
+During the backup process, the power LED remains solid green, while the ready LED flashes yellow. Once the process is complete, both LEDs will remain solid. This process may take 30~40 minutes.
+
+## Restore the File System
+Execute the command `restore /dev/sda1` and `y`, this command will force PAC-6070 to boot again to start the restore process.
+```
+root@pac6070:~# restore /dev/sda1
+Restore from /dev/sda1, Sure ?(y/n)
+y
+...
+```
+During the restore process, the power LED remains solid green, while the ready LED flashes yellow. Once the process is complete, both LEDs will remain solid. This process may take 10~15 minutes.
 
 ## UPnP Server
 The UPnP server enables seamless device discovery on the network. Using a Windows computer, you can find the device name under 'Network' in File Explorer. Right-clicking the device and selecting 'Properties' will display detailed device information. Additionally, double-clicking the device opens its web interface in your default browser for further configuration or access.  
