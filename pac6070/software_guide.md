@@ -151,16 +151,16 @@ For differential voltage input, the first channel is V1+ and V1-, the second cha
 |CH2|V2+ and V2-| 
 |CH3|V3+ and V3-|
 
-For single-end voltage input, the first channel is V1+, the second channel is V1-, the third channel is V2+, the fourth channel is V2-, the fifth channel is V3+, and the sixth channel is V3-.
+For single-end voltage input, the first channel is V1+ and AGND, the second channel is V1- and AGND, and so on, please refer to the following table:
 
 |Channel|Terminals|
 |---|---|
-|CH1|V1+|
-|CH2|V1-|
-|CH3|V2+|
-|CH4|V2-|
-|CH5|V3+|
-|CH6|V3-|
+|CH1|V1+ and AGND|
+|CH2|V1- and AGND|
+|CH3|V2+ and AGND|
+|CH4|V2- and AGND|
+|CH5|V3+ and AGND|
+|CH6|V3- and AGND|
 
 
 
