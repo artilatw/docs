@@ -589,6 +589,13 @@ If the channel is not connected to any test object. These readings should be ign
 
 ### Voltage  
 #### How To Change Mode  
+Pin definition
+|Mode|JP2|
+|---|---|
+|Differential|![pin12](img/pin12.png)|
+|Single-end|![pin23](img/pin23.png)|  
+
+Software configuration
 - Differential=1 (Default)
 - Single-end=0
 ```
@@ -784,7 +791,11 @@ Login
 <img src="img/login.png" width=800>  
 
 ### Dashboard
-<img src="img/dashboard.png" width=800>  
+Differential Mode
+<img src="img/dashboard_diff.png" width=800>  
+Single End Mode
+<img src="img/dashboard_single.png" width=800>
+
 
 ### IO Status
 <img src="img/io_status.png" width=800>  
