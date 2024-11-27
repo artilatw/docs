@@ -223,32 +223,31 @@ CH5_voltage = (in_voltage4_raw * in_voltage_voltage_scale) + in_voltage4_offset
 CH6_voltage = (in_voltage5_raw * in_voltage_voltage_scale) + in_voltage5_offset
 ```
 
+### Current Input Wiring
+Users can find current input terminals labeled as AI1, AI2 and AGND.
+
+The file paths of the current inputs are located in /sys/bus/iio/devices/iio:device0/
+
+|Channel|Raw Value Path|Offset Value Path|
+|---|---|---|
+|CH1|in_current0_raw|in_current0_offset|
+|CH2|in_current1_raw|in_current1_offset|
+
+In the same directory, there is an **in_current_current_scale** file stores the scale value which needs to multiply with raw data to get the current value.
+
+The common formula to calculate the current is:
+```
+current = (raw * scale) + offset
+```
+
+Below are the formulas to calculate the current value of each channel:
+```
+CH1_current = (in_current0_raw * in_current_current_scale) + in_current0_offset
+
+CH2_current = (in_current1_raw * in_current_current_scale) + in_current1_offset
+```
 
 
-
-
-Voltage
-- Mode: Differential (Default)
-	- Channel 1: Voltage0-Voltage1
-	- Channel 2: Voltage2-Voltage3
-	- Channel 3: Voltage4-Voltage5
-- Mode: Single-end
-	- Channel 1: Voltage0
-	- Channel 2: Voltage1
-	- Channel 3: Voltage2
-	- Channel 4: Voltage3
-	- Channel 5: Voltage4
-	- Channel 6: Voltage5
-
-Current
-- Channel 1: Current0
-- Channel 2: Current1  
-  
-Path
-- /sys/bus/iio/devices/iio:device0/  
-
-Formula
-- raw * scale + offset  
 
 
 
