@@ -190,6 +190,41 @@ For single-end voltage input, the first channel is V1+ and AGND, the second chan
 |CH5|V3+ and AGND|
 |CH6|V3- and AGND|
 
+The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
+
+|Channel|Raw Value Path|Offset Value Path|
+|---|---|---|
+|CH1|in_voltage0_raw|in_voltage0_offset|
+|CH2|in_voltage1_raw|in_voltage1_offset|
+|CH3|in_voltage2_raw|in_voltage2_offset|
+|CH4|in_voltage3_raw|in_voltage3_offset|
+|CH5|in_voltage4_raw|in_voltage4_offset|
+|CH6|in_voltage5_raw|in_voltage5_offset|
+
+In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
+
+The common formula to calculate the voltage is:
+```
+voltage = (raw * scale) + offset
+```
+
+Below are the formulas to calculate the voltage value of each channel:
+```
+CH1_voltage = (in_voltage0_raw * in_voltage_voltage_scale) + in_voltage0_offset
+
+CH2_voltage = (in_voltage1_raw * in_voltage_voltage_scale) + in_voltage1_offset
+
+CH3_voltage = (in_voltage2_raw * in_voltage_voltage_scale) + in_voltage2_offset
+
+CH4_voltage = (in_voltage3_raw * in_voltage_voltage_scale) + in_voltage3_offset
+
+CH5_voltage = (in_voltage4_raw * in_voltage_voltage_scale) + in_voltage4_offset
+
+CH6_voltage = (in_voltage5_raw * in_voltage_voltage_scale) + in_voltage5_offset
+```
+
+
+
 
 
 Voltage
