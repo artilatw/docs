@@ -1,7 +1,7 @@
 # PAC-6070 Software Guide
 
 ## Access Ethernet Ports
-PAC-6070 come two Ethernet ports, the default network settings are shown below:  
+PAC-6070 come two 10/100Mbit Ethernet ports, the default network settings are shown below:  
 |Port Label|Device mapping|IP mode|IP address|
 |---|---|---|---|
 |LAN1|eth0|DHCP|auto|
@@ -349,7 +349,7 @@ baud: 115200
 ```
 
 ## Network Interface Settings
-PAC-6070 come two Ethernet ports, the default network settings are shown below:  
+PAC-6070 come two 10/100Mbit Ethernet ports, the default network settings are shown below:  
 |Port Label|Device mapping|IP mode|IP address|
 |---|---|---|---|
 |LAN1|eth0|DHCP|auto|
