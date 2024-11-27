@@ -346,38 +346,6 @@ Port 1 ==> type: RS485
 baud: 115200
 ```
 
-
-
-
-
-## Access the USB Serial Console
-### Serial Console Log-in
-User name: root  
-Password: root  
-|PAC-6070 comes with a<br>4 pin wafer box female|Wafer box to DB9 Female Console Cable|Desktop/Notebook PC with a <br>USB to DB9 RS232 Converter Cable|
-|:--:|:--:|:--:|
-|![PAC 6070](img/pac6070.png)|![Console Cable](img/console_cable.png)|<img src="./img/notebook.png" width=300>|
-
-Following example by PAC-6070
-```
-Ubuntu 22.04.4 LTS pac6070 ttymxc0
-
-pac6070 login: root
-Password:
-Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.6.22 armv7l)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
-
-This system has been minimized by removing packages and content that are
-not required on a system that users do not log into.
-
-To restore this content, you can run the 'unminimize' command.
-Last login: Wed Nov 22 04:57:55 CST 2023 on ttymxc0
-root@pac6070:~#
-```
-
 ## Network Settings
 ### Config the Network Interface
 PAC-6070 come two Ethernet ports, the default network settings are shown below:  
@@ -386,66 +354,12 @@ PAC-6070 come two Ethernet ports, the default network settings are shown below:
 |10/100Mbit|LAN|eth0|DHCP|auto|
 |10/100Mbit|LAN|eth1|static|192.168.2.127|  
 
-Users may need to modify the network settings to meet their LAN environment. The network interface configuration file path is /etc/network/interfaces. Edit and save the configuration file, then use `systemctl restart NetworkManager` command to restart the network interface to activate the network settings.  
-
-Default network settings are shown below:
-```
-root@pac6070:~# cat /etc/network/interfaces
-# /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
-
-... ...
-
-auto eth0
-    iface eth0 inet dhcp
-    #    address 192.168.1.100
-    #    netmask 255.255.255.0
-    #    network 192.168.1.0
-    #    gateway 192.168.1.1
-
-auto eth1
-    iface eth1 inet static
-        address 192.168.2.127
-        netmask 255.255.255.0
-        network 192.168.2.0
-        gateway 192.168.2.1
-        
-... ...
-```  
-Set the IP address of eth0 to static IP address.  
-```
-root@pac6070:~# cat /etc/network/interfaces
-# /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
-
-... ...
-
-auto eth0
-    iface eth0 inet static
-    address 192.168.1.100
-    netmask 255.255.255.0
-    network 192.168.1.0
-    gateway 192.168.1.1
-    dns-nameservers 192.168.1.1
-
-auto eth1
-    iface eth1 inet static
-        address 192.168.2.127
-        netmask 255.255.255.0
-        network 192.168.2.0
-        gateway 192.168.2.1
-
-... ...
-```
-Restart the network interface to activate the network settings.  
+Users may need to modify the network settings to meet their LAN environment. The network interface configuration file path is **/etc/network/interfaces**. Edit and save the configuration file, then use **systemctl restart NetworkManager** command to restart the network interface to activate the network settings shown below:  
 ```
 root@pac6070:~# systemctl restart NetworkManager
 root@pac6070:~# ifconfig eth0 down && ifconfig eth0 up
 root@pac6070:~# ip a show eth0
-2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:13:48:00:00:00 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.100/24 brd 192.168.1.255 scope global noprefixroute eth0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::7bea:679b:7e44:3b1b/64 scope link tentative noprefixroute
-       valid_lft forever preferred_lft forever
+...
 ```
 
 ### Configure the DNS Server
