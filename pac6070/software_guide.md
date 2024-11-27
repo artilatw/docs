@@ -1,9 +1,11 @@
 # PAC-6070 Software Guide
 
 ## Access Ethernet Ports
-The PAC-6070 comes with two Ethernet ports, labeled as LAN1 and LAN2. By default, the IP address of LAN2 is 192.168.2.127 and the IP address of LAN1 is assigned by DHCP.
-
-LAN1 is mapped to eth0 and LAN2 is mapped to eth1.
+PAC-6070 come two Ethernet ports, the default network settings are shown below:  
+|Port Label|Device mapping|IP mode|IP address|
+|---|---|---|---|
+|LAN1|eth0|DHCP|auto|
+|LAN2|eth1|static|192.168.2.127|
 
 ## SSH Connection via LAN2
 Users need to configure their PC/Notebook's network settings properly to start an SSH connection via LAN2.
