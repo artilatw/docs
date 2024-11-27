@@ -299,22 +299,17 @@ The web-based tool is hosted on the PAC-6070 at http://192.168.2.127
 
 <img src="img/login.png" width=600>  
 
-### Dashboard
+### Analog Input Dashboard
 - Differential mode
 <img src="img/dashboard_diff.png" width=600>
 
 - Single-end mode
 <img src="img/dashboard_single.png" width=600>
 
-### IO Status
+### Digital I/O Status
 <img src="img/io_status.png" width=600>  
 
-### Manage Ethernet and Uart
-<img src="img/management.png" width=600>
-
-
 ## RS-485 Serial Port Settings
-
 ### Port Mapping
 PAC-6070 come with one RS-485 port.
 
