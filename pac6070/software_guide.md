@@ -275,7 +275,7 @@ CH2_current = (in_current1_raw * in_current_current_scale) + in_current1_offset
 ```
 
 ### Analog Input Utility
-The PAC-6070 provides an utility **lsadc** to read the analog input values.
+The PAC-6070 provides a command line utility **lsadc** to keep reading the analog input values and display the results on the screen.
 ```
 root@pac6070:~# lsadc
 ```
