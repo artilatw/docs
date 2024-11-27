@@ -146,7 +146,7 @@ The PAC-6070 provides 3 channels of differential voltage inputs or 6 channels of
 ### Voltage Input Wiring
 Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
 
-### Differential Input
+### Differential Input Channels
 For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
 |Differential Channel|Terminals|
 |---|---|
@@ -179,7 +179,7 @@ CH2_voltage = (in_voltage2_voltage3_raw * in_voltage_voltage_scale) + in_voltage
 CH3_voltage = (in_voltage4_voltage5_raw * in_voltage_voltage_scale) + in_voltage4_voltage5_offset
 ```
 
-### Single-end Input
+### Single-end Input Channels
 For single-end voltage input, the first channel is V1+ and AGND, the second channel is V1- and AGND, and so on, please refer to the following table:
 
 |Single-end Channel|Terminals|
@@ -227,6 +227,12 @@ CH6_voltage = (in_voltage5_raw * in_voltage_voltage_scale) + in_voltage5_offset
 
 ### Current Input Wiring
 Users can find current input terminals labeled as AI1, AI2 and AGND.
+
+### Current Input Channels
+|Current Channel|Terminals|
+|---|---|
+|CH1|AI1 and AGND|
+|CH2|AI2 and AGND|
 
 ### Current Input Calculation
 The file paths of the current inputs are located in /sys/bus/iio/devices/iio:device0/
