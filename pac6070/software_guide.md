@@ -346,14 +346,20 @@ Port 1 ==> type: RS485
 baud: 115200
 ```
 
-## Network Settings
-### Config the Network Interface
+## Network Interface Settings
 PAC-6070 come two Ethernet ports, the default network settings are shown below:  
-|Ethernet Type|Port Label|Device mapping|IP mode|IP address|
-|---|---|---|---|---|
-|10/100Mbit|LAN1|eth0|DHCP|auto|
-|10/100Mbit|LAN2|eth1|static|192.168.2.127|  
+|Port Label|Device mapping|IP mode|IP address|
+|---|---|---|---|
+|LAN1|eth0|DHCP|auto|
+|LAN2|eth1|static|192.168.2.127|
 
+### Display the Network Settings
+```
+root@pac6070:~# ip a show eth0
+root@pac6070:~# ip a show eth1
+```
+
+### Modify the Network Settings
 To modify network settings according to your LAN environment, follow these steps:
 
 1. Edit the network interface configuration file:
@@ -373,7 +379,6 @@ Note: Replace eth0 with the appropriate interface name (eth0 or eth1) that you w
 root@pac6070:~# systemctl restart NetworkManager
 root@pac6070:~# ifconfig eth0 down && ifconfig eth0 up
 root@pac6070:~# ip a show eth0
-...
 ```
 
 ### Configure the DNS Server
