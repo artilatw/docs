@@ -279,10 +279,12 @@ The PAC-6070 provides an utility **lsadc** to read the analog input values.
 ```
 root@pac6070:~# lsadc
 ```
-The following is the screenshot of the **lsadc** utility.
+The following are the screenshots of the **lsadc** utility.
 
+- Differential mode
 <img src="img/cli_diff.png" width=600> 
 
+- Single-end mode       
 <img src="img/cli_single.png" width=600> 
 
 
