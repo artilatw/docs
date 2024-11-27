@@ -154,6 +154,7 @@ For differential voltage input, the first channel is V1+ and V1-, the second cha
 |CH2|V2+ and V2-| 
 |CH3|V3+ and V3-|
 
+### Differential Input Calculation
 The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
 
 |Channel|Raw Value Path|Offset Value Path|
@@ -190,6 +191,7 @@ For single-end voltage input, the first channel is V1+ and AGND, the second chan
 |CH5|V3+ and AGND|
 |CH6|V3- and AGND|
 
+### Single-end Input Calculation
 The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
 
 |Channel|Raw Value Path|Offset Value Path|
@@ -226,6 +228,7 @@ CH6_voltage = (in_voltage5_raw * in_voltage_voltage_scale) + in_voltage5_offset
 ### Current Input Wiring
 Users can find current input terminals labeled as AI1, AI2 and AGND.
 
+### Current Input Calculation
 The file paths of the current inputs are located in /sys/bus/iio/devices/iio:device0/
 
 |Channel|Raw Value Path|Offset Value Path|
