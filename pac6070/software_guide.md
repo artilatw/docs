@@ -150,7 +150,7 @@ Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- a
 
 ### Voltage Input Mode Setting
 The voltage input supports differential mode or single-end mode.
-User can modify /etc/modprobe.d/ad4111.conf file to set the voltage input mode.
+User can modify **/etc/modprobe.d/ad4111.conf** file to set the voltage input mode.
 ```
 options ad4111 differential=1
 or
@@ -158,6 +158,11 @@ options ad4111 differential=0
 ```
 differential=1 means differential mode.
 differential=0 means single-end mode.
+
+If the voltage input mode is changed, please reboot the system to activate the new settings.
+```
+root@pac6070:~# reboot
+```
 
 ### Differential Input Channels
 For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
@@ -269,9 +274,12 @@ CH1_current = (in_current0_raw * in_current_current_scale) + in_current0_offset
 CH2_current = (in_current1_raw * in_current_current_scale) + in_current1_offset
 ```
 
-
-
-
+### Analog Input Utility
+The PAC-6070 provides an utility **lsadc** to read the analog input values.
+```
+root@pac6070:~# lsadc
+```
+<img src="img/cli_lsadc.png" width=600>  
 
 
 
