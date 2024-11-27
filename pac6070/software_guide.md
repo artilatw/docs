@@ -287,11 +287,11 @@ The following are the screenshots of the **lsadc** utility.
 - Single-end mode       
 <img src="img/cli_single.png" width=600> 
 
-## Web-based Tools
-The PAC-6070 provides a simple web-based tool to monitor the voltage and current inputs. Besides, users can also monitor all the digital I/O status and control the digital outputs.
+## Built-in Web-based Tool
+The PAC-6070 comes with a web-based tool to monitor the voltage and current inputs. Besides, users can also monitor all the digital I/O status and control the digital outputs.
 
 ### Access the Web-based Tool
-The web-based tool is hosted on the PAC-6070 at http://192.168.2.127
+The web-based tool is hosted on the PAC-6070 at http://192.168.2.127 (please adjust the IP address according to your network settings).
 
 ### Login  
 - account: admin
