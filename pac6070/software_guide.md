@@ -297,16 +297,20 @@ The web-based tool is hosted on the PAC-6070 at http://192.168.2.127
 - account: admin
 - password: admin  
 
-<img src="img/login.png" width=800>  
+<img src="img/login.png" width=600>  
 
 ### Dashboard
-<img src="img/dashboard.png" width=800>  
+- Differential mode
+<img src="img/dashboard_diff.png" width=600>
+
+- Single-end mode
+<img src="img/dashboard_single.png" width=600>
 
 ### IO Status
-<img src="img/io_status.png" width=800>  
+<img src="img/io_status.png" width=600>  
 
 ### Manage Ethernet and Uart
-<img src="img/management.png" width=800>
+<img src="img/management.png" width=600>
 
 
 ## RS-485 Serial Port Settings
