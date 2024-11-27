@@ -13,7 +13,7 @@
         - [Configuration Guide](matrix900/configuration.md)
         - Software Guide
         
-- Linux ARM Programmable Automation Controller
+- Industrial IoT Controller
   - PAC-6070
       - [Data Sheet](pac6070/datasheet.md)
       - [Hardware Guide](pac6070/hardware_guide.md)
