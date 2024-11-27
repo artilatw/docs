@@ -8,7 +8,7 @@ PAC-6070 come two 10/100Mbit Ethernet ports, the default network settings are sh
 |LAN2|eth1|static|192.168.2.127|
 
 ## SSH Connection via LAN2
-Users need to configure their PC/Notebook's network settings properly to start an SSH connection via LAN2.
+Users need to configure their PC/Notebook's network settings properly to start an SSH connection via **LAN2**.
 
 ### Login with guest account
 By default, the PAC-6070 is not allowed to login as a root account via SSH. You can login as a guest account. The default guest user name is guest and the password is guest.
