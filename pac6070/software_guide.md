@@ -287,6 +287,44 @@ The following are the screenshots of the **lsadc** utility.
 - Single-end mode       
 <img src="img/cli_single.png" width=600> 
 
+## RS-485 Serial Port Settings
+
+### Port Mapping
+PAC-6070 come with one RS-485 port.
+
+|Port Number|Device Mapping|
+|---|---|
+|1|/dev/ttymxc1|
+
+### Configure the Serial Port
+If you need to modify the serial port settings, use the **setuart** command.
+```
+root@pac6070:~# setuart -h
+Artila utility: setuart
+Usage: setuart [OPTION]
+
+ -h         display this help and exit
+ -v         print version number and exit
+ -p         uart port number
+ -t         uart interface type [232, 485]
+ -b         set baud rate, up to 921600bps
+
+Examples:
+  setuart -p 1                      display port 1 type and baud rate
+  setuart -p 1 -t 485 -b 115200     set port 1 type RS-485 and baud rate to 115200
+  setuart -p 1 -t 232 -b 9600       set port 1 type to RS-232 and baud rate to 9600
+```
+***Caution***  
+The serial port’s mode and associated communication parameters will go back to factory default after system reboot.  
+
+### Default Serial Port Settings
+The default serial port settings are shown below:
+```
+root@pac6070:~# setuart -p1
+Port 1 ==> type: RS485
+baud: 115200
+```
+
 
 
 
@@ -453,37 +491,7 @@ Default is not allowed to login as root account via SSH in Ubuntu 22.04. To enab
  - `systemctl restart sshd` to restart the SSH service.
 
 
-## Serial Port Settings
-### Port Mapping 
-|Port Number|Device Mapping|
-|---|---|
-|1|/dev/ttymxc1|
-### Configure the Serial Port
-PAC-6070 only come with 1 RS-485 port. The default serial port settings are shown below:  
-```
-root@pac6070:~# setuart -p1
-Port 1 ==> type: RS485
-baud: 115200
-```
-If you need to modify the serial port settings, use the `setuart` command.
-```
-root@pac6070:~# setuart -h
-Artila utility: setuart
-Usage: setuart [OPTION]
 
- -h         display this help and exit
- -v         print version number and exit
- -p         uart port number
- -t         uart interface type [232, 485]
- -b         set baud rate, up to 921600bps
-
-Examples:
-  setuart -p 1                      display port 1 type and baud rate
-  setuart -p 1 -t 485 -b 115200     set port 1 type RS-485 and baud rate to 115200
-  setuart -p 1 -t 232 -b 9600       set port 1 type to RS-232 and baud rate to 9600
-```
-***Caution***  
-The serial port’s mode and associated communication parameters will go back to factory default after system reboot.  
 
 
 ## Software Package Management
@@ -747,176 +755,6 @@ Terminating...
 Skipping tty reset...
 Thanks for using picocom
 ```
-
-
-## Setup analog input
-### Overview
-Voltage
-- Mode: Differential (Default)
-	- Channel 1: Voltage0-Voltage1
-	- Channel 2: Voltage2-Voltage3
-	- Channel 3: Voltage4-Voltage5
-- Mode: Single-end
-	- Channel 1: Voltage0
-	- Channel 2: Voltage1
-	- Channel 3: Voltage2
-	- Channel 4: Voltage3
-	- Channel 5: Voltage4
-	- Channel 6: Voltage5
-
-Current
-- Channel 1: Current0
-- Channel 2: Current1  
-  
-Path
-- /sys/bus/iio/devices/iio:device0/  
-
-Formula
-- raw * scale + offset  
-
-***Caution***  
-Always ensure that test objects are properly connected to the analog input channels to avoid unstable and floating readings.  
-If the channel is not connected to any test object. These readings should be ignored as they do not represent valid physical measurements.
-
-### Voltage  
-#### How To Change Mode  
-- Differential=1 (Default)
-- Single-end=0
-```
-root@pac6070:~# cat /etc/modprobe.d/ad4111.conf
-options ad4111 differential=1
-```
-reboot after modify the config file.
-
-#### Differential Mode
-***Example - Apply a 5V voltage to the V1+ and V1- terminals of the analog input:***  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# ls
-buffer              in_current1_raw                     in_voltage0-voltage1_raw     of_node                       trigger
-buffer0             in_current_scale                    in_voltage2-voltage3_offset  power                         uevent
-dev                 in_current_scale_available          in_voltage2-voltage3_raw     sampling_frequency            waiting_for_supplier
-in_current0_offset  in_voltage-voltage_scale            in_voltage4-voltage5_offset  sampling_frequency_available
-in_current0_raw     in_voltage-voltage_scale_available  in_voltage4-voltage5_raw     scan_elements
-in_current1_offset  in_voltage0-voltage1_offset         name                         subsystem
-```  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_raw
-10132696
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0-voltage1_offset
--24038
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage-voltage_scale
-0.002865602
-```  
-$10132696 \times 0.002865602 - 24038 = 4998.27392299mV ≈ 5V$
-
-Display - CLI `lsadc`  
-<img src="img/cli_diff.png" width=800>
-
-Dump the IIO attributes `iio_info`
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# iio_info
-Library version: 0.23 (git tag: v0.23)
-Compiled with backends: local xml ip usb
-IIO context created with local backend.
-Backend version: 0.23 (git tag: v0.23)
-Backend description string: Linux pac6070 6.6.32 #1 Sat May 25 14:22:56 UTC 2024 armv7l
-IIO context has 2 attributes:
-        local,kernel: 6.6.32
-        uri: local:
-IIO context has 2 devices:
-        iio:device0: ad4111 (buffer capable)
-                5 channels found:
-                        voltage0-voltage1:  (input, index: 0, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 10132703
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage2-voltage3:  (input, index: 1, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8443036
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        voltage4-voltage5:  (input, index: 2, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: -24038
-                                attr  1: raw value: 8442532
-                                attr  2: scale value: 0.002865602
-                                attr  3: scale_available value: 0.000000000
-                        current0:  (input, index: 3, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 0
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                        current1:  (input, index: 4, format: be:u24/32>>0)
-                        4 channel-specific attributes found:
-                                attr  0: offset value: 0
-                                attr  1: raw value: 0
-                                attr  2: scale value: 0.000002980
-                                attr  3: scale_available value: 0.000000000
-                3 device-specific attributes found:
-                                attr  0: sampling_frequency value: 31250
-                                attr  1: sampling_frequency_available value: 31250 31250 31250 31250 31250 31250 15625 10417 5208
-                                attr  2: waiting_for_supplier value: 0
-                3 buffer-specific attributes found:
-                                attr  0: data_available value: 0
-                                attr  1: direction value: in
-                                attr  2: watermark value: 1
-                Current trigger: trigger0(ad4111-dev0)
-        trigger0: ad4111-dev0
-                0 channels found:
-                No trigger on this device
-``` 
-
-#### Single End Mode
-***Example - Apply a 5V voltage to the V1+ and AGND terminals of the analog input:***  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# ls
-buffer              in_current1_raw             in_voltage1_raw     in_voltage4_raw             of_node                       trigger
-buffer0             in_current_scale            in_voltage2_offset  in_voltage5_offset          power                         uevent
-dev                 in_current_scale_available  in_voltage2_raw     in_voltage5_raw             sampling_frequency            waiting_for_supplier
-in_current0_offset  in_voltage0_offset          in_voltage3_offset  in_voltage_scale            sampling_frequency_available
-in_current0_raw     in_voltage0_raw             in_voltage3_raw     in_voltage_scale_available  scan_elements
-in_current1_offset  in_voltage1_offset          in_voltage4_offset  name                        subsystem
-```  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_raw
-10132960
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage0_offset
--24038
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_voltage_scale
-0.002865602
-```  
-$10132960 \times 0.002865602 - 24038 = 4999.03044192mV ≈ 5V$
-
-Display - CLI `lsadc`  
-<img src="img/cli_single.png" width=800>
-
-### Current
-***Example - Configure the circuit to allow a 2mA current to flow between the AI1 and AGND terminals of the analog input:***  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# ls
-buffer              in_current1_raw                     in_voltage0-voltage1_raw     of_node                       trigger
-buffer0             in_current_scale                    in_voltage2-voltage3_offset  power                         uevent
-dev                 in_current_scale_available          in_voltage2-voltage3_raw     sampling_frequency            waiting_for_supplier
-in_current0_offset  in_voltage-voltage_scale            in_voltage4-voltage5_offset  sampling_frequency_available
-in_current0_raw     in_voltage-voltage_scale_available  in_voltage4-voltage5_raw     scan_elements
-in_current1_offset  in_voltage0-voltage1_offset         name                         subsystem
-```  
-```
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current0_raw
-662390
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current0_offset
-0
-root@pac6070:/sys/bus/iio/devices/iio:device0# cat in_current_scale
-0.000002980
-```  
-$662390 \times 0.000002980 - 0 = 1.9739222mA ≈ 0.002A$
-
-Display - CLI `lsadc`  
-<img src="img/cli_current.png" width=800>
 
 ## Website  
 Visit the website hosted on the PAC-6070 using a web browser.  
