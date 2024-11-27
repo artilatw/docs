@@ -287,6 +287,28 @@ The following are the screenshots of the **lsadc** utility.
 - Single-end mode       
 <img src="img/cli_single.png" width=600> 
 
+## Web-based Tools
+The PAC-6070 provides a simple web-based tool to monitor the voltage and current inputs. Besides, users can also monitor all the digital I/O status and control the digital outputs.
+
+### Access the Web-based Tool
+The web-based tool is hosted on the PAC-6070 at http://192.168.2.127
+
+### Login  
+- account: admin
+- password: admin  
+
+<img src="img/login.png" width=800>  
+
+### Dashboard
+<img src="img/dashboard.png" width=800>  
+
+### IO Status
+<img src="img/io_status.png" width=800>  
+
+### Manage Ethernet and Uart
+<img src="img/management.png" width=800>
+
+
 ## RS-485 Serial Port Settings
 
 ### Port Mapping
@@ -756,20 +778,3 @@ Skipping tty reset...
 Thanks for using picocom
 ```
 
-## Website  
-Visit the website hosted on the PAC-6070 using a web browser.  
-
-Login  
-- account: admin
-- password: admin  
-
-<img src="img/login.png" width=800>  
-
-### Dashboard
-<img src="img/dashboard.png" width=800>  
-
-### IO Status
-<img src="img/io_status.png" width=800>  
-
-### Manage Ethernet and Uart
-<img src="img/management.png" width=800>
