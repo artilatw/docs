@@ -311,6 +311,29 @@ The web-based tool is hosted on the PAC-6070 at http://192.168.2.127 (please adj
 ### Digital I/O Status
 <img src="img/io_status.png" width=600>  
 
+## Software Package Management
+The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
+
+### Basic Package Operations
+- `apt install <package>` - Install a new package
+- `apt remove <package>` - Remove an installed package 
+- `apt purge <package>` - Remove package and its configuration files
+- `apt autoremove` - Remove automatically installed dependencies that are no longer needed
+
+### Package Information
+- `apt search <keyword>` - Search for packages matching keyword
+- `apt show <package>` - Show detailed package information
+- `apt list --installed` - List all installed packages
+
+### System Updates
+- `apt update` - Update package index from repositories
+- `apt upgrade` - Upgrade all upgradeable packages
+- `apt full-upgrade` - Upgrade packages with auto-handling of dependencies
+- `apt dist-upgrade` - Smart upgrade that handles changing dependencies
+
+Note: Most apt commands require root privileges. Use sudo if not logged in as root.
+
+
 ## RS-485 Serial Port Settings
 ### Port Mapping
 PAC-6070 come with one RS-485 port.
