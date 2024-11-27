@@ -351,10 +351,10 @@ baud: 115200
 PAC-6070 come two Ethernet ports, the default network settings are shown below:  
 |Ethernet Type|Port Label|Device mapping|IP mode|IP address|
 |---|---|---|---|---|
-|10/100Mbit|LAN|eth0|DHCP|auto|
-|10/100Mbit|LAN|eth1|static|192.168.2.127|  
+|10/100Mbit|LAN1|eth0|DHCP|auto|
+|10/100Mbit|LAN2|eth1|static|192.168.2.127|  
 
-Users may need to modify the network settings to meet their LAN environment. The network interface configuration file path is **/etc/network/interfaces**. Edit and save the configuration file, then use **systemctl restart NetworkManager** command to restart the network interface to activate the network settings shown below:  
+Users may need to modify the network settings to meet their LAN environment. The network interface configuration file path is **/etc/network/interfaces**. Edit and save the configuration file, then use **systemctl restart NetworkManager** command to restart the network manager, then use **ifconfig down** command to shutdown the network interface, and use **ifconfig up** command to restart the network interface, to activate the new settings.  
 ```
 root@pac6070:~# systemctl restart NetworkManager
 root@pac6070:~# ifconfig eth0 down && ifconfig eth0 up
