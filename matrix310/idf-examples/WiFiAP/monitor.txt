@@ -1,0 +1,6 @@
+WiFi AP example:
+ESP_WIFI_MODE_AP
+wifi_init_softap finished.
+SSID:Matrix-310
+password:00000000
+channel:1

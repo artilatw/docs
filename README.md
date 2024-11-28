@@ -14,6 +14,8 @@
         - Software Guide
         
 - Industrial IoT Controller
+  - Matrix-310
+      - [Example](matrix310)
   - PAC-6070
       - [Data Sheet](pac6070/datasheet.md)
       - [Hardware Guide](pac6070/hardware_guide.md)
