@@ -1,8 +1,8 @@
-# Using LTE-4G miniPCIe Module
+# Using LTE miniPCIe Module
 
 The Matrix-752 comes with a miniPCIe solt which supports SIMCom LTE module.
 
-## Using module SIM7600E
+## Using SIMCom SIM7600E
 ### Driver Installation
 - `apt install -y kernel-module-option`
 - `apt install -y kernel-module-sim7500-sim7600-wwan`
