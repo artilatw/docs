@@ -1,7 +1,7 @@
 # Artila Documentation Center
 
 ## Table of Contents
-- Intelligent IoT Gateway
+- Linux ARM Industrial Box Computer
     - Matrix-770
       - [Data Sheet](matrix770/datasheet.md)
       - [Software Guide](matrix770/software_guide.md)
@@ -15,7 +15,7 @@
         
 - Industrial IoT Controller
   - Matrix-310
-      - [Example](matrix310)
+      - [Examples](matrix310)
   - PAC-6070
       - [Data Sheet](pac6070/datasheet.md)
       - [Hardware Guide](pac6070/hardware_guide.md)
