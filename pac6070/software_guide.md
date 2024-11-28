@@ -333,8 +333,8 @@ The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package mana
 
 Note: Most apt commands require root privileges. Use sudo if not logged in as root.
 
-## Mount/Unmount an SD Card
-The PAC-6070 supports SD card storage expansion through its built-in SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0 for SD cards), and then mount it to any directory using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
+## Using SD Card
+The PAC-6070 supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory(e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
 
 Before SD Insertion
 ```
