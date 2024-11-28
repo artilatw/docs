@@ -333,6 +333,57 @@ The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package mana
 
 Note: Most apt commands require root privileges. Use sudo if not logged in as root.
 
+## Mount/Unmount an SD Card
+The PAC-6070 supports SD card storage expansion through its built-in SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0 for SD cards), and then mount it to any directory using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
+
+Before SD Insertion
+```
+root@pac6070:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk 
+├─mmcblk1p1  179:1    0    2G  0 part 
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk 
+mmcblk1boot1 179:16   0    4M  1 disk 
+```  
+After SD Insertion
+```
+root@pac6070:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk
+├─mmcblk1p1  179:1    0    2G  0 part
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk
+mmcblk1boot1 179:16   0    4M  1 disk
+mmcblk0      179:24   0  7.3G  0 disk
+└─mmcblk0p1  179:25   0  7.3G  0 part
+```  
+Mount mmcblk0 to /media.  
+```
+root@pac6070:~# mount /dev/mmcblk0p1 /media/
+root@pac6070:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk
+├─mmcblk1p1  179:1    0    2G  0 part
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk
+mmcblk1boot1 179:16   0    4M  1 disk
+mmcblk0      179:24   0  7.3G  0 disk
+└─mmcblk0p1  179:25   0  7.3G  0 part /media
+```  
+Unmount /media
+```
+root@pac6070:~# umount /media/
+```  
+
+
+
+
+
+
+
+
+
 
 ## RS-485 Serial Port Settings
 ### Port Mapping
