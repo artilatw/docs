@@ -277,11 +277,11 @@ CH2_current = (in_current1_raw * in_current_current_scale) + in_current1_offset
 ```
 
 ### Analog Input Utility
-The PAC-6070 provides a command line utility **lsadc** to keep reading the analog input values and display the results on the screen.
+The PAC-6070 provides a command line utility `lsadc` which displays real-time analog input readings in both differential and single-end modes. Below are example screenshots showing the output format and measurement values:
+
 ```
 root@pac6070:~# lsadc
 ```
-The following are the screenshots of the **lsadc** utility.
 
 - Differential mode
 <img src="img/cli_diff.png" width=600> 
@@ -334,7 +334,7 @@ The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package mana
 Note: Most apt commands require root privileges. Use sudo if not logged in as root.
 
 ## Using SD Card
-The PAC-6070 supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory(e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
+The PAC-6070 supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory (e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
 
 Before SD Insertion
 ```
