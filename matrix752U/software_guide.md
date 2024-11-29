@@ -108,208 +108,32 @@ System clock synchronized: no
 
 ## Access Digital I/O  
 ### DIO Mapping
-The PAC-6070 comes with 8x opto-isolated digital inputs and 8x relay digital outputs. Below is the DIO mapping table:
+The Matrix-752U comes with 2x opto-isolated digital inputs and 2x relay digital outputs. Below is the DIO mapping table:
 
 |DI Number|Device Mapping|DO Number|Device Mapping|
 |---|---|--|---|
 |DI1|/gpio/DI1|DO1|/gpio/DO1|
 |DI2|/gpio/DI2|DO2|/gpio/DO2|
-|DI3|/gpio/DI3|DO3|/gpio/DO3|
-|DI4|/gpio/DI4|DO4|/gpio/DO4|
-|DI5|/gpio/DI5|DO5|/gpio/DO5|
-|DI6|/gpio/DI6|DO6|/gpio/DO6|
-|DI7|/gpio/DI7|DO7|/gpio/DO7|
-|DI8|/gpio/DI8|DO8|/gpio/DO8|
-
 ```
-root@pac6070:~# ls /gpio/
-DI1  DI3  DI5  DI7  DO1  DO3  DO5  DO7  pciepower
-DI2  DI4  DI6  DI8  DO2  DO4  DO6  DO8
+root@matrix752:~# ls /gpio
+DI1  DI2  DO1  DO2
 ```
 
 ### Read Digital Input
 Example: read value of DI1  
 ```
-root@pac6070:~# cat /gpio/DI1/value  
+root@matrix752:~# cat /gpio/DI1/value  
 ```
 ### Write Digital Output
 Example: 
 If DO1 relay is at NO (normally open) mode, the following command will let the relay close.
 ```  
-root@pac6070:~# echo 1 > /gpio/DO1/value
+root@matrix752:~# echo 1 > /gpio/DO1/value
 ```
 Example: If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
 ```  
-root@pac6070:~# echo 0 > /gpio/DO1/value
+root@matrix752:~# echo 0 > /gpio/DO1/value
 ```
-## Access Analog Input
-The PAC-6070 can measure voltage input (-10Vdc ~ +10Vdc) or current input (0mA ~ 20mA). 
-
-
-
-### Voltage Input Wiring
-Users can find voltage input terminals labeled as V1+, V1-, V2+, V2-, V3+, V3- and AGND. 
-
-### Voltage Input Mode Setting
-The voltage input supports differential mode or single-end mode.
-User can modify **/etc/modprobe.d/ad4111.conf** file to set the voltage input mode.
-```
-options ad4111 differential=1
-or
-options ad4111 differential=0
-```
-differential=1 means differential mode.
-differential=0 means single-end mode.
-
-If the voltage input mode is changed, please reboot the system to activate the new settings.
-```
-root@pac6070:~# reboot
-```
-
-### Differential Input Channels
-For differential voltage input, the first channel is V1+ and V1-, the second channel is V2+ and V2-, the third channel is V3+ and V3-. 
-|Differential Channel|Terminals|
-|---|---|
-|CH1|V1+ and V1-|
-|CH2|V2+ and V2-| 
-|CH3|V3+ and V3-|
-
-### Differential Input Calculation
-The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
-
-|Channel|Raw Value Path|Offset Value Path|
-|---|---|---|
-|CH1|in_voltage0_voltage1_raw|in_voltage0_voltage1_offset|
-|CH2|in_voltage2_voltage3_raw|in_voltage2_voltage3_offset|
-|CH3|in_voltage4_voltage5_raw|in_voltage4_voltage5_offset|
-
-In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
-
-The common formula to calculate the voltage is:
-```
-voltage = (raw * scale) + offset
-```
-
-Below are the formulas to calculate the voltage value of each channel:
-```
-CH1_voltage = (in_voltage0_voltage1_raw * in_voltage_voltage_scale) + in_voltage0_voltage1_offset
-
-CH2_voltage = (in_voltage2_voltage3_raw * in_voltage_voltage_scale) + in_voltage2_voltage3_offset
-
-CH3_voltage = (in_voltage4_voltage5_raw * in_voltage_voltage_scale) + in_voltage4_voltage5_offset
-```
-
-### Single-end Input Channels
-For single-end voltage input, the first channel is V1+ and AGND, the second channel is V1- and AGND, and so on, please refer to the following table:
-
-|Single-end Channel|Terminals|
-|---|---|
-|CH1|V1+ and AGND|
-|CH2|V1- and AGND|
-|CH3|V2+ and AGND|
-|CH4|V2- and AGND|
-|CH5|V3+ and AGND|
-|CH6|V3- and AGND|
-
-### Single-end Input Calculation
-The file paths of the voltage inputs are located in /sys/bus/iio/devices/iio:device0/
-
-|Channel|Raw Value Path|Offset Value Path|
-|---|---|---|
-|CH1|in_voltage0_raw|in_voltage0_offset|
-|CH2|in_voltage1_raw|in_voltage1_offset|
-|CH3|in_voltage2_raw|in_voltage2_offset|
-|CH4|in_voltage3_raw|in_voltage3_offset|
-|CH5|in_voltage4_raw|in_voltage4_offset|
-|CH6|in_voltage5_raw|in_voltage5_offset|
-
-In the same directory, there is an **in_voltage_voltage_scale** file stores the scale value which needs to multiply with raw data to get the voltage value.
-
-The common formula to calculate the voltage is:
-```
-voltage = (raw * scale) + offset
-```
-
-Below are the formulas to calculate the voltage value of each channel:
-```
-CH1_voltage = (in_voltage0_raw * in_voltage_voltage_scale) + in_voltage0_offset
-
-CH2_voltage = (in_voltage1_raw * in_voltage_voltage_scale) + in_voltage1_offset
-
-CH3_voltage = (in_voltage2_raw * in_voltage_voltage_scale) + in_voltage2_offset
-
-CH4_voltage = (in_voltage3_raw * in_voltage_voltage_scale) + in_voltage3_offset
-
-CH5_voltage = (in_voltage4_raw * in_voltage_voltage_scale) + in_voltage4_offset
-
-CH6_voltage = (in_voltage5_raw * in_voltage_voltage_scale) + in_voltage5_offset
-```
-
-### Current Input Wiring
-Users can find current input terminals labeled as AI1, AI2 and AGND.
-
-### Current Input Channels
-|Current Channel|Terminals|
-|---|---|
-|CH1|AI1 and AGND|
-|CH2|AI2 and AGND|
-
-### Current Input Calculation
-The file paths of the current inputs are located in /sys/bus/iio/devices/iio:device0/
-
-|Channel|Raw Value Path|Offset Value Path|
-|---|---|---|
-|CH1|in_current0_raw|in_current0_offset|
-|CH2|in_current1_raw|in_current1_offset|
-
-In the same directory, there is an **in_current_current_scale** file stores the scale value which needs to multiply with raw data to get the current value.
-
-The common formula to calculate the current is:
-```
-current = (raw * scale) + offset
-```
-
-Below are the formulas to calculate the current value of each channel:
-```
-CH1_current = (in_current0_raw * in_current_current_scale) + in_current0_offset
-
-CH2_current = (in_current1_raw * in_current_current_scale) + in_current1_offset
-```
-
-### Analog Input Utility
-The PAC-6070 provides a command line utility `lsadc` which displays real-time analog input readings in both differential and single-end modes. Below are example screenshots showing the output format and measurement values:
-
-```
-root@pac6070:~# lsadc
-```
-
-- Differential mode
-<img src="img/cli_diff.png" width=600> 
-
-- Single-end mode       
-<img src="img/cli_single.png" width=600> 
-
-## Built-in Web-based Tool
-The PAC-6070 comes with a web-based tool to monitor the voltage and current inputs. Besides, users can also monitor all the digital I/O status and control the digital outputs.
-
-### Access the Web-based Tool
-The web-based tool is hosted on the PAC-6070 at http://192.168.2.127 (please adjust the IP address according to your network settings).
-
-### Login  
-- account: admin
-- password: admin  
-
-<img src="img/login.png" width=600>  
-
-### Analog Input Dashboard
-- Differential mode
-<img src="img/dashboard_diff.png" width=600>
-
-- Single-end mode
-<img src="img/dashboard_single.png" width=600>
-
-### Digital I/O Status
-<img src="img/io_status.png" width=600>  
 
 ## Software Package Management
 The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
