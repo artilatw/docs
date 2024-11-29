@@ -30,12 +30,12 @@ guest@matrix752:~$
 ```
 
 ### Switch to root account
-The root account user name is root and the passwword is root.
+The root account user name is **root** and the passwword is **root**.
 
 ```
-guest@pac6070:~$ su -
+guest@matrix752:~$ su -
 Password: 
-root@pac6070:~#
+root@matrix752:~#
 ```
 ## Basic System Information
 ### Check Linux Kernel Version
