@@ -40,8 +40,8 @@ root@matrix752:~#
 ## Basic System Information
 ### Check Linux Kernel Version
 ```
-root@pac6070:~# uname -a
-Linux pac6070 6.6.22 #1 Fri Mar 15 18:25:07 UTC 2024 armv7l armv7l armv7l GNU/Linux
+root@matrix752:~# uname -a
+Linux matrix752 6.1.19-rt8 #1 PREEMPT_RT Mon Mar 13 09:21:32 UTC 2023 armv7l armv7l armv7l GNU/Linux
 ```
 
 ### Check Ubuntu Version
