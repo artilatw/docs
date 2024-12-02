@@ -120,23 +120,22 @@ DI1  DI2  DO1  DO2
 ```
 
 ### Read Digital Input
-Example: read value of DI1  
-```
-root@matrix752:~# cat /gpio/DI1/value  
-```
+The Matrix-752U provides 2x opto-isolated digital inputs. The following command will read the input status (0 or 1) of DI1 and DI2.
+
+`cat /gpio/DI1/value`  - read value of DI1  
+`cat /gpio/DI2/value`  - read value of DI2  
+
 ### Write Digital Output
-Example: 
-If DO1 relay is at NO (normally open) mode, the following command will let the relay close.
-```  
-root@matrix752:~# echo 1 > /gpio/DO1/value
-```
-Example: If DO1 relay is at NO (normally open) mode, the following command will let the relay open.
-```  
-root@matrix752:~# echo 0 > /gpio/DO1/value
-```
+The Matrix-752U provides 2x solid-state relays, which are normally open. The following command will let the relay close.
+  
+`echo 1 > /gpio/DO1/value` - close DO1 relay  
+`echo 0 > /gpio/DO1/value` - open DO1 relay  
+`echo 1 > /gpio/DO2/value` - close DO2 relay  
+`echo 0 > /gpio/DO2/value` - open DO2 relay  
+
 
 ## Software Package Management
-The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
+The Matrix-752U uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
 
 ### Basic Package Operations
 - `apt install <package>` - Install a new package
@@ -158,11 +157,11 @@ The PAC-6070 uses Ubuntu's APT (Advanced Package Tool) for software package mana
 Note: Most apt commands require root privileges. Use sudo if not logged in as root.
 
 ## Using SD Card
-The PAC-6070 supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory (e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
+The Matrix-752U supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory (e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
 
 Before SD Insertion
 ```
-root@pac6070:~# lsblk
+root@matrix752:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1      179:0    0 14.6G  0 disk 
 ├─mmcblk1p1  179:1    0    2G  0 part 
@@ -172,7 +171,7 @@ mmcblk1boot1 179:16   0    4M  1 disk
 ```  
 After SD Insertion
 ```
-root@pac6070:~# lsblk
+root@matrix752:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1      179:0    0 14.6G  0 disk
 ├─mmcblk1p1  179:1    0    2G  0 part
@@ -184,8 +183,8 @@ mmcblk0      179:24   0  7.3G  0 disk
 ```  
 Mount mmcblk0 to /media.  
 ```
-root@pac6070:~# mount /dev/mmcblk0p1 /media/
-root@pac6070:~# lsblk
+root@matrix752:~# mount /dev/mmcblk0p1 /media/
+root@matrix752:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1      179:0    0 14.6G  0 disk
 ├─mmcblk1p1  179:1    0    2G  0 part
@@ -197,7 +196,7 @@ mmcblk0      179:24   0  7.3G  0 disk
 ```  
 Unmount /media
 ```
-root@pac6070:~# umount /media/
+root@matrix752:~# umount /media/
 ```  
 
 
@@ -218,9 +217,16 @@ PAC-6070 come with one RS-485 port.
 |1|/dev/ttymxc1|
 
 ### Configure the Serial Port
+The Matrix-752U comes with two serial ports P1 and P2. P1 can be configured as RS-485 (default) or RS-232. P2 is always RS-232. 
+
+|Serial port|Interface|Mapping|
+|---|---|---|
+|P1|RS-485|/dev/ttymxc1|
+|P2|RS-232|/dev/ttymxc2|
+
 If you need to modify the serial port settings, use the **setuart** command.
 ```
-root@pac6070:~# setuart -h
+root@matrix752:~# setuart -h
 Artila utility: setuart
 Usage: setuart [OPTION]
 
@@ -241,9 +247,12 @@ The serial port’s mode and associated communication parameters will go back to
 ### Default Serial Port Settings
 The default serial port settings are shown below:
 ```
-root@pac6070:~# setuart -p1
+root@matrix752:~# setuart -p 1
 Port 1 ==> type: RS485
-baud: 115200
+baud: 9600
+root@matrix752:~# setuart -p 2
+Port 2 ==> type: RS232
+baud: 9600
 ```
 
 ## Network Interface Settings
