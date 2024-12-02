@@ -239,17 +239,15 @@ baud: 9600
 ```
 
 ## Network Interface Settings
-PAC-6070 come two 10/100Mbit Ethernet ports, the default network settings are shown below:  
+The Matrix-752U comes with two 10/100Mbit Ethernet ports, the default network settings are shown below:  
 |Port Label|Device mapping|IP mode|IP address|
 |---|---|---|---|
 |LAN1|eth0|DHCP|auto|
 |LAN2|eth1|static|192.168.2.127|
 
 ### Display the Network Settings
-```
-root@pac6070:~# ip a show eth0
-root@pac6070:~# ip a show eth1
-```
+`ip a show eth0` - display the network settings of eth0  
+`ip a show eth1` - display the network settings of eth1  
 
 ### Modify the Network Settings
 To modify network settings according to your LAN environment, follow these steps:
