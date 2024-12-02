@@ -200,7 +200,10 @@ root@matrix752:~# umount /media/
 ```  
 
 ## RS-485/232 Serial Port Settings
-The Matrix-752U comes with two serial ports P1 and P2. P1 can be configured as RS-485 (default) or RS-232. P2 is always RS-232. 
+The Matrix-752U comes with two serial ports P1 and P2. 
+
+P1 can be configured as RS-485 (default) or RS-232. 
+P2 is always RS-232. 
 
 |Serial port|Interface|Mapping|
 |---|---|---|
