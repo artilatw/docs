@@ -207,7 +207,7 @@ P2 is always RS-232.
 
 |Serial port|Interface|Mapping|
 |---|---|---|
-|P1|RS-485|/dev/ttymxc1|
+|P1|RS-485/232|/dev/ttymxc1|
 |P2|RS-232|/dev/ttymxc2|
 
 If you need to modify the serial port settings, use the **setuart** command.
