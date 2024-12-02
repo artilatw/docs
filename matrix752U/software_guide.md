@@ -252,14 +252,10 @@ The Matrix-752U comes with two 10/100Mbit Ethernet ports, the default network se
 ### Modify the Network Settings
 To modify network settings according to your LAN environment, follow these steps:
 
-1. Edit the network interface configuration file:
-   `vi /etc/network/interfaces`
-
-2. After saving your changes, apply the new settings by executing these commands:
-   `systemctl restart NetworkManager`   # Restart the network manager service
-   `ifconfig eth0 down`                 # Shutdown the network interface
-   `ifconfig eth0 up`                   # Start up the network interface
-
+1. `vi /etc/network/interfaces` - modify the network interface configuration file
+2. `systemctl restart NetworkManager`   # Restart the network manager service
+3. `ifconfig eth0 down`                 # Shutdown the network interface
+4. `ifconfig eth0 up`                   # Start up the network interface
 
 Note: Replace eth0 with the appropriate interface name (eth0 or eth1) that you want to configure.
 ```
