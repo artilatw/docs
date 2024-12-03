@@ -48,7 +48,6 @@ The Matrix-752 comes with 16GB on-board eMMC Flash memory, which contains boot l
 
 `lsblk` - check block device information
 ```
-root@matrix752:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 mmcblk1      179:0    0 14.6G  0 disk 
 |-mmcblk1p1  179:1    0    2G  0 part 
@@ -68,9 +67,10 @@ tmpfs           248M  228K  248M   1% /var/volatile
 ```
 
 `ls -F /` - list all files in root directory
-
+```
 bin/   dev/  gpio/  lib/	 media/  proc/	sbin/	  sys/	usr/
 boot/  etc/  home/  lost+found/  mnt/	 run/	swapfile  tmp@	var/
+```
 
 ## Configure System Time
 ### Using `date` Command
