@@ -45,7 +45,8 @@ Codename:	hardknott
 
 ### Check File System Information 
 The Matrix-752 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
-```
+
+`lsblk` - check block device information
 root@matrix752:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 mmcblk1      179:0    0 14.6G  0 disk 
@@ -54,7 +55,7 @@ mmcblk1      179:0    0 14.6G  0 disk
 mmcblk1boot0 179:8    0    4M  1 disk 
 mmcblk1boot1 179:16   0    4M  1 disk 
 
-root@matrix752:~# df -h
+`df -h` - check file system information
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        13G  813M   11G   7% /
 devtmpfs        248M     0  248M   0% /dev
@@ -63,6 +64,7 @@ tmpfs           248M  140K  248M   1% /run
 tmpfs           248M  228K  248M   1% /var/volatile
 
 `ls -F /` - list all files in root directory
+
 bin/   dev/  gpio/  lib/	 media/  proc/	sbin/	  sys/	usr/
 boot/  etc/  home/  lost+found/  mnt/	 run/	swapfile  tmp@	var/
 
