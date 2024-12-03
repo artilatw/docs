@@ -69,20 +69,15 @@ boot/  etc/  home/  lost+found/  mnt/	 run/	swapfile  tmp@	var/
 ```
 ## Configure System Time
 ### Using `date` Command
-```
-root@matrix752:~# date MMDDhhmmYYYY
-```
+
+`date` - display system date and time  
+`date MMDDhhmmYYYY` - set system date and time  
+
 ### Write System Time to RTC
-```
-root@matrix752:~# hwclock -w
-```
+`hwclock -w` - write system time to RTC
+
 ### Using NTP Serverto Synchronize System Time
 Please refer to the following steps to synchronize system time with NTP server.
-```
-apt-get update # update package list
-apt-get install ntpdate # install ntpdate package
-ntpdate 0.pool.ntp.org # synchronize system time with NTP server
-```
 
 `apt-get update` - update package list  
 `apt-get install ntpdate` - install ntpdate package  
