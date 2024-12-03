@@ -62,11 +62,10 @@ tmpfs            40K     0   40K   0% /mnt/.psplash
 tmpfs           248M  140K  248M   1% /run
 tmpfs           248M  228K  248M   1% /var/volatile
 
-
-root@matrix752:~# ls -F /
+`ls -F /` - list all files in root directory
 bin/   dev/  gpio/  lib/	 media/  proc/	sbin/	  sys/	usr/
 boot/  etc/  home/  lost+found/  mnt/	 run/	swapfile  tmp@	var/
-```
+
 ## Configure System Time
 ### Using `date` Command
 
