@@ -78,7 +78,9 @@ root@matrix752:~# hwclock -w
 ```
 ### Using NTP Serverto Synchronize System Time
 Please refer to the following steps to synchronize system time with NTP server.
+```
+apt-get update # update package list
+apt-get install ntpdate # install ntpdate package
+ntpdate 0.pool.ntp.org # synchronize system time with NTP server
+```
 
-`apt-get update` - update package list
-`apt-get install ntpdate` - install ntpdate package
-`ntpdate 0.pool.ntp.org` - synchronize system time with NTP server
