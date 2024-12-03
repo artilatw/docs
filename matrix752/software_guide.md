@@ -14,8 +14,8 @@ Users need to configure their PC/Notebook's network settings properly to start a
 The default root password is `root`.
 ```
 $ ssh root@192.168.2.127
-root@192.168.1.112's password: 
-Last login: Sun Aug  4 15:15:09 2024 from 192.168.2.60
+root@192.168.2.127's password: 
+Last login: Tue Dec  3 07:35:12 2024 from 192.168.2.60
 
     ___    ____ ____________    ___ 
    /   |  / __ |_  __/  _/ /   /   |
@@ -84,6 +84,34 @@ boot/  etc/  home/  lost+found/  mnt/	 run/	swapfile  tmp@	var/
 ### Using NTP Serverto Synchronize System Time
 Please refer to the following steps to synchronize system time with NTP server.
 
-`apt-get update` - update package list  
-`apt-get install ntpdate` - install ntpdate package  
+`apt update` - update package list  
+`apt install ntpdate` - install ntpdate package  
 `ntpdate 0.pool.ntp.org` - synchronize system time with NTP server
+
+## Insert Kernel Modules
+`lsmod` - list all installed kernel modules
+
+To load additional kernel modules during the system boot-up, you can modify the file:
+`vi /etc/modules`
+
+## Software Package Management
+The Matrix-752U uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
+
+### Basic Package Operations
+- `apt install <package>` - Install a new package
+- `apt remove <package>` - Remove an installed package 
+- `apt purge <package>` - Remove package and its configuration files
+- `apt autoremove` - Remove automatically installed dependencies that are no longer needed
+
+### Package Information
+- `apt search <keyword>` - Search for packages matching keyword
+- `apt show <package>` - Show detailed package information
+- `apt list --installed` - List all installed packages
+
+### System Updates
+- `apt update` - Update package index from repositories
+- `apt upgrade` - Upgrade all upgradeable packages
+- `apt full-upgrade` - Upgrade packages with auto-handling of dependencies
+- `apt dist-upgrade` - Smart upgrade that handles changing dependencies
+
+Note: Most apt commands require root privileges. Use sudo if not logged in as root.
