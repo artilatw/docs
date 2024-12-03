@@ -44,7 +44,7 @@ root@matrix752:~# uname -a
 Linux matrix752 6.1.19-rt8 #1 PREEMPT_RT Mon Mar 13 09:21:32 UTC 2023 armv7l armv7l armv7l GNU/Linux
 ```
 
-### Check Ubuntu Version
+### Check LSB Information
 ```
 root@matrix752:~# lsb_release -a
 No LSB modules are available.
