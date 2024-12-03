@@ -115,3 +115,43 @@ The Matrix-752U uses Ubuntu's APT (Advanced Package Tool) for software package m
 - `apt dist-upgrade` - Smart upgrade that handles changing dependencies
 
 Note: Most apt commands require root privileges. Use sudo if not logged in as root.
+
+## Using SD Card
+The Matrix-752 supports storage expansion through its built-in micro SD card slot. When you insert an SD card, the system will detect it automatically. You can use the `lsblk` command to view the device identifier (usually mmcblk0), and then mount it to any directory (e.g. /media) using the `mount` command. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
+
+### Before SD Insertion
+`lsblk` - check block device information
+```
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk 
+├─mmcblk1p1  179:1    0    2G  0 part 
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk 
+mmcblk1boot1 179:16   0    4M  1 disk 
+```  
+### After SD Insertion
+`lsblk` - check block device information
+```
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk
+├─mmcblk1p1  179:1    0    2G  0 part
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk
+mmcblk1boot1 179:16   0    4M  1 disk
+mmcblk0      179:24   0  7.3G  0 disk
+└─mmcblk0p1  179:25   0  7.3G  0 part
+```  
+### Mount mmcblk0 to /media
+`mount /dev/mmcblk0p1 /media/` - mount mmcblk0 to /media
+```
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk1      179:0    0 14.6G  0 disk
+├─mmcblk1p1  179:1    0    2G  0 part
+└─mmcblk1p2  179:2    0 12.6G  0 part /
+mmcblk1boot0 179:8    0    4M  1 disk
+mmcblk1boot1 179:16   0    4M  1 disk
+mmcblk0      179:24   0  7.3G  0 disk
+└─mmcblk0p1  179:25   0  7.3G  0 part /media
+```  
+### Unmount /media
+`umount /media/` - unmount /media  
