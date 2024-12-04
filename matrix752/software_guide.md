@@ -141,8 +141,8 @@ mmcblk1boot1 179:16   0    4M  1 disk
 mmcblk0      179:24   0  7.3G  0 disk
 └─mmcblk0p1  179:25   0  7.3G  0 part
 ```  
-### Mount mmcblk0 to /media
-`mount /dev/mmcblk0p1 /media/` - mount mmcblk0 to /media
+### Mount mmcblk0p1 to /media
+`mount /dev/mmcblk0p1 /media/` - mount mmcblk0p1 to /media
 ```
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 mmcblk1      179:0    0 14.6G  0 disk
