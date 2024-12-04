@@ -48,7 +48,6 @@ Codename:	hardknott
 ```
 
 ### Check File System Information 
-The Matrix-752 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
 
 `lsblk` - check block device information
 ```
