@@ -18,7 +18,7 @@
 
 ## 4. Check Webmin PID
 ```
-cat/var/webmin/miniserv.pid
+cat /var/webmin/miniserv.pid
 ```
 
 ## 5. 系統開機自動啟動 Webmin
