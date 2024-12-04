@@ -95,7 +95,7 @@ Please refer to the following steps to synchronize system time with NTP server.
 `lsmod` - list all installed kernel modules
 
 To load additional kernel modules during the system boot-up, you can modify the file:
-`vi /etc/modules`
+`/etc/modules`
 
 ## Software Package Management
 The Matrix-752U uses Ubuntu's APT (Advanced Package Tool) for software package management. Here are the common package management commands:
@@ -167,8 +167,9 @@ The Matrix-752 comes with 2x opto-isolated digital inputs and 2x relay digital o
 |---|---|--|---|
 |DI1|/gpio/DI1|DO1|/gpio/DO1|
 |DI2|/gpio/DI2|DO2|/gpio/DO2|
+
+`ls /gpio` - list all digital I/O devices
 ```
-root@matrix752:~# ls /gpio
 DI1  DI2  DO1  DO2
 ```
 ### Read Digital Input
