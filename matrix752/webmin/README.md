@@ -12,13 +12,13 @@
 
 ## 3. Webmin 啟動與停用
 ```
-/etc/webmin/start
-/etc/webmin/stop
+service webmin start
+service webmin stop
 ```
 
 ## 4. Check Webmin PID
 ```
-cat /var/webmin/miniserv.pid
+service webmin status
 ```
 
 ## 5. 系統開機自動啟動 Webmin
@@ -28,7 +28,7 @@ cat /var/webmin/miniserv.pid
 
 啟動腳本會讀取 `/etc/webmin/miniserv.conf` 設定檔
 
-然後執行 `/usr/libexec/webmin/start` 啟動 miniserv
+然後執行 `/usr/libexec/webmin/miniserv.pl` 啟動 miniserv
 
 miniserv 執行時的 PID 會寫入 `/var/webmin/miniserv.pid`
 
