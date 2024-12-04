@@ -25,7 +25,10 @@ cat /var/webmin/miniserv.pid
 啟動腳本的軟連結為 `/etc/rc5.d/S99webmin`
 
 真正的啟動腳本則是 `/etc/init.d/webmin`
+
 啟動腳本會讀取 `/etc/webmin/miniserv.conf` 設定檔
+
 然後執行 `/usr/libexec/webmin/start` 啟動 miniserv
+
 miniserv 執行時的 PID 會寫入 `/var/webmin/miniserv.pid`
 
