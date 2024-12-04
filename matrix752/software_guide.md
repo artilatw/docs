@@ -26,16 +26,19 @@ Last login: Tue Dec  3 07:35:12 2024 from 192.168.2.60
                                     
 http://www.artila.com
 
+[root@Matrix_1008f1 ~]#
 ```
+Note: The prompt `[root@Matrix_1008f1 ~]#` indicates that the hostname "Matrix_1008f1" is derived from the last 6 hexadecimal digits of the Matrix-752's MAC address. In this case, the MAC address ends with "10:08:F1". This unique identifier helps distinguish between different Matrix-752 devices on the network.
+
 ## Basic System Information
 ### Check Linux Kernel Version
 ```
-root@matrix752:~# uname -a
+root@Matrix_1008f1:~# uname -a
 Linux matrix752 6.1.19-rt8 #1 PREEMPT_RT Mon Mar 13 09:21:32 UTC 2023 armv7l armv7l armv7l GNU/Linux
 ```
 ### Check LSB Information
 ```
-root@matrix752:~# lsb_release -a
+root@Matrix_1008f1:~# lsb_release -a
 LSB Version:	core-5.0-noarch:core-5.0-arm
 Distributor ID:	poky
 Description:	Poky (Yocto Project Reference Distro) 3.3.2
@@ -155,3 +158,32 @@ mmcblk0      179:24   0  7.3G  0 disk
 ```  
 ### Unmount /media
 `umount /media/` - unmount /media  
+
+## Access Digital I/O  
+### DIO Mapping
+The Matrix-752 comes with 2x opto-isolated digital inputs and 2x relay digital outputs. Below is the DIO mapping table:
+
+|DI Number|Device Mapping|DO Number|Device Mapping|
+|---|---|--|---|
+|DI1|/gpio/DI1|DO1|/gpio/DO1|
+|DI2|/gpio/DI2|DO2|/gpio/DO2|
+```
+root@matrix752:~# ls /gpio
+DI1  DI2  DO1  DO2
+```
+### Read Digital Input
+The Matrix-752 provides 2x opto-isolated digital inputs. The following command will read the input status (0 or 1) of DI1 and DI2.
+
+`cat /gpio/DI1/value`  - read value of DI1  
+`cat /gpio/DI2/value`  - read value of DI2  
+
+### Write Digital Output
+The Matrix-752 provides 2x solid-state relays, which are normally open. The following command will let the relay close.
+  
+`echo 1 > /gpio/DO1/value` - close DO1 relay  
+`echo 0 > /gpio/DO1/value` - open DO1 relay  
+`echo 1 > /gpio/DO2/value` - close DO2 relay  
+`echo 0 > /gpio/DO2/value` - open DO2 relay  
+
+
+
