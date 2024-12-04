@@ -32,11 +32,12 @@ Note: The prompt `[root@Matrix_1008f1 ~]#` indicates that the hostname "Matrix_1
 
 ## Basic System Information
 ### Check Linux Kernel Version
+`uname -a` - check Linux kernel version
 ```
-root@Matrix_1008f1:~# uname -a
 Linux matrix752 6.1.19-rt8 #1 PREEMPT_RT Mon Mar 13 09:21:32 UTC 2023 armv7l armv7l armv7l GNU/Linux
 ```
 ### Check LSB Information
+`lsb_release -a` - check LSB information
 ```
 root@Matrix_1008f1:~# lsb_release -a
 LSB Version:	core-5.0-noarch:core-5.0-arm
