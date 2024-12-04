@@ -186,5 +186,9 @@ The Matrix-752 provides 2x solid-state relays, which are normally open. The foll
 `echo 1 > /gpio/DO2/value` - close DO2 relay  
 `echo 0 > /gpio/DO2/value` - open DO2 relay  
 
-
-
+## Pre-installed Programming Languages
+- Python 3.9.5
+- Node.js v12.21.0
+- PHP v7.4.16
+- Perl v5.32.1
+- GCC v10.2.0
