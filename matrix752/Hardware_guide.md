@@ -296,6 +296,7 @@ Two digital input channels with 5000Vrms photocoupler isolation.
 - **Isolation**: 5000Vrms  
 
 <img src="./images/15 DI Simple figure.jpg" alt="alt text" width="300">
+
 - **DIx:** Isolated digital input channels.
 
 - **COM:** Common ground
