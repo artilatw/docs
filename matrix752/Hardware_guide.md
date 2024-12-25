@@ -97,7 +97,7 @@ Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gatewa
 - **Regulations:** CE Class A, FCC Class A  
 - **Installation:** Wall or optional DIN-rail mount  
 
----
+
 
 ## 1.3 Specifications (Software)
 
@@ -123,23 +123,24 @@ Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gatewa
 - **Editors:** vim, nano, sed  
 - **Administration:** Webmin  
 
----
+
 
 ## 1.4 Packing List
 - **Matrix-752:** Linux-ready Cortex-A7 800MHz Industrial IoT Gateway with 512MB SDRAM and 16G eMMC  
 
----
+
 
 ## 1.5 Optional Accessories
 - **DK-35A:** DIN Rail Mounting Kit  
 - **PWR-12V-1A:** 110~240VAC to 12VDC 1A Power Adapter  
 - **Console Cable:** 4Pin Wafer Box to DB9 Female (50cm)  
 
----
+
 
 ## 1.6 Optional Communication Modules
 - 4G/LTE miniPCIe Module with Antenna  
 - WiFi miniPCIe Module with Antenna  
+
 
 # 2.	Layout        　　　　　　　        
 ## 2.1	Connector & LED Indicator
@@ -150,6 +151,7 @@ Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gatewa
 (Unit: mm)
 
 <img src="./images/02 dimension.jpg" alt="alt text" width="400" height="450">
+
 # 3. Pin Assignment and Definitions
 
 ## 3.1 Multi-function Reset Button
@@ -165,7 +167,7 @@ The behavior of the reset button depends on how long you press the reset button.
 | 3–10 seconds then release        | Reset the network settings (factory default) | `eth0` IP: addr. by DHCP<br>`eth1` IP: 192.168.2.127 |
 | > 10 seconds then release        | Restore and return to factory default. <br>User data may be erased. | `eth0` IP: addr. by DHCP<br>`eth1` IP: 192.168.2.127 |
 
----
+
 
 ## 3.2 LED Indicators
 
@@ -178,7 +180,7 @@ The LED indicators provide operational information for the Matrix-752:
   - **Green**: RXD line is high.
   - **Yellow**: TXD line is high.
 
----
+
 
 ## 3.3 Ethernet LAN Port
 
@@ -188,7 +190,7 @@ There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicator
 
 <img src="./images/05 RJ45 Pin Assignment.jpg" alt="alt text" width="400">
 
----
+
 
 ## 3.4 Power Connector
 
@@ -196,7 +198,7 @@ The Matrix-752 supports a +9 to +48VDC power line connected via a terminal block
 
 
 <img src="./images/06 power input-1.jpg" alt="alt text" width="300">
----
+
 
 ## 3.5 USB OTG Port
 
@@ -204,7 +206,7 @@ The Matrix-752 is equipped with one USB OTG port using a micro-USB connector.
 
 
 <img src="./images/07 USB OTG.jpg" alt="alt text" width="400">
----
+
 
 ## 3.6 Serial Port
 
@@ -240,7 +242,7 @@ Default setting is for RS-485 (D+) at JP6/Pin 2 and Pin 3.
 To Enable RS232 / TX1, setting JP6 at Pin 1 and Pin 2
 
 <img src="./images/11 RS485 & 232 TX1 jumper settings.jpg" alt="alt text" width="450">
----
+
 
 ## 3.7 CAN Bus Port
 
@@ -268,7 +270,7 @@ Default setting is “Disable” the terminal resistor for CAN bus.
 To enable the termination resistor, please remove the upper cover of the Matrix-752, and the adjust the associated jumper to short position1 and position 2, shown below:
 
 <img src="./images/13 CAN Bus JP5.jpg" alt="alt text" width="450">
----
+
 
 ## 3.8 Digital Input
 
@@ -297,7 +299,7 @@ Two digital input channels with 5000Vrms photocoupler isolation.
 - **DIx:** Isolated digital input channels.
 
 - **COM:** Common ground
----
+
 
 ## 3.9 Digital Output
 
@@ -321,7 +323,7 @@ Reference Circuit of following:
 
 ![alt text](<./images/17 DO reference circuit-1.jpg>)
 
----
+
 
 ## 3.10 Serial Console Port
 
@@ -331,28 +333,28 @@ There is a 4-pin wafer box header (JP2) inside the Matrix-752 features as serial
 
 <img src="./images/19 Console Pin Assignment.jpg" alt="alt text" width="400">
 
----
+
 
 ## 3.11 External Battery Connection
 
 There is a 2Pin wafer (1.2mm pitch) reserved that can be connected to external battery for RTC
 
 <img src="./images/20 External Battery Connection.jpg" alt="alt text" width="480">
----
+
 
 ## 3.12 SD Card Socket
 
 The micro-SD card socket inside the Matrix-752 can be accessed after removing the top cover. It supports additional data storage.
 
 <img src="./images/21 SD CArd Socket.jpg" alt="alt text" width="500">
----
+
 
 ## 3.13 miniPCIe Slot
 
 The Matrix-752 comes with one miniPCIe slot and dual antenna holes reserved for communication/networking modules.
 
 <img src="./images/22 miniPCIe Slot-1.jpg" alt="alt text" width="400">
----
+
 
 ## 3.14 Micro-SIM Card Socket
 
