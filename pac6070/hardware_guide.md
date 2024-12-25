@@ -45,7 +45,7 @@ PAC-6070 is powered by NXP i.MX6ULL Cortex-A7 Processor with 1GB SDRAM and 16GB 
 - Real-Time Clock(RTC): YES, backup by super capacitor
 - Power Input: +9~+48 VDC (terminal block)
 - Reset: Multi-function reset button
-- Indicator: READY, LAN, RS-485, DI, Relay-out
+- Indicator: Reset, Power, READY, LAN, RS-485, DI, Relay-out
 - Dimensions (WxLxH): 121.8 x 204 x 50mm (4.8 x 8 x 1.96in)
 - Net Weight: 360g (0.791b)
 - Operating Temperature: 0~+70°C (+32~+158°F)
@@ -229,11 +229,12 @@ The 8 channel isolated input are equipped with 5000Vrms photo coupler isolator.	
 
 Each of the 5 channels of isolated analog input can be configured for various input ranges. The common features are as follows:
 
-- **Effective Resolution:** 24-bit  
-- **Channels:** Differential input channels Input Mode (Voltage): 3 channels (differential input)
+- **Effective Resolution:** 5x24-bit A/D channels  
+- **Input Mode(Voltage)s:** 3 channels (differential input)
 - **Input Range (Voltage):** ±10VDC  
-- **(Optional):** 2 x Single-end channels, call for driver support  
-- **Input Mode (Current):** 2 channels (single-end) Input Current: 0~20mA 
+- **(Optional):** 6 x Single-end channels, call for driver support  
+- **Input Mode (Current):** 2 channels (single-end) 
+- **Input Current:** 0~20mA 
   
 
 <img src="./6070images/15 AI connector and Jumper settings.jpg" alt="alt text" width="400">
@@ -256,14 +257,14 @@ For detailed specifications and compatibility information, please refer to the f
 - [SIM7600X Module｜SIMCom Wireless Solutions](https://www.simcom.com)
 
 
----
 
 ### 14. Nano-SIM Card Socket
 
 The PAC-6070 includes an internal Nano-SIM card socket for use with an LTE/4G module. Insert the SIM card into the tray holder and follow the instructions provided.
 
 <img src="./6070images/18 Nano_SIM Card.jpg" alt="alt text" width="650">
----
+
+
 ### 15. SD Card Socket
 
 The PAC-6070 includes an internal micro-SD card socket for data storage, accessible by following the red arrow direction shown below.
