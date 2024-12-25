@@ -306,8 +306,8 @@ Two digital input channels with 5000Vrms photocoupler isolation.
 
 Two digital output channels using solid-state relays.
 
--  Normal Open (NO)**:Normal Open (NO) Type
--  Contact Rating:-  80VDC @ 1.5A  
+-  Solid State Relay: Normal Open (NO) Type
+-  Contact Rating: 80VDC @ 1.5A  
 
 <img src="./images/16 DO digital output.jpg" alt="alt text" width="300">
 

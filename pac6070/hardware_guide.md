@@ -40,18 +40,6 @@ PAC-6070 is powered by NXP i.MX6ULL Cortex-A7 Processor with 1GB SDRAM and 16GB 
 - Logical High: 5~24VDC
 - Logical Low: 0~1.5VDC
 
-### General
-- Watchdog (WDT): YES
-- Real-Time Clock(RTC): YES, backup by super capacitor
-- Power Input: +9~+48 VDC (terminal block)
-- Reset: Multi-function reset button
-- Indicator: Power, READY, LAN, RS-485, DI, Relay-out
-- Dimensions (WxLxH): 121.8 x 204 x 50mm (4.8 x 8 x 1.96in)
-- Net Weight: 360g (0.791b)
-- Operating Temperature: 0~+70°C (+32~+158°F)
-- Regulation: CE Class A, FCC Class A
-- Installation: DIN-rail mounting
-
 ### Console / Debug Port
 - 1 x 4-Pin box connector
 ### SD Slot
@@ -71,6 +59,18 @@ PAC-6070 is powered by NXP i.MX6ULL Cortex-A7 Processor with 1GB SDRAM and 16GB 
 - Input Range (Voltage): +/- 10VDC
 - (Optional) 2 x Single-end channels, call for driver support
 - Input Mode (Current): 2 channels (single-end) Input Current: 0~20mA
+
+### General
+- Watchdog (WDT): YES
+- Real-Time Clock(RTC): YES, backup by super capacitor
+- Power Input: +9~+48 VDC (terminal block)
+- Reset: Multi-function reset button
+- Indicator: Power, READY, LAN, RS-485, DI, Relay-out
+- Dimensions (WxLxH): 121.8 x 204 x 50mm (4.8 x 8 x 1.96in)
+- Net Weight: 360g (0.791b)
+- Operating Temperature: 0~+70°C (+32~+158°F)
+- Regulation: CE Class A, FCC Class A
+- Installation: DIN-rail mounting
 
 ## S/W Specification
 ### Operation System
