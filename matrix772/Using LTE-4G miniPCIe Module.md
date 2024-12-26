@@ -5,8 +5,8 @@ The Matrix-772 comes with a miniPCIe slot which supports SIMCom LTE module.
 ## Using SIMCom SIM7600E
 
 ### Update the Kernel
-Extract vmlinuz-6.6.zip to `/boot`.  
-`reboot` - reboot the Matrix-772 to activate the new kernel.
+- Extract vmlinuz-6.6.zip to `/boot`.  
+- `reboot` - reboot the Matrix-772 to activate the new kernel.
 
 ### Utility Installation
 - `apt install -y udhcpc`
