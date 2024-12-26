@@ -10,6 +10,7 @@ The Matrix-752 comes with a miniPCIe slot which supports SIMCom LTE module.
 - `reboot` - reboot the Matrix-752 to activate the driver
 
 ### Get an IP Address via DHCP
+- `echo Y > /sys/class/net/wwan0/qmi/raw_ip` - set the raw IP mode
 - `ifconfig wwan0 up` - activate /dev/wwan0
 - `echo -ne "AT\$QCRMCALL=1,1\r" | eval /usr/bin/microcom -t 500 /dev/ttyUSB2`
 - `udhcpc -i wwan0` - ask for IP address

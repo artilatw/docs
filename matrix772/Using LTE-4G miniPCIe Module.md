@@ -1,15 +1,15 @@
 # Using LTE miniPCIe Module
 
-The PAC-6070 comes with a miniPCIe slot which supports SIMCom LTE module.
+The Matrix-772 comes with a miniPCIe slot which supports SIMCom LTE module.
 
 ## Using SIMCom SIM7600E
-### Driver Installation
-- `apt install -y kernel-module-option`
-- `apt install -y kernel-module-qmi-wwan`
-- `apt install -y kernel-module-cdc-wdm`
-- `apt install -y kernel-module-usbnet`
+
+### Update the Kernel
+Extract vmlinuz-6.6.zip to `/boot`.
+`reboot` - reboot the Matrix-772 to activate the new kernel.
+
+### Utility Installation
 - `apt install -y udhcpc`
-- `reboot` - reboot the PAC-6070 to activate the driver
 
 ### Get an IP Address via DHCP
 - `echo Y > /sys/class/net/wwan0/qmi/raw_ip` - set the raw IP mode
