@@ -1,6 +1,6 @@
 # Using LTE miniPCIe Module
 
-The Matrix-752 comes with a miniPCIe solt which supports SIMCom LTE module.
+The Matrix-752 comes with a miniPCIe slot which supports SIMCom LTE module.
 
 ## Using SIMCom SIM7600E
 ### Driver Installation
