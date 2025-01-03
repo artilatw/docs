@@ -1,3 +1,4 @@
+<img src="Artila_add.png" width="1200" height="50"/>
 # Matrix-772-BD-2E/6E
 ### Cortex-A9 based Linux Single Board Computer
 
