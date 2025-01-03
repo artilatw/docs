@@ -1,5 +1,5 @@
 # Matrix-772-BD-2E/6E
-### Ubuntu-core based Cortex-A9 IIoT Single Board Computer
+### Cortex-A9 based Linux Single Board Computer
 
 ## H/W Specifications
 
