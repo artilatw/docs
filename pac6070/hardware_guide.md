@@ -230,7 +230,7 @@ The 8 channel isolated input are equipped with 5000Vrms photo coupler isolator.	
 Each of the 5 channels of isolated analog input can be configured for various input ranges. The common features are as follows:
 
 - **Effective Resolution:** 5x24-bit A/D channels  
-- **Input Mode(Voltage)s:** 3 channels (differential input)
+- **Input Mode (Voltage):** 3 channels (differential input)
 - **Input Range (Voltage):** ±10VDC  
 - **(Optional):** 6 x Single-end channels, call for driver support  
 - **Input Mode (Current):** 2 channels (single-end) 
