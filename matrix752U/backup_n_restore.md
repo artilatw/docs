@@ -7,7 +7,7 @@ Follow the steps below to backup the master system.
 
 1. Prepare a USB drive with at least 16GB capacity.
 2. Format the USB drive to FAT32.
-3. Insert the USB drive into the master Matrix752U.
+3. Insert the USB drive into the master Matrix752U. Assume the USB drive is `/dev/sda1`.
 4. Execute the following command to start the backup process.
 
 ```
@@ -23,7 +23,7 @@ y
 
 ## Restore from backup
 
-1. Insert the USB drive into the target Matrix752U.
+1. Insert the USB drive into the target Matrix752U. Assume the USB drive is `/dev/sda1`.
 2. Execute the following command to start the restore process.
 
 ```
