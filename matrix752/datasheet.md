@@ -19,17 +19,11 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - 1x microSD socket
 - 1x miniPCIe socket
 
-
-## Specifications (Hardware)
+## H/W Specifications
 ### CPU / Memory / Flash
 - NXP i.MX6ULL Cortex-A7 @ 800MHz
 - 512MB LPDDR3 SDRAM
 - 16GB eMMC Flash
-
-### Linux OS
-- Linux Kernel 5.10.x (or later)
-- Yocto Linux 2.7 or
-- Ubuntu Linux 20.04 LTS
 
 ### Network Interface
 - 2x independent 10/100Mbps
@@ -53,26 +47,23 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - Stop Bits: 1, 1.5, 2
 - Flow Control: XON/XOFF, None
 
-
-### CAN Port
+### CAN Bus Port
 - 1x CAN Bus 2.0 A/B
 - Speed: Up to 1Mbps
 
 ### Digital Input
 - 2x Optical Isolated Inputs
 - Isolation: 2500Vrms
-- Logical High: 5~24VDC
-- Logical Low: 0~1.5VDC
-
+- Logic High: 5~24VDC
+- Logic Low: 0~1.5VDC
 
 ### Digital Output
-- 2x Optical Isolated Inputs
-- Isolation: 2500Vrms
-- Logical High: 5~24VDC
-- Logical Low: 0~1.5VDC
+- 2x Solid State Relay Outputs
+- Normal Open
+- Contact Rating: 80VDC @ 1.5A
 
-### Serial Console
-- Type: RS-232
+### Native Serial Console
+- Interface: RS-232
 - Signals: TX, RX, GND
 - Baud Rate: 115.2Kbps
 - Parameters: 8N1
@@ -88,31 +79,40 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - 1x microSD socket
 - SDXC compliant, up to 2TB
 
-### Power Input
-- 9 ~ 48Vdc 
+### Power Requirements
+- Power Input: 9 ~ 48Vdc 
+- Power Consumption: 12Vdc @ 250mA typical
 
-### Power Consumption
-- 12Vdc @ 250mA typical
-
-### Watchdog Timer
+### Real Time Clock
 - Yes
+- Backup: by super capacitor
+- Watchdog output: can be enabled
 
-### RTC
-- Yes
-- Backup: by supercap
+### General
+- Operating temperature: 0 ~ 70℃
+- Regulations: CE Class A, FCC Class A
+- Dimensions: 89 x 112 x 30mm
+- Weight: 350g
+- Wall mount: yes
+- DIN Rail mount: yes (35mm DIN rail mounting kit needs to be ordered separately)
 
-### Temperature Range
-- -20 ~ 85℃
+## S/W Specifications
+### Linux OS:
+- Linux Kernel 5.10.x
+- Matrix-752: Yocto Linux 2.7
+- Matrix-752U:Ubuntu Linux 20.04 LTS
 
-### Regulations
-- CE Class A
-- FCC Class A
+### User Application Development
+- Supports in-system C/C++ compilation
+- Toolchain: gcc 9.3.0, glibc 2.3.1
+- Can install preferred script languages ( python, nodejs, etc.) and related libraries from software package repository.
 
-### Installation
-- Wall or optional 35mm rail mount
+### Software Package Repository
+- Matrix-752: maintained by Artila
+- Matrix-752U: maintained by Ubuntu
+- Supports standard apt package management commands (apt install/remove/update/upgrade)
 
-### Dimensions
-- 89 x 112 x 30mm
+### SystemBackup and Restore:
+- Artila provides backup/restore commands to ease the cloning of kernel and file system from a master device to multiple target devices
+- Supported media: microSD, USB drive
 
-### Weight
-- 350g
