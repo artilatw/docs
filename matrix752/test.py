@@ -81,11 +81,23 @@ def main():
         # 解析為字典
         data_dict = parse_markdown_to_dict(md_content)
         
+        # 收集並打印二級標題（保持順序）
+        second_level_keys = []
+        for section in data_dict.values():
+            if isinstance(section, dict):
+                for key in section.keys():
+                    if key not in second_level_keys:
+                        second_level_keys.append(key)
+        
+        print("\n二級標題列表：")
+        for key in second_level_keys:
+            print(f"- {key}")
+        
         # 轉換為 YAML 並保存
         with open('matrix752/datasheet.yaml', 'w', encoding='utf-8') as file:
             yaml.dump(data_dict, file, allow_unicode=True, sort_keys=False)
             
-        print("成功將 markdown 轉換為 YAML 格式！")
+        print("\n成功將 markdown 轉換為 YAML 格式！")
         
     except FileNotFoundError:
         print("錯誤：找不到 datasheet.md 文件")
