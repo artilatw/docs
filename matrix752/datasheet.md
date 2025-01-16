@@ -1,7 +1,7 @@
 # Matrix-752 Datasheet
 
 ## Introduction
-Matrix-752 is a Linux-ready computing platform with a Cortex-A7 processor, 512MB SDRAM, and 16G eMMC. It is designed for industrial IoT applications and supports a wide range of peripherals and communication interfaces.
+Matrix-752 is a Linux-ready computing platform with a 800MHzCortex-A7 processor, 512MB SDRAM, and 16G eMMC. It is designed for industrial IoT applications and supports a wide range of peripherals and communication interfaces.
 
 ## Features
 - **Processor:**
