@@ -85,8 +85,9 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 
 ### Real Time Clock
 - Yes
-- Backup: by super capacitor
-- Watchdog output: can be enabled
+- Backup 1: by onboard super capacitor
+- Backup 2: supports external 3.3V battery
+- Watchdog output: can be enabled to trigger system reboot
 
 ### General
 - Operating temperature: 0 ~ 70℃
