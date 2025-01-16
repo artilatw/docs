@@ -100,7 +100,7 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 ### Linux OS:
 - Linux Kernel 5.10.x
 - Matrix-752: Yocto Linux 2.7
-- Matrix-752U:Ubuntu Linux 20.04 LTS
+- Matrix-752U: Ubuntu Linux 20.04 LTS
 
 ### User Application Development
 - Supports in-system C/C++ compilation
@@ -116,3 +116,7 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - Artila provides backup/restore commands to ease the cloning of kernel and file system from a master device to multiple target devices
 - Supported media: microSD, USB drive
 
+### Multi-function Reset Button
+- Press less than 3 seconds: Reboot the Matrix-752
+- Press 3-10 seconds: Reset the network settings (factory default)
+- Press more than 10 seconds: Restore and return to factory default. User data are erased.
