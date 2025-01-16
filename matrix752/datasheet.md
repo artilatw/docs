@@ -21,89 +21,98 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 
 
 ## Specifications (Hardware)
-### Processor
->NXP i.MX6ULL Cortex-A7 @ 800MHz
+### CPU / Memory / Flash
+- NXP i.MX6ULL Cortex-A7 @ 800MHz
+- 512MB LPDDR3 SDRAM
+- 16GB eMMC Flash
 
-### SDRAM 
->512MB LPDDR3
-
-### Flash memory
->16G eMMC 
-
-### Linux Kernel
->Version: 5.10.x (or later)
+### Linux OS
+- Linux Kernel 5.10.x (or later)
+- Yocto Linux 2.7 or
+- Ubuntu Linux 20.04 LTS
 
 ### Network Interface
->2x independent 10/100Mbps<br>
-Connector: RJ45 with LED indicators
+- 2x independent 10/100Mbps
+- Connector: RJ45 with LED indicators
 
 ### USB Interface
->1x USB 2.0OTG port<br>
-Connector: micro-USB
+- 1x USB 2.0 OTG port
+- Connector: micro-USB
 
-### Serial Ports
->1x RS-485/232 software selectable<br>
-1x RS-232<br>
-RS-485 Signals: Data+, Data-<br>
-RS-232 Signals: TX, RX, GND<br>
-Connector: Terminal block<br>
+### Serial Communication Ports
+- 1x RS-485/232 (two-in-one)
+- 1x RS-232
+- RS-485 Signals: Data+, Data-
+- RS-232 Signals: TX, RX, GND
+- Connector: Terminal block
 
-### Communication parameters
->Baud Rate: Up to 921.6Kbps<br>
-Parity: None, Even, Odd, Mark, Space<br>
-Data Bits: 5, 6, 7, 8<br>
-Stop Bits: 1, 1.5, 2<br>
-Flow Control: XON/XOFF, None<br>
+### Serial Communication Parameters
+- Baud Rate: Up to 921.6Kbps
+- Parity: None, Even, Odd, Mark, Space
+- Data Bits: 5, 6, 7, 8
+- Stop Bits: 1, 1.5, 2
+- Flow Control: XON/XOFF, None
+
 
 ### CAN Port
->1x CAN Bus 2.0 A/B<br>
-Speed: Up to 1Mbps<br>
+- 1x CAN Bus 2.0 A/B
+- Speed: Up to 1Mbps
 
 ### Digital Input
->2x Optical Isolated Inputs<br>
-Isolation: 2500Vrms<br>
-Logical High: 5~24VDC<br>
-Logical Low: 0~1.5VDC<br>
+- 2x Optical Isolated Inputs
+- Isolation: 2500Vrms
+- Logical High: 5~24VDC
+- Logical Low: 0~1.5VDC
+
 
 ### Digital Output
-  - 2x Optical Isolated Inputs
-  - Isolation: 2500Vrms
-  - Logical High: 5~24VDC
-  - Logical Low: 0~1.5VDC
-**Digital Output:**  
-  - 2x Solid State Relay Outputs
-  - Normal Open
-  - Contact Rating: 80VDC @ 1.5A
-**Serial Console:**
-  - Type: RS-232
-  - Signals: TX, RX, GND
-  - Baud Rate: 115.2Kbps
-  - Parameters: 8N1
-  - Connector: 4-pin box header
-**Expansion Slots:**  
-  - 1x full-size miniPCIe socket, supports USB interface
-  - Supports WiFi, LTE modules
-  - 1x micro-SIM socket
-**SD Card:**
-  - 1x microSD socket
-  - SDXC compliant, up to 2TB
-**Power Input:**
-  - 9 ~ 48Vdc 
-**Power Consumption:**
-  - 12Vdc @ 250mA typical
-**Watchdog Timer:**
-  - Yes
-**RTC:**
-  - Yes
-  - Backup: by supercap
-**Temperature Range:**
-  - -20 ~ 85℃
-**Regulations:**
-  - CE Class A
-  - FCC Class A
-**Installation:**
-  - Wall or optional 35mm rail mount
-**Dimensions:**
-  - 89 x 112 x 30mm
-**Weight:**
-  - 350g
+- 2x Optical Isolated Inputs
+- Isolation: 2500Vrms
+- Logical High: 5~24VDC
+- Logical Low: 0~1.5VDC
+
+### Serial Console
+- Type: RS-232
+- Signals: TX, RX, GND
+- Baud Rate: 115.2Kbps
+- Parameters: 8N1
+- Connector: 4-pin box header
+
+### Expansion Slots
+- 1x full-size miniPCIe socket
+- Supports USB interface
+- Supports WiFi, LTE modules
+- 1x micro-SIM socket
+
+### SD Card
+- 1x microSD socket
+- SDXC compliant, up to 2TB
+
+### Power Input
+- 9 ~ 48Vdc 
+
+### Power Consumption
+- 12Vdc @ 250mA typical
+
+### Watchdog Timer
+- Yes
+
+### RTC
+- Yes
+- Backup: by supercap
+
+### Temperature Range
+- -20 ~ 85℃
+
+### Regulations
+- CE Class A
+- FCC Class A
+
+### Installation
+- Wall or optional 35mm rail mount
+
+### Dimensions
+- 89 x 112 x 30mm
+
+### Weight
+- 350g
