@@ -1,38 +1,23 @@
 # Matrix-752 Datasheet
 
 ## Introduction
-Matrix-752 is a Linux-ready computing platform with a 800MHzCortex-A7 processor, 512MB SDRAM, and 16G eMMC. It is designed for industrial IoT applications and supports a wide range of peripherals and communication interfaces.
+Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor, 512MB SDRAM, and 16GB eMMC. It is designed for industrial IoT applications and supports a wide range of communication interfaces and peripherals.
 
 ## Features
-- **Processor:**
-  - NXP i.MX6ULL Cortex-A7 @ 800MHz
-- **SDRAM:** 
-  - 512MB LPDDR3
-- **Flash memory:**
-  - 16G eMMC 
-- **Linux Kernel:**
-  - Version: 5.10.x (or later)
-- **Network Interface:**
-  - 2x independent 10/100Mbps Ethernet ports
-- **USB Interface:**
-  - 1x USB 2.0OTG port  
-- **Serial Ports:**  
-  - 1x RS-485/232 software selectable
-  - 1x RS-232  
-- **CAN Port:**
-  - 1x CAN Bus 2.0 A/B  
-- **Digital I/O:**  
-  - 2x Optical Isolated Digital Inputs  
-  - 2x Solid State Relay Digital Outputs  
-- **Expansion Slots:**  
-  - 1x full-size miniPCIe socket  
-  - 1x micro-SIM socket
-- **SD Card:**
-  - 1x microSD socket
-- **Power Input:**
-  - 9 ~ 48Vdc 
-- **Power Consumption:**
-  - 12Vdc @ 250mA typical
+- Linux Kernel 5.10.x
+- Supports Yocto Linux or Ubuntu Linux
+- NXP i.MX6ULL Cortex-A7 @ 800MHz
+- 512MB LPDDR3
+- 16G eMMC
+- 2x 10/100Mbps Ethernet ports
+- 1x USB 2.0 OTG port
+- 1x RS-485/232 software selectable
+- 1x RS-232
+- 1x CAN Bus 2.0 A/B
+- 2x Optical Isolated Inputs
+- 2x Solid State Relay Outputs
+- 1x microSD socket
+- 1x miniPCIe socket
 
 
 ## Specifications (Hardware)
