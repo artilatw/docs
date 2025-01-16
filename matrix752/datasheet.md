@@ -79,6 +79,11 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - 1x microSD socket
 - SDXC compliant, up to 2TB
 
+### LED Indicators
+- 1x System Ready LED
+- 2x Serial Communication LED
+- 2x Ethernet Status LED (on RJ45 connector)
+
 ### Power Requirements
 - Power Input: 9 ~ 48Vdc 
 - Power Consumption: 12Vdc @ 250mA typical
@@ -113,7 +118,7 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - Matrix-752U: maintained by Ubuntu
 - Supports standard apt package management commands (apt install/remove/update/upgrade)
 
-### SystemBackup and Restore:
+### System Backup and Restore:
 - Artila provides backup/restore commands to ease the cloning of kernel and file system from a master device to multiple target devices
 - Supported media: microSD, USB drive
 
