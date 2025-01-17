@@ -1,6 +1,6 @@
 # Using Wi-Fi miniPCIe Module
 
-The Matrix-752 comes with a miniPCIe slot which supports Wi-Fi module.
+The Matrix-752U comes with a miniPCIe slot which supports Wi-Fi module.
 
 ## Using RYWDB00
 ### Driver Installation

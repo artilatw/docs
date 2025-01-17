@@ -1,6 +1,6 @@
 # Using LTE miniPCIe Module
 
-The Matrix-752 comes with a miniPCIe solt which supports SIMCom LTE module.
+The Matrix-752U comes with a miniPCIe solt which supports SIMCom LTE module.
 
 ## Using SIMCom SIM7600E
 ### Driver Installation
@@ -9,7 +9,7 @@ The Matrix-752 comes with a miniPCIe solt which supports SIMCom LTE module.
 - `apt install -y kernel-module-cdc-wdm`
 - `apt install -y kernel-module-usbnet`
 - `apt install -y udhcpc`
-- `reboot` - reboot the Matrix-752 to activate the driver
+- `reboot` - reboot the Matrix-752U to activate the driver
 
 ### Get an IP Address via DHCP
 - `ifconfig wwan0 up` - activate /dev/wwan0
