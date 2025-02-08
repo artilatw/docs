@@ -6,7 +6,7 @@ The Matrix-752U comes with a miniPCIe solt which supports SIMCom LTE module.
 The default kernel version is 6.1.19, which is not compatible with the LTE module. We need to upgrade the kernel to 6.1.46.
 
 ```sh
-apt update;apt full-upgrade;apt dist-upgrade
+apt update && apt full-upgrade -y && apt dist-upgrade -y
 rm /etc/alternatives/zImage
 ln -s /boot/zImage-6.1.46-rt13 /etc/alternatives/zImage
 reboot
