@@ -7,7 +7,6 @@ The Matrix-752U comes with a Mini PCIE slot which supports GPS module.
 - [Upgrade kernel](Using%20LTE-4G%20module.md#upgrde-the-kernel)
 - [Driver installation](Using%20LTE-4G%20module.md#driver-installation)
 
-## Configure GPS
 ### Start GPS session
 ```
 cat /dev/ttyUSB2&
