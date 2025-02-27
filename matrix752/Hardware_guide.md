@@ -60,9 +60,10 @@ The LED indicators provide operational information for the Matrix-752:
 
 There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicators. 
 
-![LAN Port Indicators](images/05%20LAN%20Port%20Indicators.jpg)
+  ![LAN Port Indicators](images/05%20LAN%20Port%20Indicators.jpg)
 
-![RJ45 Pin Assignment](images/06%20RJ45%20Pin%20Assignment.jpg)
+![RJ45 Pin Assignment](images
+)
 
 
 
