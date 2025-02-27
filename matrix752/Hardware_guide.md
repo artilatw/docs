@@ -18,13 +18,13 @@ Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gatewa
 
 # 2.	Layout        　　　　　　　        
 ## 2.1	Connector & LED Indicator
-<img src="images/01 Indicators.jpg" alt="alt text" width="500">
+![Connector & LED Indicator](images/01%20Indicators.jpg)
 
 
 ## 2.2	Dimension 
 (Unit: mm)
 
-<img src="images/02 dimension.jpg" alt="alt text" width="400" height="450">
+![Dimension](images/02%20dimension.jpg)
 
 # 3. Pin Assignment and Definitions
 
@@ -32,7 +32,7 @@ Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gatewa
 
 The Matrix-752 provides a multi-function reset button located on the side of the chassis as shown below:
 
-<img src="images/03 reset button.jpg" alt="alt text" width="400">
+![Reset Button](images/03%20reset%20button.jpg)
 
 The behavior of the reset button depends on how long you press the reset button.
 | **Press and Hold**              | **Behavior**                              | **Network Settings After Reboot**         |
@@ -47,7 +47,7 @@ The behavior of the reset button depends on how long you press the reset button.
 
 The LED indicators provide operational information for the Matrix-752:
 
-<img src="./images/04 LED Indicators.jpg" alt="alt text" width="400">
+![LED Indicators](images/04%20LED%20Indicators.jpg)
 
 - **“Ready” LED**: Stays ON when the system is ready for operation.
 - **“SERIAL 1” & “SERIAL 2” LEDs**: Dual-color LEDs indicate data traffic:
@@ -60,9 +60,9 @@ The LED indicators provide operational information for the Matrix-752:
 
 There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicators. 
 
-<img src="./images/4 LAN Port Indicators.jpg" alt="alt text" width="300">
+![LAN Port Indicators](images/05%20LAN%20Port%20Indicators.jpg)
 
-<img src="./images/05 RJ45 Pin Assignment.jpg" alt="alt text" width="400">
+![RJ45 Pin Assignment](images/06%20RJ45%20Pin%20Assignment.jpg)
 
 
 
@@ -71,7 +71,7 @@ There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicator
 The Matrix-752 supports a +9 to +48VDC power line connected via a terminal block.
 
 
-<img src="./images/06 power input-1.jpg" alt="alt text" width="300">
+![Power Input](images/07%20power%20input-1.jpg)
 
 
 ## 3.5 USB OTG Port
@@ -79,7 +79,7 @@ The Matrix-752 supports a +9 to +48VDC power line connected via a terminal block
 The Matrix-752 is equipped with one USB OTG port using a micro-USB connector.
 
 
-<img src="./images/07 USB OTG.jpg" alt="alt text" width="400">
+![USB OTG](images/08%20USB%20OTG.jpg)
 
 
 ## 3.6 Serial Port
@@ -98,31 +98,31 @@ RS-485 is designed without isolation that automatically direction controlled via
 | **Serial Port 1** RS-232 (1)  |TX1 | RX1 | --        | --        | GND       |
 | **Serial Port 2** RS-232 (2)| --        | --        | TX2 | RX2 | GND      |
 
-<img src="./images/08 Serial Port.jpg" alt="alt text" width="450">
+![Serial Port](images/08%20Serial%20Port.jpg)
 
 ### Enable/Disable RS-485 Termination Resistor (JP4):
 The Matrix-752 provides on-board 120Ohm termination resistor for each RS-485 port. To enable the termination resistor, please remove the upper cover of the Matrix-752, and the adjust the associated jumper to short as below:
 
-<img src="./images/09 RS486 JP4-1.jpg" alt="alt text" width="450">
+![RS486 JP4-1](images/09%20RS486%20JP4-1.jpg)
 
 ### Set Serial Port 1 to RS232 port (JP3 & JP6)
 The Serial Port on Matrix-752, default is RS-485 at JP3 (setting Pin 3 and Pin4)
 To Enable RS-232 port, setting JP3 at Pin 1 and Pin 2
 
-<img src="./images/10 RS485 & 232 jumper settings.jpg" alt="alt text" width="450">
+![RS485 & 232 jumper settings](images/10%20RS485%20&%20232%20jumper%20settings.jpg)
 
 In the meantime, it should set D+/TX1 definition at JP6.
 Default setting is for RS-485 (D+) at JP6/Pin 2 and Pin 3.
 To Enable RS232 / TX1, setting JP6 at Pin 1 and Pin 2
 
-<img src="./images/11 RS485 & 232 TX1 jumper settings.jpg" alt="alt text" width="450">
+![RS485 & 232 TX1 jumper settings](images/11%20RS485%20&%20232%20TX1%20jumper%20settings.jpg)
 
 
 ## 3.7 CAN Bus Port
 
 The Matrix-752 has one CAN Bus port:
 
-<img src="./images/12 Can Bus Port.jpg" alt="alt text" width="300">
+![Can Bus Port](images/12%20Can%20Bus%20Port.jpg)
 
 
 Users can open the CAN bus port as network sockets, the socket names are 'can0'
@@ -143,14 +143,14 @@ The Matrix-752 provides on-board 120Ohm termination resistor for each CAN port.
 Default setting is “Disable” the terminal resistor for CAN bus.
 To enable the termination resistor, please remove the upper cover of the Matrix-752, and the adjust the associated jumper to short position1 and position 2, shown below:
 
-<img src="./images/13 CAN Bus JP5.jpg" alt="alt text" width="450">
+![CAN Bus JP5](images/13%20CAN%20Bus%20JP5.jpg)
 
 
 ## 3.8 Digital Input
 
 Two digital input channels with 5000Vrms photocoupler isolation.
 
-<img src="./images/14 Digital Input.jpg" alt="alt text" width="300">
+![Digital Input](images/14%20Digital%20Input.jpg)
 
 ### Pin Assignment of Digital Input:
 
@@ -169,7 +169,7 @@ Two digital input channels with 5000Vrms photocoupler isolation.
 - **Response Time**: 20µs  
 - **Isolation**: 5000Vrms  
 
-<img src="./images/15 DI Simple figure.jpg" alt="alt text" width="300">
+![DI Simple figure](images/15%20DI%20Simple%20figure.jpg)
 
 - **DIx:** Isolated digital input channels.
 
@@ -183,7 +183,7 @@ Two digital output channels using solid-state relays.
 -  Solid State Relay: Normal Open (NO) Type
 -  Contact Rating: 80VDC @ 1.5A  
 
-<img src="./images/16 DO digital output.jpg" alt="alt text" width="300">
+![DO digital output](images/16%20DO%20digital%20output.jpg)
 
 ### Pin Assignment of Digital Input:
 
@@ -196,7 +196,7 @@ Two digital output channels using solid-state relays.
 
 Reference Circuit of following:
 
-![alt text](<./images/17 DO reference circuit-1.jpg>)
+![DO reference circuit-1](images/17%20DO%20reference%20circuit-1.jpg)
 
 
 
@@ -204,9 +204,9 @@ Reference Circuit of following:
 
 There is a 4-pin wafer box header (JP2) inside the Matrix-752 features as serial console port that used for locally accessing Matrix-752 system via console port.
 
-<img src="./images/18 Consol Port.jpg" alt="alt text" width="400">
+![Consol Port](images/18%20Consol%20Port.jpg)
 
-<img src="./images/19 Console Pin Assignment.jpg" alt="alt text" width="400">
+![Console Pin Assignment](images/19%20Console%20Pin%20Assignment.jpg)
 
 
 
@@ -214,28 +214,28 @@ There is a 4-pin wafer box header (JP2) inside the Matrix-752 features as serial
 
 There is a 2Pin wafer (1.2mm pitch) reserved that can be connected to external battery for RTC
 
-<img src="./images/20 External Battery Connection.jpg" alt="alt text" width="480">
+![External Battery Connection](images/20%20External%20Battery%20Connection.jpg)
 
 
 ## 3.12 SD Card Socket
 
 The micro-SD card socket inside the Matrix-752 can be accessed after removing the top cover. It supports additional data storage.
 
-<img src="./images/21 SD CArd Socket.jpg" alt="alt text" width="500">
+![SD CArd Socket](images/21%20SD%20CArd%20Socket.jpg)
 
 
 ## 3.13 miniPCIe Slot
 
 The Matrix-752 comes with one miniPCIe slot and dual antenna holes reserved for communication/networking modules.
 
-<img src="./images/22 miniPCIe Slot-1.jpg" alt="alt text" width="400">
+![miniPCIe Slot-1](images/22%20miniPCIe%20Slot-1.jpg)
 
 
 ## 3.14 Micro-SIM Card Socket
 
 The Matrix-752 includes a micro-SIM card socket inside. After removing the top cover, a micro-SIM card can be inserted for LTE/4G module functionality.
 
-![alt text](<./images/23 SIM Card socket.jpg>)
+![SIM Card socket](images/23%20SIM%20Card%20socket.jpg)
 
 
 
