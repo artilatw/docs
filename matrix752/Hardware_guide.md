@@ -1,4 +1,4 @@
-# Matrix-752 Hardware Guide Documentation
+# Matrix-752 Hardware Guide
 
 # 1. Introduction
 Matrix-752, based on the ARM Cortex-A7 architecture, is a Linux-ready IoT gateway offering high integration and low power consumption. It serves as an ideal solution for various markets, including industrial control, automation, mobile gateways, and other applications.
