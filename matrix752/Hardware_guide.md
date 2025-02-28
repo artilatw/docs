@@ -60,9 +60,9 @@ The LED indicators provide operational information for the Matrix-752:
 
 There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicators. 
 
-  ![LAN Port Indicators](images/05%20LAN%20Port%20Indicators.jpg)
+  ![LAN Port Indicators](images/04%20LED%20Indicators.jpg)
 
-![RJ45 Pin Assignment](images
+![RJ45 Pin Assignment](images/05%20RJ45%20Pin%20Assignment.jpg)
 )
 
 
@@ -72,7 +72,7 @@ There are two 10/100Mbps Ethernet ports using RJ45 connectors with LED indicator
 The Matrix-752 supports a +9 to +48VDC power line connected via a terminal block.
 
 
-![Power Input](images/07%20power%20input-1.jpg)
+![Power Input](images/06%20power%20input-1.jpg)
 
 
 ## 3.5 USB OTG Port
@@ -80,7 +80,7 @@ The Matrix-752 supports a +9 to +48VDC power line connected via a terminal block
 The Matrix-752 is equipped with one USB OTG port using a micro-USB connector.
 
 
-![USB OTG](images/08%20USB%20OTG.jpg)
+![USB OTG](images/07%20USB%20OTG.jpg)
 
 
 ## 3.6 Serial Port
