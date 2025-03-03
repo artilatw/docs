@@ -82,10 +82,13 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 - Connector: 4-pin wafer
 - Communication parameters: 115,200bps, N81
 
+### Power Requirements
+- Power input range: 12~40Vdc
+- Typical power Consumption: 1A@12VDC
+
 ### General
 - Dimensions (W x H x D): 45 x 166 x 120mm
 - Net weight: ??? g (lb)
-- Typical power Consumption: 1A@12VDC
 - Operation temperature: 0~70&deg;C (32-158&deg;F) 
 - Installation: supports DIN-Rail mount and wall mount.
 - Regulations: CE Class A and FCC Class A

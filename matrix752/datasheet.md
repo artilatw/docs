@@ -85,7 +85,7 @@ Matrix-752 is a Linux-ready computing platform with a 800MHz Cortex-A7 processor
 - 2x Ethernet Status LED (on RJ45 connector)
 
 ### Power Requirements
-- Power Input: 9 ~ 48Vdc 
+- Power input range: 9 ~ 48Vdc 
 - Power Consumption: 12Vdc @ 250mA typical
 
 ### Real Time Clock
