@@ -84,7 +84,7 @@ the Matrix-900, a cutting-edge embedded computing platform designed for advanced
 
 ### Power Requirements
 - Power input range: 12~40Vdc
-- Typical power Consumption: 1A@12VDC
+- Typical power consumption: 1A@12VDC
 
 ### General
 - Dimensions (W x H x D): 45 x 166 x 120mm
