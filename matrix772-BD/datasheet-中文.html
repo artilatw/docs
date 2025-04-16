@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>HIVE-M05 &#x898f;&#x683c;&#x66f8;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="hive-m05-規格書">HIVE-M05 規格書</h1>
+<h2 id="摘要">摘要</h2>
+<p>HIVE-M05 是一款基於弘訊 TX7芯片 (Cortex-A9 架構) 設計的小型物聯網網關，內建 Ubuntu Linux 作業系統，方便客戶進行二次開發。</p>
+<p>之前 HIVE-M05 叫做 TPD-M05, 航航於2025/03/07 通知改名。HIVE-M05 的硬件，部署 TPD 軟件後，是要取代 iD201 (OPC-UA) 的。</p>
+<blockquote>
+<p>HIVE-M05 本身具備兩個網口 LAN1, LAN2。LAN1 接口是直接從 TX7 芯片引出的; LAN2 接口則是接到板上的網路交換器芯片 (Realtek RTL8309N) 後再引出。</p>
+</blockquote>
+<blockquote>
+<p>HIVE-M05 的 PCB 上已經預留孔位, 可以加裝一個 4口的網路接頭, 提供額外的四個網口, LAN3 ~ LAN6, 其中 LAN2 ~ LAN6 是掛在同一個網路交換器芯片上。</p>
+</blockquote>
+<h2 id="硬件規格">硬件規格</h2>
+<h3 id="cpu">CPU</h3>
+<ul>
+<li>TX7: UM20A910 (Cortex-A9)</li>
+<li>Cores: single-core, 單核心</li>
+<li>Frequency: 800MHz</li>
+</ul>
+<h3 id="dram">DRAM</h3>
+<ul>
+<li>Spec.: DDR3-1600</li>
+<li>Size: 1GB (up to 2GB)</li>
+</ul>
+<h3 id="emmc">eMMC</h3>
+<ul>
+<li>Size: 16GB</li>
+</ul>
+<h3 id="ethernet">Ethernet</h3>
+<h4 id="model-hive-m05">Model: HIVE-M05</h4>
+<ul>
+<li>No. of ports: two, independent</li>
+<li>Speed: 100M/10M, auto</li>
+</ul>
+<h4 id="model-hive-m05-hub">Model: HIVE-M05-HUB</h4>
+<ul>
+<li>WAN port: x1, 100M/10M, auto</li>
+<li>LAN switch: 5 ports, 100M/10M, auto</li>
+<li>Switch IC: Realtek RTL8309N</li>
+</ul>
+<h3 id="micro-sd-card-slot">micro-SD card slot</h3>
+<ul>
+<li>Spec.: supports SD 2.0</li>
+<li>Capacity: up to 128GB</li>
+</ul>
+<h3 id="real-time-clock-rtc">Real-time Clock (RTC)</h3>
+<ul>
+<li>Yes</li>
+<li>Backup : connector for external button cell battery</li>
+</ul>
+<h3 id="usb-20-host">USB 2.0 Host</h3>
+<ul>
+<li>No. of ports: one</li>
+<li>Connector: Type A</li>
+</ul>
+<h3 id="status-leds">Status LEDs</h3>
+<ul>
+<li>Power: green</li>
+<li>System ready: green</li>
+<li>User LED: yellow</li>
+</ul>
+<h3 id="native-debug-console">Native Debug console</h3>
+<ul>
+<li>Signals: RS-232 (Tx, Rx)</li>
+<li>Connector: 4-pin wafer header</li>
+<li>Speed: 115,200 baud, 8N1</li>
+</ul>
+<h3 id="minipcie-expansion-slot">miniPCIe expansion slot</h3>
+<ul>
+<li>Signals: supports USB</li>
+<li>SIM socket: supports nano-SIM card</li>
+<li>LED:x1, SMD type, green</li>
+</ul>
+<h3 id="power-input">Power Input</h3>
+<ul>
+<li>Input range: 9Vdc ~ 30Vdc</li>
+<li>Input polarity protection: Yes</li>
+<li>Power consumption: 200mA@12Vdc typical</li>
+<li>Connector: terminal block with fixing screws</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ul>
+<li>Dimensions (WxLxH): 125mm x 85mm</li>
+<li>PCB thickness: 1.6mm</li>
+<li>Mounting holes: 4x M3</li>
+</ul>
+<h3 id="general">General</h3>
+<ul>
+<li>Real-time clock (RTC): yes</li>
+<li>Watchdog timer: yes (via RTC)</li>
+<li>Operating temperature: 0℃ ~ 70℃</li>
+<li>Humidity: 5% ~ 95% (non-condensing)</li>
+<li>Regulation: FCC / CE class A</li>
+</ul>
+<br><br><br><br><br><br>
+<h2 id="軟件特色">軟件特色</h2>
+<h3 id="operating-system">Operating System</h3>
+<ul>
+<li>Linux kernel: 6.6.x</li>
+<li>Ubuntu core (24.04.1 LTS)</li>
+<li>Supports uPnP protocol</li>
+</ul>
+<h3 id="toolchain">Toolchain</h3>
+<ul>
+<li>GNU C/C++ native compiler, 13.2.0</li>
+</ul>
+<h3 id="套件倉庫">套件倉庫</h3>
+<ul>
+<li>倉庫：使用 Ubuntu 的套件倉庫</li>
+<li>工具：使用 apt 套件管理工具</li>
+</ul>
+<h3 id="pre-installed-packages">Pre-installed packages</h3>
+<ul>
+<li>Node.js v22.11.0</li>
+<li>Artila backup/restore utilities, 提供備份/恢復功能, 方便量產部署。</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
