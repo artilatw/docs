@@ -19,8 +19,8 @@
 
 ## Writing an image to the Matrix-900
   1. Set JP6 to 1-2 for RPI USB Device Boot
-  2. Power-on Matrix-900
-  3. Run rpiboot  
+  2. Connecting the Micro-USB cable to Matrix-900
+  3. Power-on Matrix-900 and run rpiboot  
     <img src="images/rpiboot.png" width=600>  
   
   4. Run Raspberry Pi Imager  
