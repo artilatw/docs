@@ -31,8 +31,10 @@
   sudo cp tlv320aic3x-soundcard-csidsi.dtbo /boot/firmware/overlays/
   ```  
 
-- Test
+- Test  
+  Set JP7 to 3,5 & 4,6 for Headphone Out, which is on the Matrix-900 board.
   ```
+  
   ## list devices
   aplay -l
   
