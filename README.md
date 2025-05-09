@@ -3,6 +3,7 @@
 ## Table of Contents
 ### Linux ARM Industrial Box Computer
   - Matrix-752
+    - [Data Sheet](matrix752/datasheet.md)
     - [Software Guide](matrix752/software_guide.md)
     - [Hardware Guide](matrix752/Hardware_guide.md)
   - Matrix-752U
@@ -11,6 +12,8 @@
   - Matrix-770
     - [Data Sheet](matrix770/datasheet.md)
     - [Software Guide](matrix770/software_guide.md)
+  - Matrix-772-BD
+    - [Data Sheet](matrix772-BD/datasheet.md)  
   - Matrix-900
     - [Data Sheet](matrix900/datasheet.md)
     - Hardware Guide
