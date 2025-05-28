@@ -1,7 +1,7 @@
 # Matrix-900 Documentation
 
 ## Table of Contents
-- [Data Sheet](Datasheet.md)
+- [Data Sheet](datasheet.md)
 - Hardware Guide
 - Software
   - [Installation Guide](installation.md)
