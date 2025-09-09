@@ -2,6 +2,8 @@
 
 ## Table of Contents
 ### Linux ARM Industrial Box Computer
+  - Matrix-516
+    - [Examples](matrix516/example)
   - Matrix-752
     - [Data Sheet](matrix752/datasheet.md)
     - [Software Guide](matrix752/software_guide.md)
