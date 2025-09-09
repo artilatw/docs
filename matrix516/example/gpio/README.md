@@ -19,3 +19,4 @@ and then execute:
 ## References
 - [libgpiod](https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/tree/?h=v2.2.x)
 - [libgpiod mirror](https://github.com/brgl/libgpiod)
+- [libgpiod API](https://libgpiod.readthedocs.io/en/latest/core_api.html)
