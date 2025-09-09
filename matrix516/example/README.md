@@ -1,6 +1,6 @@
 # Matrix-516 Development Environment Setup and Sample Program Guide
 
-This document provides instructions for setting up a cross-compilation development environment for the Matrix-516 device on Ubuntu 24.04.2 or later. It also includes steps to compile and deploy a simple example program to the Matrix-516.
+This document provides instructions for setting up a cross-compilation development environment for the Matrix-516 device on Ubuntu 24.04.2 or later. It supports Matrix-516 kernel version 5.12.x and newer, and includes steps to compile and deploy a simple example program to the device.
 
 ## 1. SDK Download
 
