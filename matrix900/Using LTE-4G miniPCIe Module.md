@@ -1,26 +1,37 @@
 # Using LTE miniPCIe Module
 
-The Matrix-900 features a miniPCIe slot that supports SIMCom LTE modules.
+The Matrix-900 device includes a miniPCIe slot compatible with SIMCom LTE modules, such as the SIM7600G-H.
 
-## Using SIMCom SIM7600G-H
-Installation require utilities
-```
+## Module Setup: SIMCom SIM7600G-H
+### Required Utilities
+Install the necessary tools:
+```bash
 sudo apt -y install socat udhcpc
 ```
 
-Open mPCIe Power(GPIO-13) and verify GPIO-11 is active low
-```
+### Enable miniPCIe Power and Configure GPIO
+Activate power to the miniPCIe slot via GPIO-13 and ensure GPIO-11 is set to active low:
+```bash
 pinctrl set 11 op dl
 pinctrl set 13 op dh
 ```
 
-Check module information using the commands lsusb and usb-devices:
-- lsusb displays
+### Verify Module Detection
+Use the following commands to confirm the module is recognized:
+- Check module information using the commands lsusb and usb-devices:
+```bash
+lsusb
 ```
+Expected output:
+```bash
 Bus 001 Device 003: ID 1e0e:9001 Qualcomm / Option SimTech, Incorporated
 ```
 
-- usb-devices displays detailed information
+- View detailed USB device info:
+```bash
+usb-devices
+```
+Expected output includes:
 ```
 T:  Bus=01 Lev=02 Prnt=02 Port=00 Cnt=01 Dev#=  3 Spd=480 MxCh= 0
 D:  Ver= 2.00 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
@@ -54,40 +65,42 @@ E:  Ad=8a(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
 E:  Ad=8b(I) Atr=03(Int.) MxPS=   8 Ivl=32ms
 ```
 
-Retrieve device port information using the following commands
+### Identify Device Ports
+Run the following to locate the assigned USB serial ports:
+```bash
+dmesg | grep GSM
 ```
-guest@matrix900:~$ dmesg|grep GSM
-[  493.913438] usbserial: USB Serial support registered for GSM modem (1-port)
-[  493.922675] option 1-1.1:1.0: GSM modem (1-port) converter detected
-[  493.923446] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB4
-[  493.923792] option 1-1.1:1.1: GSM modem (1-port) converter detected
-[  493.924253] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB5
-[  493.925102] option 1-1.1:1.2: GSM modem (1-port) converter detected
-[  493.926180] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB6
-[  493.926438] option 1-1.1:1.3: GSM modem (1-port) converter detected
-[  493.926986] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB7
-[  493.927373] option 1-1.1:1.4: GSM modem (1-port) converter detected
-[  493.927811] usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB8
+Example output:
 ```
-
-Set up the wwan0 interface and obtain an IP address
+usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB4
+usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB5
+...
+usb 1-1.1: GSM modem (1-port) converter now attached to ttyUSB8
 ```
+### Network Interface Setup
+Bring up the WWAN interface and initiate a data connection:
+```bash
 sudo ifconfig wwan0 up
 sudo sh -c 'echo "AT\$QCRMCALL=1,1\r" |eval socat -T .5 - /dev/ttyUSB6,crnl'
 sudo udhcpc -i wwan0
 ```
 
-## Testing WAN connection
-- `ifconfig wwan0` - check the IP address  
-- `ping -I wwan0 www.google.com` - try pinging Google
-
-## FAQ
-### Check SIM card status
+### WAN Connectivity Test
+- Check IP assignment:
+```bash
+ifconfig wwan0
 ```
+- Test internet access:
+```bash
+ping -I wwan0 www.google.com
+```
+### Troubleshooting & Diagnostics
+#### Check SIM card status
+```bash
 sudo sh -c 'echo "AT+CPIN?" |eval socat -T .5 - /dev/ttyUSB6,crnl'
 ```
 
-### Signal Quality
-```
+#### Check Signal Quality
+```bash
 sudo sh -c 'echo "AT+CSQ?" |eval socat -T .5 - /dev/ttyUSB6,crnl'
 ```
