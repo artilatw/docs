@@ -8,7 +8,7 @@ Installation require utilities
 sudo apt -y install socat udhcpc
 ```
 
-Open mPCIe Power and verify GPIO-11 is active low
+Open mPCIe Power(GPIO-13) and verify GPIO-11 is active low
 ```
 pinctrl set 11 op dl
 pinctrl set 13 op dh
@@ -80,3 +80,14 @@ sudo udhcpc -i wwan0
 ## Testing WAN connection
 - `ifconfig wwan0` - check the IP address  
 - `ping -I wwan0 www.google.com` - try pinging Google
+
+## FAQ
+### Check SIM card status
+```
+sudo sh -c 'echo "AT+CPIN?" |eval socat -T .5 - /dev/ttyUSB6,crnl'
+```
+
+### Signal Quality
+```
+sudo sh -c 'echo "AT+CSQ?" |eval socat -T .5 - /dev/ttyUSB6,crnl'
+```
