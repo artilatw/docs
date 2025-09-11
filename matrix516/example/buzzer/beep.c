@@ -9,7 +9,6 @@ int main()
 {
   int fd;
   char buf[255];
-  int gpio = 6;
   int delay = 0;
   int count = 200;
 
@@ -19,11 +18,9 @@ int main()
 
   for(int i=0; i<count; i++)
   {
-    // Set GPIO high status
     write(fd, "1", 1); 
     usleep(delay);
     
-    // Set GPIO low status 
     write(fd, "0", 1); 
     usleep(delay);
   }
