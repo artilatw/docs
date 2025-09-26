@@ -66,6 +66,19 @@
   gpio=3=op,dl
   gpio=2,11,13,16=op,dh
   ```
+
+### Set Camera support
+- `RPi-CM2` module
+  ```
+  [cm4]
+  dtoverlay=imx219
+  ```
+
+- `RPi-CM3` module
+  ```
+  [cm4]
+  dtoverlay=imx708
+  ```
   
 ### Disable Bluetooth
   ```
