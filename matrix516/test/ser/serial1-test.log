@@ -1,0 +1,402 @@
+2025/12/18 23:29:57 Successfully open the port /dev/ttyS1, Baud：19200
+2025/12/18 23:29:57 Start listing...
+
+1766100777643 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777645 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777652 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777654 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777909 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777910 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777912 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100777912 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778176 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778178 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778180 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778180 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778443 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778443 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778446 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778448 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778710 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778710 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778712 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778715 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778977 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778977 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778979 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100778979 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779243 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779244 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779247 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779249 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779509 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779509 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779513 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779515 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779777 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779777 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779780 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100779782 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780042 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780043 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780046 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780048 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780310 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780310 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780312 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780315 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780576 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780576 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780579 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780581 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780842 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780843 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780845 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100780847 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781109 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781109 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781112 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781113 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781375 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781376 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781379 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781381 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781643 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781644 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781646 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781646 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781909 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781913 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781916 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100781919 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782175 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782176 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782178 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782178 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782442 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782445 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782450 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782453 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782708 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782709 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782712 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782714 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782975 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782976 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782978 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100782986 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783242 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783242 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783246 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783248 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783509 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783509 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783512 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783514 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783776 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783777 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783779 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100783781 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100784043 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100784044 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100784046 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...
+
+1766100784048 Successfully received a complete data packet. (128 bytes):
+   Header: 0x5A 0xA5
+   Payload (first 10 bytes): 044E7E03E8006C190C0D...

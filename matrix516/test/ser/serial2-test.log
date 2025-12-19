@@ -1,0 +1,402 @@
+2025/12/19 00:46:53 Successfully open the port /dev/ttyS1, Baud：9600
+2025/12/19 00:46:53 Start listing...
+
+1766105222557 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222586 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222616 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222646 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222677 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222706 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222736 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222767 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222797 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222827 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222856 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222887 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222918 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222948 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105222978 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223008 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223038 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223068 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223098 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223128 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223158 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223189 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223219 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223248 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223279 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223310 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223339 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223369 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223399 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223430 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223459 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223490 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223521 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223551 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223581 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223610 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223641 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223671 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223701 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223731 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223762 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223791 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223822 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223852 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223883 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223913 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223943 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105223973 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224002 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224032 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224062 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224091 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224122 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224151 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224181 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224212 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224241 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224271 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224301 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224331 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224361 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224391 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224422 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224453 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224483 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224513 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224544 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224574 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224604 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224634 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224665 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224694 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224724 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224754 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224784 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224814 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224845 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224874 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224905 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224935 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224965 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105224995 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225025 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225055 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225085 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225116 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225147 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225176 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225207 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225236 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225266 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225297 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225327 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225356 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225386 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225416 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225447 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225476 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225507 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
+
+1766105225536 Successfully received a complete data packet. (18 bytes):
+   Header: 0x2 0x5C
+   Payload: 5F614040404260404041744E40404403...
