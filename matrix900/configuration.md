@@ -68,13 +68,13 @@
   ```
 
 ### Set Camera support
-- `RPi-CM2` module
+- `RPi Camera Module 2`
   ```
   [cm4]
   dtoverlay=imx219
   ```
 
-- `RPi-CM3` module
+- `RPiCamera Module 3`
   ```
   [cm4]
   dtoverlay=imx708
@@ -91,8 +91,22 @@
   [cm4]
   dtoverlay=disable-wifi
   ```
+
+## GPIO Pin Assignment
+| GPIO | Name | Description |
+| --- | --- | --- |
+| 3 | M.2 RESET | |
+| 6 | M.2 DISABLE1 | |
+| 7 | M.2 DISABLE2 | |
+| 16 | M.2 Power | `Turn On` *pinctrl set 16 op dl*<br>`Turn Off` *pinctrl set 16 op dh* |
+| 11 | Mini PCIe Reset | |
+| 12 | Mini PCIe DISABLE | |
+| 13 | Mini PCIe Power | `Turn On` *pinctrl set 13 op dh*<br>`Turn Off` *pinctrl set 13 op dl*|
+| 17 | Buzzer | |
+  
 ## References
 - [Raspberry Pi Documentation - Configuration](https://www.raspberrypi.com/documentation/computers/configuration.html)
+- [Camera Module](https://www.raspberrypi.com/documentation/accessories/camera.html#about-the-camera-modules)
 - Original boot files
   - [config.txt](config.txt)
   - [cmdline.txt](cmdline.txt)
