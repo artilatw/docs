@@ -10,6 +10,13 @@ The Matrix-800 comes with two Gigabit Ethernet ports with the following factory 
 
 ## 1. Connecting via SSH
 
+> [!IMPORTANT]
+> Matrix 800 Default Credentials:
+> | Account | Username | Password |
+> |---------|----------|----------|
+> | guest | `guest` | `guest` |
+> | root | `root` | `root` |
+
 ### Step 1 — Configure your PC
 
 To connect over LAN2, set your PC's network adapter to the following static IP settings:
@@ -41,13 +48,6 @@ guest@matrix800:~$ su -
 Password: root
 root@matrix800:~#
 ```
-
-> [!IMPORTANT]
-> Matrix 800 Default Credentials:
-> | Account | Username | Password |
-> |---------|----------|----------|
-> | guest | `guest` | `guest` |
-> | root | `root` | `root` |
 
 
 ## 2. Network Configuration
