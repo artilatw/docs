@@ -13,10 +13,10 @@ The **Matrix-800** supports full system backup and restore functionality through
 
 3. Execute the following command to start the backup:
 
-```
-    $ backup /dev/sda1
-    Backup to /dev/sda1, Sure?(y/n)
-    y
+```console
+root@matrix800:~# backup /dev/sda1
+Backup to /dev/sda1, Sure?(y/n)
+y
 ```
 
 4. The backup process takes approximately 10–15 minutes. The **Ready LED** blinks during the process.
@@ -34,10 +34,10 @@ The **Matrix-800** supports full system backup and restore functionality through
 
 3. Execute the following command to start the restore:
 
-```
-    $ restore /dev/sda1
-    Restore from /dev/sda1, Sure?(y/n)
-    y
+```console
+root@matrix800:~# restore /dev/sda1
+Restore from /dev/sda1, Sure?(y/n)
+y
 ```
 
 4. The restore process takes approximately 10–15 minutes. The **Ready LED** blinks during the process.
