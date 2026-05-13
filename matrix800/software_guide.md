@@ -68,7 +68,7 @@ root@matrix800:~# ip a show end1   # LAN2
  
 ### Changing Network Settings
  
-Network configuration is managed via Netplan. Step-by-step on how to change the network settings:
+Network configuration is managed via Netplan. Here's how to change the network settings:
 
 **1.  Modify Configuration**
 ```console
@@ -208,13 +208,11 @@ The Matrix-800 provides:
 
 ### Pin Mapping
 
-|DI/DO Number|Device Mapping|
-|---|---|
-|DI1|/dev/gpiochip4 line 5|
-|DI2|/dev/gpiochip5 line 5|
-|DO|/dev/gpiochip4 line 4|
-
-Inspect the full GPIO configuration at any time:
+| DI/DO Number | Device Mapping       |
+|--------------|----------------------|
+| DI1          | /dev/gpiochip4 line 5|
+| DI2          | /dev/gpiochip5 line 5|
+| DO           | /dev/gpiochip4 line 4|
 
 ```console
 root@matrix800:~# gpioinfo gpiochip4 gpiochip5
@@ -263,13 +261,36 @@ The Matrix-800 comes with four RS-485 serial ports supporting baud rates up to *
 | P3   | RS-485    | /dev/ttyUSB2  |
 | P4   | RS-485    | /dev/ttyUSB3  |
 
-Use standard Linux tools (stty, pyserial, etc.) to configure baud rate, parity, stop bits, etc.
+### Default Serial Port Settings
+| Baud Rate | Data Bits | Parity | Stop Bits | FLow Control |
+|-----------|-----------|--------|-----------|--------------|
+| 9600      | 8         | None   | 1         | None         |
 
+### Viewing a Port's Settings
+
+```console
+root@matrix800:~# stty -F /dev/ttyUSB0 -a
+speed 9600 baud; rows 0; columns 0; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q;
+stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+-parenb -parodd -cmspar cs8 hupcl -cstopb cread clocal -crtscts
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
+```
+
+### Configuring a Port's Settings
+
+```console
+// Example: Set P1 to 115200 8N1
+root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
+```
+
+> [!WARNING]
+> The serial port’s configured parameters will go back to its factory default after system reboot.
 
 ## 7. Software Package Management
-The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. 
-> [!NOTE]
-> Most commands require root privileges.
+The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. Here are some common APT commands:
 
 ### Installing and Removing Packages
  
@@ -296,14 +317,16 @@ apt upgrade               # Upgrade all installed packages
 apt full-upgrade          # Upgrade with automatic dependency handling
 ```
 
+> [!TIP]
+> Most commands require root privileges. Use sudo if not logged in as root.
+
 
 ## 8. Using SD Card
 
-The Matrix-800 includes a built-in microSD card slot for optional storage expansion. 
-> [!NOTE]
-> The system detects inserted cards automatically.
+The Matrix-800 includes a built-in microSD card slot for storage expansion and it detects inserted cards automatically. The SD card must be properly formatted with a supported filesystem like FAT32 or ext4 before mounting.
 
-**Check for the SD card device after insertion:**
+### Check for the SD card device after insertion
+
 ```console
 root@matrix800:~# lsblk
 NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
@@ -316,7 +339,7 @@ mmcblk1      179:24   0  7.3G  0 disk
 └─mmcblk1p1  179:25   0  7.3G  0 part
 ```  
  
-**Mount the SD card:**
+### Mount the SD card
 
 ```console
 root@matrix800:~# mount /dev/mmcblk1p1 /media/
@@ -331,8 +354,17 @@ mmcblk1      179:24   0  7.3G  0 disk
 └─mmcblk1p1  179:25   0  7.3G  0 part /media
 ```
 
-**Unmount before removal:**
+### Unmount before removal
 
 ```console
 root@matrix752:~# umount /media/
+root@matrix800:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk0      179:0    0 14.7G  0 disk
+├─mmcblk0p1  179:1    0    2G  0 part
+└─mmcblk0p2  179:2    0 12.7G  0 part /
+mmcblk0boot0 179:32   0    4M  1 disk
+mmcblk0boot1 179:64   0    4M  1 disk
+mmcblk1      179:24   0  7.3G  0 disk
+└─mmcblk1p1  179:25   0  7.3G  0 part
 ```
