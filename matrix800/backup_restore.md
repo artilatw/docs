@@ -13,7 +13,7 @@ The backup process packs the Linux kernel and filesystem into a single image fil
 
 3. Execute the following command to start the backup:
 
-```console
+```
     $ backup /dev/sda1
     Backup to /dev/sda1, Sure?(y/n)
     y
@@ -28,13 +28,13 @@ The backup process packs the Linux kernel and filesystem into a single image fil
 
 ## Restore
 
-1. **Verify that the target device have the same Linux kernel version as the source**, check `uname -r` on both units before proceeding
+1. **Verify that the target device have the same Linux kernel version as the source**, check `uname -r` on both units before proceeding.
 
 2. Insert the USB drive containing a previously created backup image into the target Matrix-800.
 
 3. Execute the following command to start the restore:
 
-```console
+```
     $ restore /dev/sda1
     Restore from /dev/sda1, Sure?(y/n)
     y
