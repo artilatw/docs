@@ -312,14 +312,23 @@ mmcblk0      179:0    0 14.7G  0 disk
 └─mmcblk0p2  179:2    0 12.7G  0 part /
 mmcblk0boot0 179:32   0    4M  1 disk
 mmcblk0boot1 179:64   0    4M  1 disk
-mmcblk1      179:24   0  7.3G  0 disk <<<<<<<<<<<<
-└─mmcblk1p1  179:25   0  7.3G  0 part <<<<<<<<<<<<
+mmcblk1      179:24   0  7.3G  0 disk
+└─mmcblk1p1  179:25   0  7.3G  0 part
 ```  
  
 **Mount the SD card:**
 
 ```console
 root@matrix800:~# mount /dev/mmcblk1p1 /media/
+root@matrix800:~# lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+mmcblk0      179:0    0 14.7G  0 disk
+├─mmcblk0p1  179:1    0    2G  0 part
+└─mmcblk0p2  179:2    0 12.7G  0 part /
+mmcblk0boot0 179:32   0    4M  1 disk
+mmcblk0boot1 179:64   0    4M  1 disk
+mmcblk1      179:24   0  7.3G  0 disk
+└─mmcblk1p1  179:25   0  7.3G  0 part /media
 ```
 
 **Unmount before removal:**
