@@ -1,11 +1,14 @@
 # LTE Module Guide
 
-Test and activate the SIM7600G-H 4G/5G cellular module on the Matrix-800 to establish an internet connection via the wwan0 interface.
+The **Matrix-800** is equipped with a built-in **M.2 B-Key expansion slot** designed specifically for wireless and cellular connectivity. This allows easy integration of 4G LTE modules such as the [**SIM7600X-H-M2**](https://www.simcom.com/product/SIM7600X-H-M2.html), enabling the device to connect to cellular networks for remote monitoring, data transmission, and IoT applications.
+
+This guide covers the hardware installation and software configuration required to activate the **SIM7600X-H-M2** LTE module on the **Matrix-800**.
+
 
 ## Hardware Requirements
 
-- [Matrix-800](https://www.artila.com/en/products/linux-arm-industrial-box-computer/matrix-800) Industrial Box Computer
-- [SIM7600X-H-M2](https://www.simcom.com/product/SIM7600X-H-M2.html) LTE Module
+- Matrix-800
+- SIM7600X-H-M2
 - Micro-SIM Card
 
 ## Hardware Guide
@@ -47,7 +50,7 @@ root@matrix800:~# lsusb
 Bus 001 Device 002: ID 1e0e:9001 Qualcomm / Option SimTech, Incorporated
 ```
 ```console
-root@matrix800:~# dmesg|grep 'GSM modem'
+root@matrix800:~# dmesg | grep 'GSM modem'
 [ 1254.614058] usbserial: USB Serial support registered for GSM modem (1-port)
 [ 1254.614576] option 1-1:1.0: GSM modem (1-port) converter detected
 [ 1254.617600] usb 1-1: GSM modem (1-port) converter now attached to ttyUSB4

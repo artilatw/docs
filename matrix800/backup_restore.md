@@ -1,11 +1,11 @@
-# System Backup and Restore using USB Type-C port
+# System Backup and Restore Guide
 
-The backup process packs the Linux kernel and filesystem into a single image file on a USB drive.
+The **Matrix-800** supports full system backup and restore functionality through its USB Type-C port. This feature allows you to create a complete image of the Linux kernel, root filesystem, and user data, which can then be restored onto another **Matrix-800** unit.
 
 > [!CAUTION]
 > Backup and restore operations are only supported between Matrix-800 units with **identical Linux kernel versions**. Before restoring, verify both the source and target devices report the same kernel version using `uname -r`. Restoring an image across different kernel versions may result in an unbootable or unstable system.
 
-## Backup
+## Backup (or Cloning)
 
 1. Prepare a USB drive with at least **16 GB** capacity, formatted as **FAT32**.
 
@@ -28,7 +28,7 @@ The backup process packs the Linux kernel and filesystem into a single image fil
 
 ## Restore
 
-1. **Verify that the target device have the same Linux kernel version as the source**, check `uname -r` on both units before proceeding.
+1. Verify that the target device have the same Linux kernel version as the source, check `uname -r` on both units before proceeding.
 
 2. Insert the USB drive containing a previously created backup image into the target Matrix-800.
 
