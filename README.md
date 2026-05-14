@@ -16,6 +16,12 @@
     - [Software Guide](matrix770/software_guide.md)
   - Matrix-772-BD
     - [Data Sheet](matrix772-BD/datasheet.md)  
+  - Matrix-800
+    - [Data Sheet](https://www.artila.com/en/products/linux-arm-industrial-box-computer/matrix-800)
+    - Software
+      - [Software Guide](matrix800/software_guide.md)
+      - [System Backup and Restore Guide](matrix800/backup_restore.md)
+      - [LTE Module Guide](matrix800/LTE_module.md)
   - Matrix-900
     - [Data Sheet](matrix900/datasheet.md)
     - Hardware Guide
