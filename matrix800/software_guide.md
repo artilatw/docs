@@ -183,18 +183,20 @@ System clock synchronized: no
           RTC in local TZ: no
 ```
 
-### Sync Automatically with NTP (Default)
-
-```console
-root@matrix800:~# timedatectl set-ntp yes
-```
-
 ### Set Time Manually
 
 If you want to, you can disable automatic sync and set the time manually:
 ```console
 root@matrix800:~# timedatectl set-ntp no
 root@matrix800:~# timedatectl set-time "2024-07-18 14:00:00"
+root@pac6070:~# timedatectl
+               Local time: Thu 2024-07-18 14:00:13 CST
+           Universal time: Thu 2024-07-18 06:00:13 UTC
+                 RTC time: Thu 2024-07-18 06:00:13
+                Time zone: Asia/Taipei (CST, +0800)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
 ```
 
 
@@ -292,6 +294,9 @@ root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
 ## 7. Software Package Management
 The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. Here are some common APT commands:
 
+> [!TIP]
+> Most commands require root privileges. Use sudo if not logged in as root.
+
 ### Installing and Removing Packages
  
 ```bash
@@ -316,9 +321,6 @@ apt update                # Refresh the package index
 apt upgrade               # Upgrade all installed packages
 apt full-upgrade          # Upgrade with automatic dependency handling
 ```
-
-> [!TIP]
-> Most commands require root privileges. Use sudo if not logged in as root.
 
 
 ## 8. Using SD Card
