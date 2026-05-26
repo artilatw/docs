@@ -48,7 +48,7 @@ y
 
 ## Restore Factory
 
-To restore the device to its factory settings, switch to root account and then use the `restore factory` command
+1. Execute the following command to restore factory settings:
 
 ```console
 guest@matrix800:~$ su -
@@ -57,3 +57,7 @@ root@matrix800:~# restore factory
 Restore to factory, Sure ?(y/n)
 y
 ```
+
+2. The restore factory process takes approximately 10–15 minutes. The **Ready LED** blinks during the process.
+
+3. The Matrix-800 automatically reboots once the restore is complete.
