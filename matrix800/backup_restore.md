@@ -45,3 +45,15 @@ y
 5. The Matrix-800 automatically reboots once the restore is complete.
 
 6. After the device has booted, remove the USB drive and store it in a safe location.
+
+## Restore Factory
+
+To restore the device to its factory settings, switch to root account and then use the `restore factory` command
+
+```console
+guest@matrix800:~$ su -
+Password: root
+root@matrix800:~# restore factory
+Restore to factory, Sure ?(y/n)
+y
+```
