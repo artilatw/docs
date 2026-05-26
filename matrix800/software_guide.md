@@ -268,6 +268,9 @@ The Matrix-800 comes with four RS-485 serial ports supporting baud rates up to *
 |-----------|-----------|--------|-----------|--------------|
 | 9600      | 8         | None   | 1         | None         |
 
+> [!NOTE]
+> The serial port’s configured parameters will go back to its factory settings after system reboot.
+
 ### Viewing a Port's Settings
 
 ```console
@@ -287,9 +290,6 @@ isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echo
 // Example: Set P1 to 115200 8N1
 root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
 ```
-
-> [!NOTE]
-> The serial port’s configured parameters will go back to its factory default after system reboot.
 
 ## 7. Software Package Management
 The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. Here are some common APT commands:
