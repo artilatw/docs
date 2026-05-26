@@ -10,6 +10,7 @@ This guide covers the hardware installation and software configuration required 
 - Matrix-800
 - SIM7600X-H-M2
 - Micro-SIM Card
+- Wideband 4G/LTE Antennas
 
 ## Hardware Guide
 
@@ -22,6 +23,10 @@ This guide covers the hardware installation and software configuration required 
 2. Remove the screw next to the Micro-SIM card socket.
 3. Attach the LTE module onto the M.2 connector.
 4. Reinstall the screw to secure the LTE module.
+5. Attach 2 antennas onto `MAIN` and `AUX` connectors.
+
+> [!TIP]
+> The antenna on `MAIN` connector is **mandatory**, while the one on `AUX` connector is **optional**. However, It is still highly recommended to use both antennas to ensure bandwidth stability and signal quality.
 
 ## Software Guide
 
@@ -64,15 +69,18 @@ root@matrix800:~# dmesg | grep 'GSM modem'
 [ 1254.634489] usb 1-1: GSM modem (1-port) converter now attached to ttyUSB8
 ```
 
+
 ### Step 2 — Dial-up
+
+> [!TIP]
+> `ttyUSB6` is typically the correct port for the dial-up command. Try `ttyUSB5` or `ttyUSB7` if it doesn't respond.
 
 ```
 ifconfig wwan0 up
 echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
 udhcpc -i wwan0
 ```
-> [!NOTE]
-> `ttyUSB6` is typically the correct port for the dial-up command. Try `ttyUSB5` or `ttyUSB7` if it doesn't respond.
+
 
 ### Step 3 — Verifications
 
