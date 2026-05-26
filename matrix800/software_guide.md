@@ -145,7 +145,7 @@ Codename:       noble
 ```  
 ### Storage Layout
 
-The Matrix-800 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk (/home).  
+The Matrix-800 comes with 16GB on-board eMMC Flash memory, which contains boot loader, Linux kernel, root file system and user disk.  
 
 ```console
 root@matrix800:~# lsblk
