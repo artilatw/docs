@@ -3,7 +3,7 @@
 The **Matrix-800** supports full system backup and restore functionality through its USB Type-C port. This feature allows you to create a complete image of the Linux kernel, root filesystem, and user data, which can then be restored onto another **Matrix-800** unit.
 
 > [!CAUTION]
-> Backup and restore operations are only supported between Matrix-800 units with **identical Linux kernel versions**. Before restoring, verify both the source and target devices report the same kernel version using `uname -r`. Restoring an image across different kernel versions may result in an unbootable or unstable system.
+> Before restoring, verify both the source and target devices report the same kernel version using `uname -r`. Restoring an image across different kernel versions may result in an unbootable or unstable system.
 
 ## Backup (or Cloning)
 
