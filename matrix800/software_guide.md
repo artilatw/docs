@@ -288,7 +288,7 @@ isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echo
 root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
 ```
 
-> [!WARNING]
+> [!NOTE]
 > The serial port’s configured parameters will go back to its factory default after system reboot.
 
 ## 7. Software Package Management
