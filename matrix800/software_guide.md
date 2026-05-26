@@ -291,6 +291,7 @@ isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echo
 root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
 ```
 
+
 ## 7. Software Package Management
 The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. Here are some common APT commands:
 
