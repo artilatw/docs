@@ -34,7 +34,7 @@ Password: root
 root@matrix800:~# 
 ```
 
-**Install requireed packages**
+**Install required packages**
 ```console
 root@matrix800:~# apt -y install usbutils udhcpc
 ```
