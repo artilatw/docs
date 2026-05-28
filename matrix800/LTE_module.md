@@ -72,14 +72,14 @@ root@matrix800:~# dmesg | grep 'GSM modem'
 
 ### Step 2 — Dial-up
 
-> [!TIP]
-> `ttyUSB6` is typically the correct port for the dial-up command. Try `ttyUSB5` or `ttyUSB7` if it doesn't respond.
-
 ```
 ifconfig wwan0 up
 echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
 udhcpc -i wwan0
 ```
+
+> [!TIP]
+> `ttyUSB6` is typically the correct port for the dial-up command. Try `ttyUSB5` or `ttyUSB7` if it doesn't respond.
 
 
 ### Step 3 — Verifications
