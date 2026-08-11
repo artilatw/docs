@@ -131,5 +131,14 @@ Part Number: HM218B1C2LAE
 Product Name: HAILO-8 AI ACC M.2 B+M KEY MODULE EXT TEMP
 ```
 
+## Python API
+Install HailoRT Python API
+
+```bash
+sudo apt install python3-hailort
+```
+
+
 ## References
 - https://hailo.ai/developer-zone/documentation/hailort-v4-24-0/
+- [Python Standalone Examples](https://github.com/hailo-ai/hailo-apps/tree/main/hailo_apps/python/standalone_apps)
