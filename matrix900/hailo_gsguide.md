@@ -138,7 +138,7 @@ Install HailoRT Python API
 sudo apt install python3-hailort
 ```
 
-
 ## References
-- https://hailo.ai/developer-zone/documentation/hailort-v4-24-0/
+- [Hailo Github](https://github.com/hailo-ai)
+- [HailoRT Documentation](https://hailo.ai/developer-zone/documentation/hailort-v4-24-0/)
 - [Python Standalone Examples](https://github.com/hailo-ai/hailo-apps/tree/main/hailo_apps/python/standalone_apps)
