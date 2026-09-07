@@ -222,19 +222,13 @@ root@matrix800:~# apt install gpiod
 ```
 
 ### Discovering GPIO chips and lines
+
 ```console
 root@matrix800:~# gpiodetect
 root@matrix800:~# gpioinfo
 ```
 
 ### Reading Digital Inputs
-
-The digital inputs use inverted logic:
-
-| Physical state | Voltage | Read result |
-| --- | --- | --- |
-| Contact open (no signal) | 0-3 V | active |
-| Contact closed (signal present) | 10-30 V | inactive |
 
 ```console
 // Read when nothing is connected
@@ -245,6 +239,14 @@ root@matrix800:~# gpioget DI1
 root@matrix800:~# gpioget DI2
 "DI2"=inactive
 ```
+
+> [!NOTE]
+> The digital inputs use inverted logic:
+> 
+> | Physical state | Voltage | Read result |
+> | --- | --- | --- |
+> | Contact open (no signal) | 0-3 V | active |
+> | Contact closed (signal present) | 10-30 V | inactive |
 
 ### Controlling the Relay (Digital Output)
  
@@ -278,13 +280,14 @@ The Matrix-800 comes with four RS-485 serial ports supporting baud rates up to *
 
 ### Permissions
 
-If you are not logged in as `root`, add account to the `dialout` group:
+If you are not logged in as `root`, add your user to the `dialout` group:
 
 ```console
 root@matrix800:~# sudo usermod -aG dialout $USER
 // e.g. sudo usermod -aG dialout guest
-root@matrix800:~# reboot
 ```
+
+Then reboot or log out and log back in.
 
 Check with:
 
