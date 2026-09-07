@@ -296,34 +296,22 @@ root@matrix800:~# groups
 guest dialout users
 ```
 
-### Python Example
+### Software Access
 
-```python
-#!/usr/bin/env python3
+You can access the serial ports using common Python libraries:
 
-import serial
-import time
+- **pyserial** — Basic serial communication. Recommended when you need high performance (e.g. 3 Mbps on all ports simultaneously).
+- **pymodbus** — Convenient for Modbus RTU. Easier to use, but slower and not suitable for high baud rates or heavy multi-port usage.
 
-ser = serial.Serial(
-    port='/dev/ttyUSB0',
-    baudrate=9600,
-    bytesize=serial.EIGHTBITS,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    timeout=1
-)
+Install them with:
 
-print(f"Opened {ser.name}")
-
-# Send data
-ser.write(b'Hello RS485\r\n')
-
-# Read response
-time.sleep(0.1)
-response = ser.read(100)
-print("Received:", response)
-
-ser.close()
+```console
+// using APT
+root@matrix800:~# apt install python3-serial 
+root@matrix800:~# apt install python3-pymodbus
+// or using venv:
+root@matrix800:~# pip install pyserial
+root@matrix800:~# pip install pymodbus
 ```
 
 
