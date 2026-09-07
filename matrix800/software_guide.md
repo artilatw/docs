@@ -130,7 +130,7 @@ root@matrix800:~# netplan apply
 
 ```console
 root@matrix800:~# uname -a
-Linux matrix800 6.18.23-artila #28 SMP PREEMPT Sun Apr 19 22:10:59 CST 2026 aarch64 aarch64 aarch64 GNU/Linux
+Linux matrix800 6.18.20-matrix800 #2 SMP PREEMPT Tue Aug 18 16:35:43 UTC 2026 aarch64 GNU/Linux
 ```
 
 ### Operating System
@@ -139,9 +139,9 @@ Linux matrix800 6.18.23-artila #28 SMP PREEMPT Sun Apr 19 22:10:59 CST 2026 aarc
 root@matrix800:~# lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
-Description:    Ubuntu 24.04.4 LTS
-Release:        24.04
-Codename:       noble
+Description:    Ubuntu 26.04 LTS
+Release:        26.04
+Codename:       resolute
 ```  
 ### Storage Layout
 
@@ -185,7 +185,7 @@ System clock synchronized: no
 
 ### Set Time Manually
 
-If you want to, you can disable automatic sync and set the time manually:
+You can disable automatic sync and set the time manually:
 ```console
 root@matrix800:~# timedatectl set-ntp no
 root@matrix800:~# timedatectl set-time "2024-07-18 14:00:00"
@@ -205,51 +205,58 @@ System clock synchronized: no
 ### Hardware Overview
 
 The Matrix-800 provides:
-- **2× opto-isolated digital inputs** (DI1, DI2)
-- **1× relay digital output** (DO, normally open)
+- **2× opto-isolated digital inputs** (DI 1 / COM + DI 2 / COM)
+- **1× relay digital output** (SPDT: NO / COM / NC)
 
-### Pin Mapping
+| Name | Mapping               |
+|------|-----------------------|
+| DO   | /dev/gpiochip4 line 4 |
+| DI1  | /dev/gpiochip4 line 5 |
+| DI2  | /dev/gpiochip5 line 5 |
 
-| DI/DO Number | Device Mapping       |
-|--------------|----------------------|
-| DI1          | /dev/gpiochip4 line 5|
-| DI2          | /dev/gpiochip5 line 5|
-| DO           | /dev/gpiochip4 line 4|
+### Installing tools
 
 ```console
-root@matrix800:~# gpioinfo gpiochip4 gpiochip5
-gpiochip4 - 8 lines:
-        line   0: "IOEXP1_INT"       unused   input  active-high
-        line   1: "IOEXP2_INT"       unused   input  active-high
-        line   2:  "IOEXP_RST"      "reset"  output   active-low [used]
-        line   3: "USB_HUB_RST" "reset" output active-low [used]
-        line   4:         "DO"       unused   input  active-high
-        line   5:        "DI1"       unused   input  active-high
-        line   6:      unnamed  "ready-led"  output  active-high [used]
-        line   7:      unnamed   "user-led"  output  active-high [used]
-gpiochip5 - 8 lines:
-        line   0:   "GPIO-B-0"       unused   input  active-high
-        line   1:   "GPIO-B-1"       unused   input  active-high
-        line   2:   "GPIO-B-2"       unused   input  active-high
-        line   3:   "GPIO-B-3"       unused   input  active-high
-        line   4:   "GPIO-B-4"       unused   input  active-high
-        line   5:        "DI2"       unused   input  active-high
-        line   6:    "TPM_IRQ"       unused   input  active-high
-        line   7:   "GPIO-B-7"       unused   input  active-high
+root@matrix800:~# apt update
+root@matrix800:~# apt install gpiod
+```
+
+### Discovering GPIO chips and lines
+```console
+root@matrix800:~# gpiodetect
+root@matrix800:~# gpioinfo
 ```
 
 ### Reading Digital Inputs
- 
+
+The digital inputs use inverted logic:
+
+| Physical state | Voltage | Read result |
+| --- | --- | --- |
+| Contact open (no signal) | 0-3 V | active |
+| Contact closed (signal present) | 10-30 V | inactive |
+
 ```console
-root@matrix800:~# gpioget gpiochip4 5   # Read DI1 (returns 0 or 1)
-root@matrix800:~# gpioget gpiochip5 5   # Read DI2 (returns 0 or 1)
+// Read when nothing is connected
+root@matrix800:~# gpioget DI1
+"DI1"=active
+
+// Read when voltage is applied
+root@matrix800:~# gpioget DI2
+"DI2"=inactive
 ```
- 
-### Writing Digital Output
+
+### Controlling the Relay (Digital Output)
  
 ```console
-root@matrix800:~# gpioset gpiochip4 4=1   # Close the DO relay
-root@matrix800:~# gpioset gpiochip4 4=0   # Open the DO relay
+// Turn relay ON (holds the line until you press Ctrl+C)
+root@matrix800:~# gpioset DO=1
+
+// Turn relay OFF
+root@matrix800:~# gpioset DO=0
+
+// Turn ON for 1 second then release
+root@matrix800:~# gpioset --hold-period 1000ms -t0 DO=1
 ``` 
 
 
@@ -263,32 +270,57 @@ The Matrix-800 comes with four RS-485 serial ports supporting baud rates up to *
 | P3   | RS-485    | /dev/ttyUSB2  |
 | P4   | RS-485    | /dev/ttyUSB3  |
 
-### Default Serial Port Settings
-| Baud Rate | Data Bits | Parity | Stop Bits | FLow Control |
-|-----------|-----------|--------|-----------|--------------|
+### Default Settings
+
+| Baud Rate | Data Bits | Parity | Stop Bits | Flow Control |
+| --------- | --------- | ------ | --------- | ------------ |
 | 9600      | 8         | None   | 1         | None         |
 
-> [!NOTE]
-> The serial port’s configured parameters will go back to its factory settings after system reboot.
+### Permissions
 
-### Viewing a Port's Settings
+If you are not logged in as `root`, add account to the `dialout` group:
 
 ```console
-root@matrix800:~# stty -F /dev/ttyUSB0 -a
-speed 9600 baud; rows 0; columns 0; line = 0;
-intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q;
-stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
--parenb -parodd -cmspar cs8 hupcl -cstopb cread clocal -crtscts
--ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8
-opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
+root@matrix800:~# sudo usermod -aG dialout $USER
+// e.g. sudo usermod -aG dialout guest
+root@matrix800:~# reboot
 ```
 
-### Configuring a Port's Settings
+Check with:
 
 ```console
-// Example: Set P1 to 115200 8N1
-root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
+root@matrix800:~# groups
+guest dialout users
+```
+
+### Python Example
+
+```python
+#!/usr/bin/env python3
+
+import serial
+import time
+
+ser = serial.Serial(
+    port='/dev/ttyUSB0',
+    baudrate=9600,
+    bytesize=serial.EIGHTBITS,
+    parity=serial.PARITY_NONE,
+    stopbits=serial.STOPBITS_ONE,
+    timeout=1
+)
+
+print(f"Opened {ser.name}")
+
+# Send data
+ser.write(b'Hello RS485\r\n')
+
+# Read response
+time.sleep(0.1)
+response = ser.read(100)
+print("Received:", response)
+
+ser.close()
 ```
 
 
@@ -296,7 +328,7 @@ root@matrix800:~# stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb
 The Matrix-800 runs **Ubuntu 24.04 LTS** and uses APT for package management. Here are some common APT commands:
 
 > [!TIP]
-> Most commands require root privileges. Use sudo if not logged in as root.
+> Most commands require `root` privileges. Use `sudo` if not logged in as `root`.
 
 ### Installing and Removing Packages
  
