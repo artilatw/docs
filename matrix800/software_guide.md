@@ -300,8 +300,8 @@ guest dialout users
 
 You can access the serial ports using common Python libraries:
 
-- **pyserial** - Basic serial communication. Recommended when you need high performance (e.g. 3 Mbps on all ports simultaneously).
-- **pymodbus** - Convenient for Modbus RTU. Easier to use, but slower and not suitable for high baud rates or heavy multi-port usage.
+- [pyserial](https://pypi.org/project/pyserial/) - Basic serial communication. Recommended when you need high performance (e.g. 3 Mbps on all ports simultaneously).
+- [pymodbus](https://pypi.org/project/pymodbus/) - Convenient for Modbus RTU. Easier to use, but slower and not suitable for high baud rates or heavy multi-port usage.
 
 Install them with:
 
@@ -309,9 +309,9 @@ Install them with:
 // using APT
 root@matrix800:~# apt install python3-serial 
 root@matrix800:~# apt install python3-pymodbus
-// or using venv:
-root@matrix800:~# pip install pyserial
-root@matrix800:~# pip install pymodbus
+// or using pip in a virtual environment:
+(.venv) root@matrix800:~# pip install pyserial
+(.venv) root@matrix800:~# pip install pymodbus
 ```
 
 
