@@ -221,7 +221,7 @@ root@matrix800:~# apt update
 root@matrix800:~# apt install gpiod
 ```
 
-### Discovering GPIO chips and lines
+### Inspecting GPIO
 
 ```console
 root@matrix800:~# gpiodetect
@@ -300,8 +300,8 @@ guest dialout users
 
 You can access the serial ports using common Python libraries:
 
-- **pyserial** — Basic serial communication. Recommended when you need high performance (e.g. 3 Mbps on all ports simultaneously).
-- **pymodbus** — Convenient for Modbus RTU. Easier to use, but slower and not suitable for high baud rates or heavy multi-port usage.
+- **pyserial** - Basic serial communication. Recommended when you need high performance (e.g. 3 Mbps on all ports simultaneously).
+- **pymodbus** - Convenient for Modbus RTU. Easier to use, but slower and not suitable for high baud rates or heavy multi-port usage.
 
 Install them with:
 
