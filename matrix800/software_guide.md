@@ -245,8 +245,8 @@ root@matrix800:~# gpioget DI2
 > 
 > | Physical state | Voltage | Read result |
 > | --- | --- | --- |
-> | Contact open (no signal) | 0-3 V | active |
-> | Contact closed (signal present) | 10-30 V | inactive |
+> | Contact open (no signal) | 0-1.5 V | active |
+> | Contact closed (signal present) | 5-24 V | inactive |
 
 ### Controlling the Relay (Digital Output)
  
