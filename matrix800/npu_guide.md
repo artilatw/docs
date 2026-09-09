@@ -23,16 +23,12 @@ mkdir $PROJECT_NAME
 cd $PROJECT_NAME
 
 // Create and activate virtual environment
-python3.12 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 
-// Install TFLite library
-pip install /opt/npu/wheels/tflite_runtime-2.18.0-cp312-cp312-linux_aarch64.whl
+// Install TensorFlow Lite library (MUST be LiteRT 2.1.6)
+pip install ai-edge-litert==2.1.6
 ```
-
-> [!NOTE]
-> TFLite has recently been rebranded as LiteRT, but libethosu_delegate.so was strictly built against TFLite 2.18.0 and Python 3.12.
-> > Notice how we used `python3.12` when building `venv`
 
 ## Vela Compiler
 
@@ -49,10 +45,10 @@ vela --accelerator-config ethos-u65-256 --output-dir . <MODEL>.tflite
 ## Python Pipeline
 
 ```python
-from tflite_runtime.interpreter import Interpreter, load_delegate
+from ai_edge_litert.interpreter import Interpreter, load_delegate
 
 # Initialize NPU
-delegate = load_delegate("/usr/local/lib/libethosu_delegate.so")
+delegate = load_delegate("/usr/local/lib/litert_delegate.so")
 interpreter = Interpreter(model_path="<MODEL>.tflite", experimental_delegates=[delegate])
 interpreter.allocate_tensors()
 
