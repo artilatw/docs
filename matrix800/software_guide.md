@@ -218,7 +218,7 @@ The Matrix-800 provides:
 
 ```console
 root@matrix800:~# apt update
-root@matrix800:~# apt install gpiod
+root@matrix800:~# apt install gpiod -y
 ```
 
 ### Inspecting GPIO
