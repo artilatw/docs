@@ -13,6 +13,14 @@ Benchmark model: [ssd_mobilenet_v2_coco_quant_postprocess_vela.tflite](https://g
 | Min - Max time | 199.451ms - 200.067ms | 11.490ms - 11.982ms | ~17.4x faster (min), ~16.7x faster (max) |
 | Model size | 6.221 MB | 4.579 MB | ~26% smaller |
 
+## Migrating from Old Path
+
+```bash
+wget https://github.com/artilatw/docs/blob/main/matrix800/images/ethosu-npu_2.0.0.tar.gz
+tar -xzpf ethosu-npu_2.0.0.tar.gz -C /
+rm ethosu-npu_2.0.0.tar.gz
+```
+
 ## Project Setup
 
 On-device inference is commonly performed using [TensorFlow Lite](https://www.tensorflow.org/lite/guide) on Python:
@@ -26,7 +34,7 @@ cd $PROJECT_NAME
 python -m venv .venv
 source .venv/bin/activate
 
-// Install TensorFlow Lite library (MUST be LiteRT 2.1.6)
+// Install TensorFlow Lite (any LiteRT 2.1.X, not >=2.2.0)
 pip install ai-edge-litert==2.1.6
 ```
 
