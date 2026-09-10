@@ -16,7 +16,7 @@ Benchmark model: [ssd_mobilenet_v2_coco_quant_postprocess_vela.tflite](https://g
 ## Migrating from Old Path
 
 ```bash
-wget https://github.com/artilatw/docs/blob/main/matrix800/images/ethosu-npu_2.0.0.tar.gz
+wget https://raw.githubusercontent.com/artilatw/docs/main/matrix800/images/ethosu-npu_2.0.0.tar.gz
 tar -xzpf ethosu-npu_2.0.0.tar.gz -C /
 rm ethosu-npu_2.0.0.tar.gz
 ```
