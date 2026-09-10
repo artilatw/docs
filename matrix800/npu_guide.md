@@ -31,7 +31,7 @@ mkdir $PROJECT_NAME
 cd $PROJECT_NAME
 
 // Create and activate virtual environment
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 
 // Install TensorFlow Lite (any LiteRT 2.1.X, not >=2.2.0)
