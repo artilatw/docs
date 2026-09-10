@@ -15,11 +15,21 @@ Benchmark model: [ssd_mobilenet_v2_coco_quant_postprocess_vela.tflite](https://g
 
 ## Migrating from Old Path
 
+Already have an older NPU setup? These steps replace it with the latest version. Nothing to build, just download and unpack:
+
 ```bash
+// Get tarball
 wget https://raw.githubusercontent.com/artilatw/docs/main/matrix800/images/ethosu-npu_2.0.0.tar.gz
-tar -xzpf ethosu-npu_2.0.0.tar.gz -C /
+
+// Extract tarball
+sudo tar -xzpf ethosu-npu_2.0.0.tar.gz -C /
+
+// Remove tarball
 rm ethosu-npu_2.0.0.tar.gz
 ```
+
+> [!NOTE]
+> Requires `ai-edge-litert==2.1.6` or any LiteRT 2.1.X versions. Newer versions segfault, the delegate is built against LiteRT 2.1.X and the ABI is not compatible across releases.
 
 ## Project Setup
 
@@ -34,7 +44,7 @@ cd $PROJECT_NAME
 python3 -m venv .venv
 source .venv/bin/activate
 
-// Install TensorFlow Lite (any LiteRT 2.1.X, not >=2.2.0)
+// Install TensorFlow Lite (any LiteRT 2.1.X)
 pip install ai-edge-litert==2.1.6
 ```
 
