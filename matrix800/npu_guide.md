@@ -48,15 +48,6 @@ source .venv/bin/activate
 pip install ai-edge-litert==2.1.6
 ```
 
-## Vela Compiler
-
-All models must be compiled with Arm Vela before they can run on the Ethos-U65 NPU. Using an unoptimized model will result in an error:
-
-```bash
-// Compile .tflite model using Vela to optimize model for execution on NPU
-vela --accelerator-config ethos-u65-256 --output-dir . <MODEL>.tflite
-```
-
 > [!NOTE]
 > Your .tflite model must be fully INT8 quantized (both weights and activations, including input and output tensors).
 
