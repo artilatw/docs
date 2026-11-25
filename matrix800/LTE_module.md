@@ -91,9 +91,8 @@ root@matrix800:~# ip link
 > Find the last index, usually the interface is named `wwu1i5`. If a different name showed up, use that instead for upcoming steps.
 
 
-### Step 2 — Activations
+### Step 2 — Dial-up
 
-**Dial-up**
 ```
 ifconfig wwu1i5 up
 echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
