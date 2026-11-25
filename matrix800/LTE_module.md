@@ -48,10 +48,6 @@ root@matrix800:~# apt -y install usbutils udhcpc
 ```console
 root@matrix800:~# gpioset -c gpiochip7 -t0 0=1
 ```
-or
-```console
-root@matrix800:~# gpioset -t0 M2-POWER=1
-```
 
 **Check module detection**
 ```console
