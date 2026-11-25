@@ -46,7 +46,11 @@ root@matrix800:~# apt -y install usbutils udhcpc
 
 **Power on the M.2 module (wait until M.2 module blinks)**
 ```console
-root@matrix800:~# gpioset gpiochip7 0=1
+root@matrix800:~# gpioset -c gpiochip7 -t0 0=1
+```
+or
+```console
+root@matrix800:~# gpioset -t0 M2-POWER=1
 ```
 
 **Check module detection**
@@ -70,9 +74,11 @@ root@matrix800:~# dmesg | grep 'GSM modem'
 ```
 
 
-### Step 2 — Find Interface
+### Step 2 — Activations
 
-```
+**Find Interface**
+
+```console
 root@matrix800:~# ip link
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -84,20 +90,24 @@ root@matrix800:~# ip link
     altname enx00134804fe12
 4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
     link/ether 36:48:7e:2d:50:55 brd ff:ff:ff:ff:ff:ff
-6: wwu1i5: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+7: wwu1i5: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
     link/ether 8e:77:7b:0b:2c:e5 brd ff:ff:ff:ff:ff:ff
 ```
 
 > [!TIP]
-> `wwu1i5` is typically the name of the interface. If it showed a different name use that instead for upcoming steps.
+> Find the last index, usually the interface is named `wwu1i5`. If a different name showed up, use that instead for upcoming steps.
 
-
-### Step 3 — Dial-up
-
-```
-ifconfig wwu1i5 up
-echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
-udhcpc -i wwu1i5
+**Dial-up**
+```console
+root@matrix800:~# ifconfig wwu1i5 up
+root@matrix800:~# echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
+root@matrix800:~# udhcpc -i wwu1i5
+udhcpc: started, v1.37.0
+Dropped protocol specifier '.udhcpc' from 'wwu1i5.udhcpc'. Using 'wwu1i5' (ifindex=7).
+udhcpc: broadcasting discover
+udhcpc: broadcasting select for 10.194.201.131, server 10.194.201.132
+udhcpc: lease of 10.194.201.131 obtained from 10.194.201.132, lease time 7200
+Dropped protocol specifier '.udhcpc' from 'wwu1i5.udhcpc'. Using 'wwu1i5' (ifindex=7).
 ```
 
 > [!TIP]
@@ -123,5 +133,5 @@ ping -I wwu1i5 8.8.8.8 -c 4
 
 **Test DNS resolution**
 ```
-ping -I wwu1i5 google.com -c 3
+ping -I wwu1i5 google.com -c 4
 ```
