@@ -70,12 +70,34 @@ root@matrix800:~# dmesg | grep 'GSM modem'
 ```
 
 
-### Step 2 — Dial-up
+### Step 2 — Find Interface
 
 ```
-ifconfig wwan0 up
+root@matrix800:~# ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: end1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:13:48:04:fe:13 brd ff:ff:ff:ff:ff:ff
+    altname enx00134804fe13
+3: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:13:48:04:fe:12 brd ff:ff:ff:ff:ff:ff
+    altname enx00134804fe12
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 36:48:7e:2d:50:55 brd ff:ff:ff:ff:ff:ff
+6: wwu1i5: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 8e:77:7b:0b:2c:e5 brd ff:ff:ff:ff:ff:ff
+```
+
+> [!TIP]
+> `wwu1i5` is typically the name of the interface. If it showed a different name use that instead for upcoming steps.
+
+
+### Step 3 — Dial-up
+
+```
+ifconfig wwu1i5 up
 echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
-udhcpc -i wwan0
+udhcpc -i wwu1i5
 ```
 
 > [!TIP]
@@ -86,7 +108,7 @@ udhcpc -i wwan0
 
 **Check IP address and status**
 ```
-ip addr show wwan0
+ip addr show wwu1i5
 ```
 
 **Check default route**
@@ -96,10 +118,10 @@ ip route | grep default
 
 **Test basic IP connectivity**
 ```
-ping -I wwan0 8.8.8.8 -c 4
+ping -I wwu1i5 8.8.8.8 -c 4
 ```
 
 **Test DNS resolution**
 ```
-ping -I wwan0 google.com -c 3
+ping -I wwu1i5 google.com -c 3
 ```
