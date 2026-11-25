@@ -69,10 +69,7 @@ root@matrix800:~# dmesg | grep 'GSM modem'
 [ 1254.634489] usb 1-1: GSM modem (1-port) converter now attached to ttyUSB8
 ```
 
-
-### Step 2 — Activations
-
-**Find Interface**
+**Find Interface Name**
 
 ```console
 root@matrix800:~# ip link
@@ -93,17 +90,14 @@ root@matrix800:~# ip link
 > [!TIP]
 > Find the last index, usually the interface is named `wwu1i5`. If a different name showed up, use that instead for upcoming steps.
 
+
+### Step 2 — Activations
+
 **Dial-up**
-```console
-root@matrix800:~# ifconfig wwu1i5 up
-root@matrix800:~# echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
-root@matrix800:~# udhcpc -i wwu1i5
-udhcpc: started, v1.37.0
-Dropped protocol specifier '.udhcpc' from 'wwu1i5.udhcpc'. Using 'wwu1i5' (ifindex=7).
-udhcpc: broadcasting discover
-udhcpc: broadcasting select for 10.194.201.131, server 10.194.201.132
-udhcpc: lease of 10.194.201.131 obtained from 10.194.201.132, lease time 7200
-Dropped protocol specifier '.udhcpc' from 'wwu1i5.udhcpc'. Using 'wwu1i5' (ifindex=7).
+```
+ifconfig wwu1i5 up
+echo -e "AT\$QCRMCALL=1,1\r" > /dev/ttyUSB6
+udhcpc -i wwu1i5
 ```
 
 > [!TIP]
